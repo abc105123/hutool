@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 /**
  * Hutool-http针对JDK的HttpUrlConnection做一层封装，简化了HTTPS请求、文件上传、Cookie记忆等操作，使Http请求变得无比简单。
  *
- * @author looly
+ * @author Looly
  *
  */
 package org.dromara.hutool.http;

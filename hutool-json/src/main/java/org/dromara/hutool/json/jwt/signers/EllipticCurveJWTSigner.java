@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ import java.security.KeyPair;
  * 按照https://datatracker.ietf.org/doc/html/rfc7518#section-3.4,<br>
  * Elliptic Curve Digital Signature Algorithm (ECDSA)算法签名需要转换DER格式为pair (R, S)
  *
- * @author looly
+ * @author Looly
  * @since 5.8.21
  */
 public class EllipticCurveJWTSigner extends AsymmetricJWTSigner {

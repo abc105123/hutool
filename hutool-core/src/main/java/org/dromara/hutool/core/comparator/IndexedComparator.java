@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ import java.util.Map;
  * 默认的，如果参与排序的元素并不在数组中，则排序在前（可以通过atEndIfMiss设置)
  *
  * @param <T> 被排序元素类型
- * @author looly
+ * @author Looly
  * @since 4.1.5
  */
 public class IndexedComparator<T> implements Comparator<T> {

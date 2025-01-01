@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ import org.junit.jupiter.api.Test;
 
 /**
  * 文件缓存单元测试
- * @author looly
+ * @author Looly
  *
  */
 public class FileCacheTest {

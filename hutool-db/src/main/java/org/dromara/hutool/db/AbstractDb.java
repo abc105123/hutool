@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,7 @@ import java.util.Map;
  * 提供抽象方法getConnection和closeConnection，用于自定义数据库连接的打开和关闭
  *
  * @param <R> return this类型
- * @author looly
+ * @author Looly
  */
 public abstract class AbstractDb<R extends AbstractDb<R>> extends DefaultConnectionHolder implements Serializable {
 	private static final long serialVersionUID = 3858951941916349062L;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ package org.dromara.hutool.core.xml;
  * XXE安全相关参数<br>
  * 见：https://blog.spoock.com/2018/10/23/java-xxe/
  *
- * @author looly
+ * @author Looly
  * @since 6.0.0
  */
 public class XmlFeatures {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ import java.util.ResourceBundle;
 /**
  * {@link ResourceBundle}序列化器
  *
- * @author looly
+ * @author Looly
  * @since 6.0.0
  */
 public class ResourceBundleSerializer implements MatcherJSONSerializer<ResourceBundle> {

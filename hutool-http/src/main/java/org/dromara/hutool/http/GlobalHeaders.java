@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@ import java.util.Map.Entry;
  * 全局头部信息<br>
  * 所有Http请求将共用此全局头部信息
  *
- * @author looly
+ * @author Looly
  */
 public enum GlobalHeaders {
 	/**

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ import org.dromara.hutool.core.data.id.IdUtil;
 /**
  * 测试定时任务，当触发到定时的时间点时，执行doTest方法
  *
- * @author looly
+ * @author Looly
  *
  */
 public class TestJob {

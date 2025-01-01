@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ import java.lang.reflect.Constructor;
 /**
  * 反射中{@link Constructor}构造工具类，包括获取构造类和通过构造实例化对象相关工具
  *
- * @author looly
+ * @author Looly
  */
 public class ConstructorUtil {
 	/**

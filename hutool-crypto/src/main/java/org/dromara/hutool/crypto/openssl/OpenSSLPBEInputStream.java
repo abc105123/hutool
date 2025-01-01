@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ import java.io.InputStream;
  * OpenSSL风格的PBE输入流，用于密文解密
  * 来自：http://stackoverflow.com/questions/11783062/how-to-decrypt-an-encrypted-file-in-java-with-openssl-with-aes
  *
- * @author looly
+ * @author Looly
  * @since 6.0.0
  */
 public class OpenSSLPBEInputStream extends CipherInputStream {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,7 +55,7 @@ public class JWTUtilTest {
 
 		//payload
 		Assertions.assertEquals("1234567890", jwt.getPayload("sub"));
-		Assertions.assertEquals("looly", jwt.getPayload("name"));
+		Assertions.assertEquals("Looly", jwt.getPayload("name"));
 		Assertions.assertEquals(true, jwt.getPayload("admin"));
 	}
 

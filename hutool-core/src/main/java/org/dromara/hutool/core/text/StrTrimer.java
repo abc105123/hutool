@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ import java.util.function.UnaryOperator;
  * 字符串头尾指定字符去除器<br>
  * 按照断言，除去字符串头尾部的断言为真的字符，如果字符串是{@code null}，依然返回{@code null}。
  *
- * @author looly
+ * @author Looly
  * @since 6.0.0
  */
 public class StrTrimer implements UnaryOperator<CharSequence>, Serializable {
@@ -93,7 +93,7 @@ public class StrTrimer implements UnaryOperator<CharSequence>, Serializable {
 	/**
 	 * 去除模式
 	 *
-	 * @author looly
+	 * @author Looly
 	 * @since 6.0.0
 	 */
 	public enum TrimMode {

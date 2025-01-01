@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ import org.dromara.hutool.extra.pinyin.engine.PinyinEngineFactory;
 /**
  * 拼音工具类，用于快速获取拼音
  *
- * @author looly
+ * @author Looly
  */
 public class PinyinUtil {
 

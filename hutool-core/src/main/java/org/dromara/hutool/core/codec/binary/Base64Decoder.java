@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ import java.io.Serializable;
  * 此解码保留的原因是，JDK提供的解码需要指定是否为URL安全的或是否换行，此解码无需区分<br>
  * 此解码对非Base64字符忽略
  *
- * @author looly
+ * @author Looly
  *
  */
 public class Base64Decoder implements Decoder<byte[], byte[]>, Serializable {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,7 +37,7 @@ import java.util.TreeMap;
  * 参考博客：https://www.cnblogs.com/waterystone/p/5708063.html
  *
  * @param <T> 权重随机获取的对象类型
- * @author looly
+ * @author Looly
  * @since 3.3.0
  */
 public class WeightRandomSelector<T> implements Selector<T>, Serializable {

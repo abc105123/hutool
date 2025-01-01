@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,7 +37,7 @@ import java.util.Map;
  * 查询封装分为解析查询字符串和构建查询字符串，解析可通过charset为null来自定义是否decode编码后的内容，<br>
  * 构建则通过charset是否为null是否encode参数键值对
  *
- * @author looly
+ * @author Looly
  * @since 5.3.1
  */
 public class UrlQuery {
@@ -419,7 +419,7 @@ public class UrlQuery {
 	 * 编码模式<br>
 	 * 根据不同场景以及不同环境，对Query中的name和value采用不同的编码策略
 	 *
-	 * @author looly
+	 * @author Looly
 	 * @since 6.0.0
 	 */
 	public enum EncodeMode {

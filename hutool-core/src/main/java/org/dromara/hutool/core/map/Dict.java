@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ import java.util.*;
 /**
  * 字典对象，扩充了LinkedHashMap中的方法
  *
- * @author looly
+ * @author Looly
  */
 public class Dict extends CustomKeyMap<String, Object> implements TypeGetter<String> {
 	private static final long serialVersionUID = 6135423866861206530L;

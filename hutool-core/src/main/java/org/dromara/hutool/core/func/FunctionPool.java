@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ import java.util.function.BiFunction;
  * 常用Lambda函数封装<br>
  * 提供常用对象方法的Lambda包装，减少Lambda初始化时间。
  *
- * @author looly
+ * @author Looly
  */
 @SuppressWarnings("unchecked")
 public class FunctionPool {

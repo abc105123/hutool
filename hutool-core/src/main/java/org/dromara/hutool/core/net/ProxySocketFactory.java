@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ import java.net.Socket;
  * 代理Socket工厂，用于创建代理Socket<br>
  * 来自commons-net的DefaultSocketFactory
  *
- * @author commons-net, looly
+ * @author commons-net, Looly
  * @since 5.8.23
  */
 public class ProxySocketFactory extends SocketFactory {

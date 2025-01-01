@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@ import java.io.Serializable;
  * 十六进制（简写为hex或下标16）在数学中是一种逢16进1的进位制，一般用数字0到9和字母A到F表示（其中:A~F即10~15）。<br>
  * 例如十进制数57，在二进制写作111001，在16进制写作39。
  *
- * @author looly
+ * @author Looly
  * @since 5.7.23
  */
 public class Base16Codec implements Encoder<byte[], char[]>, Decoder<CharSequence, byte[]>, Serializable {

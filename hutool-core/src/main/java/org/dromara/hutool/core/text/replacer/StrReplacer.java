@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ import java.util.function.UnaryOperator;
  * 抽象字符串替换类<br>
  * 通过实现replace方法实现局部替换逻辑
  *
- * @author looly
+ * @author Looly
  * @since 4.1.5
  */
 public abstract class StrReplacer implements UnaryOperator<CharSequence>, Serializable {

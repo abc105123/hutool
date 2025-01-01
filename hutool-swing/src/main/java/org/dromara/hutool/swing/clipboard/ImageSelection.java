@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ import java.io.Serializable;
  * 图片转换器，用于将图片对象转换为剪贴板支持的对象<br>
  * 此对象也用于将图像文件和{@link DataFlavor#imageFlavor} 元信息对应
  *
- * @author looly
+ * @author Looly
  * @since 4.5.6
  */
 public class ImageSelection implements Transferable, Serializable {

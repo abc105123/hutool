@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@ import java.util.zip.GZIPInputStream;
  * 全局响应内容压缩解压器注册中心<br>
  * 通过注册指定Accept-Encoding的流，来包装响应内容流，从而支持特殊压缩算法
  *
- * @author looly
+ * @author Looly
  * @since 6.0.0
  */
 public enum GlobalCompressStreamRegister {

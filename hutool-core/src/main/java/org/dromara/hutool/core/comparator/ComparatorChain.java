@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ import java.util.*;
  * 按照比较器链的顺序分别比较，如果比较出相等则转向下一个比较器，否则直接返回<br>
  * 此类copy from Apache-commons-collections
  *
- * @author looly
+ * @author Looly
  * @since 3.0.7
  * @param <E> 被比较的对象
  */

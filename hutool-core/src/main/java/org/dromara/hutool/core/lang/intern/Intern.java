@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ package org.dromara.hutool.core.lang.intern;
  * 此包中的相关封装类似于 {@link String#intern()}
  *
  * @param <T> 规范化的对象类型
- * @author looly
+ * @author Looly
  * @since 5.4.3
  */
 public interface Intern<T> {

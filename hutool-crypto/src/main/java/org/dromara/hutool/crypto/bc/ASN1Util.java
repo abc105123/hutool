@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,7 @@ import java.io.OutputStream;
  * ASN.1 – Abstract Syntax Notation dot one，抽象记法1 工具类。<br>
  * ASN.1描述了一种对数据进行表示、编码、传输和解码的数据格式。它的编码格式包括DER、BER、DL等<br>
  *
- * @author looly
+ * @author Looly
  * @since 5.7.10
  */
 public class ASN1Util {

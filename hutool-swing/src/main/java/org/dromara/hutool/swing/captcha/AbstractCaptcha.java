@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,7 @@ import java.io.OutputStream;
  * 抽象验证码实现了验证码字符串的生成、验证，验证码图片的写出<br>
  * 实现类通过实现{@link #createImage(String)} 方法生成图片对象
  *
- * @author looly
+ * @author Looly
  */
 public abstract class AbstractCaptcha implements ICaptcha {
 	private static final long serialVersionUID = 3180820918087507254L;

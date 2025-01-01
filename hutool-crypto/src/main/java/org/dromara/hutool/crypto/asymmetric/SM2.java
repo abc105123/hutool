@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -61,7 +61,7 @@ import java.security.SecureRandom;
  *     <li>对称加密：SM4，symmetric</li>
  * </ol>
  *
- * @author looly
+ * @author Looly
  * @since 4.3.2
  */
 public class SM2 extends AbstractAsymmetricCrypto<SM2> {

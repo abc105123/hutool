@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ import java.util.Arrays;
  * 加盐值魔数<br>
  * 用于在OpenSSL生成的密文中，提取加盐值等相关信息
  *
- * @author looly
+ * @author Looly
  * @since 6.0.0
  */
 public class SaltMagic {

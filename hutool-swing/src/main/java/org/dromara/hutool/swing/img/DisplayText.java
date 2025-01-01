@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ import java.util.Objects;
 /**
  * 显示文本，用于保存在图片上绘图的文本信息，包括内容、字体、大小、位置和透明度等
  *
- * @author looly
+ * @author Looly
  * @since 6.0.0
  */
 public class DisplayText implements Serializable {

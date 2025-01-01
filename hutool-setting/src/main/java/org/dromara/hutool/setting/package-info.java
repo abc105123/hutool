@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 /**
  * Setting模块主要针对Properties文件读写做封装，同时定义一套自己的配置文件规范，实现兼容性良好的配置工具。
  *
- * @author looly
+ * @author Looly
  *
  */
 package org.dromara.hutool.setting;

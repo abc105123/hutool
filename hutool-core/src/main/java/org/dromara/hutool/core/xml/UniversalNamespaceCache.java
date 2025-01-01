@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ import java.util.Iterator;
  * 全局命名空间上下文<br>
  * 见：https://www.ibm.com/developerworks/cn/xml/x-nmspccontext/
  *
- * @author looly
+ * @author Looly
  */
 public class UniversalNamespaceCache implements NamespaceContext {
 	private static final String DEFAULT_NS = "DEFAULT";

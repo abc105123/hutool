@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
  * 数据源封装，对各类数据库连接池的封装<br>
  * 数据库连接池使用工厂方法模式，当有新增连接池时，实现{@link org.dromara.hutool.db.ds.DSFactory}即可。
  *
- * @author looly
+ * @author Looly
  *
  */
 package org.dromara.hutool.db.ds;

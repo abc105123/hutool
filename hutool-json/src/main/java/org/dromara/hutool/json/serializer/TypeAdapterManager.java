@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,7 +48,7 @@ import java.util.Set;
  *     <li>实例模式：  使用{@link TypeAdapterManager#of()}创建实例，局部可用，不加载默认的转换器。</li>
  * </ul>
  *
- * @author looly
+ * @author Looly
  * @since 6.0.0
  */
 public class TypeAdapterManager {

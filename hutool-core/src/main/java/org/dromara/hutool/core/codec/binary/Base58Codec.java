@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ import java.util.Arrays;
  * Base58编码器<br>
  * 此编码器不包括校验码、版本等信息
  *
- * @author lin， looly
+ * @author lin， Looly
  * @since 5.7.22
  */
 public class Base58Codec implements Encoder<byte[], String>, Decoder<CharSequence, byte[]>, Serializable {

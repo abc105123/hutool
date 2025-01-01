@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ import org.dromara.hutool.http.server.handler.HttpHandler;
 /**
  * 服务端引擎抽象类，实现重置引擎功能
  *
- * @author looly
+ * @author Looly
  */
 public abstract class AbstractServerEngine implements ServerEngine {
 

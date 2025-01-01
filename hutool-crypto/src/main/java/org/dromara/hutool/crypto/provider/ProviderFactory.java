@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@ import java.security.Provider;
  * 通过SPI方式加载可用的{@link ProviderFactory}，并创建对应的{@link Provider}<br>
  * spi定义在：META-INF/services/org.dromara.hutool.crypto.provider.ProviderFactory
  *
- * @author looly
+ * @author Looly
  * @since 6.0.0
  */
 public interface ProviderFactory {

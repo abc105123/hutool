@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ import org.dromara.hutool.core.exception.HutoolException;
 /**
  * IO运行时异常，常用于对IOException的包装
  *
- * @author looly
+ * @author Looly
  */
 public class IORuntimeException extends HutoolException {
 	private static final long serialVersionUID = 8247610319171014183L;

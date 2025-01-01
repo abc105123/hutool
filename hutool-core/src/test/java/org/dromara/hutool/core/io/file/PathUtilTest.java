@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -86,13 +86,13 @@ public class PathUtilTest {
 	@Test
 	@Disabled
 	public void moveDirTest(){
-		PathUtil.move(Paths.get("c:\\aaa"), Paths.get("d:/test/looly"), false);
+		PathUtil.move(Paths.get("c:\\aaa"), Paths.get("d:/test/Looly"), false);
 	}
 
 	@Test
 	@Disabled
 	public void delDirTest(){
-		PathUtil.del(Paths.get("d:/test/looly"));
+		PathUtil.del(Paths.get("d:/test/Looly"));
 	}
 
 	@Test

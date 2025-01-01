@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@ import java.util.Objects;
  * 如果两者至少一个未实现，则视为所有元素相等。
  *
  * @param <T> 被比较的对象
- * @author looly
+ * @author Looly
  * @since 5.7.10
  */
 public class NullComparator<T> implements Comparator<T>, Serializable {

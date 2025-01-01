@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!--
-  ~ Copyright (c) 2024 Hutool Team and hutool.cn
+  ~ Copyright (c) 2013-2025 Hutool Team and hutool.cn
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -217,7 +217,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.10.1</version>
+				<version>3.11.2</version>
 				<executions>
 					<execution>
 						<phase>package</phase>

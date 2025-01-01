@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@ import org.dromara.hutool.core.lang.Assert;
  * 代码移植自<a href="https://github.com/biezhi/blade">blade</a><br>
  * 快速缓冲，将数据存放在缓冲集中，取代以往的单一数组
  *
- * @author biezhi, looly
+ * @author biezhi, Looly
  * @since 1.0
  */
 public class FastByteBuffer extends FastBuffer {

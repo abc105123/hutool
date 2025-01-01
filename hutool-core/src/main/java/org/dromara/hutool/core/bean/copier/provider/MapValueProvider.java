@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ import java.util.Map;
 /**
  * Map值提供者
  *
- * @author looly
+ * @author Looly
  */
 @SuppressWarnings("rawtypes")
 public class MapValueProvider implements ValueProvider<String> {

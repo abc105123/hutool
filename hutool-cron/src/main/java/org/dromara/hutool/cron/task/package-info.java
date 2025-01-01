@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
  * 定时任务中作业的抽象封装和实现，包括Runnable实现和反射实现<br>
  * {@link org.dromara.hutool.cron.task.Task}表示一个具体的任务，当满足时间匹配要求时，会执行{@link org.dromara.hutool.cron.task.Task#execute()}方法。
  *
- * @author looly
+ * @author Looly
  *
  */
 package org.dromara.hutool.cron.task;

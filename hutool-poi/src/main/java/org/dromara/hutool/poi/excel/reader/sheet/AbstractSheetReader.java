@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ import org.dromara.hutool.poi.excel.reader.ExcelReadConfig;
  * 抽象{@link Sheet}数据读取实现
  *
  * @param <T> 读取类型
- * @author looly
+ * @author Looly
  * @since 5.4.4
  */
 public abstract class AbstractSheetReader<T> implements SheetReader<T> {

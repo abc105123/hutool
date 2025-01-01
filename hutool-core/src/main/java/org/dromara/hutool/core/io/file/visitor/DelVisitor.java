@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ import java.nio.file.attribute.BasicFileAttributes;
 /**
  * 删除操作的FileVisitor实现，用于递归遍历删除文件夹
  *
- * @author looly
+ * @author Looly
  * @since 5.5.1
  */
 public class DelVisitor extends SimpleFileVisitor<Path> {

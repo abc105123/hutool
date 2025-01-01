@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ package org.dromara.hutool.crypto.symmetric;
  * 人们在恺撒移位密码的基础上扩展出多表密码，称为维吉尼亚密码。<br>
  * 算法实现来自：https://github.com/zhaorenjie110/SymmetricEncryptionAndDecryption
  *
- * @author looly,zhaorenjie110
+ * @author Looly,zhaorenjie110
  * @since 4.4.1
  */
 public class Vigenere {

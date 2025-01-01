@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ import java.util.zip.Checksum;
 /**
  * CRC16 循环冗余校验码（Cyclic Redundancy Check）实现，默认IBM算法
  *
- * @author looly
+ * @author Looly
  * @since 4.4.1
  */
 public class CRC16 implements Checksum, Serializable {

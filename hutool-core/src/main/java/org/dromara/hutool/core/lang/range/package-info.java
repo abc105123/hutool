@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,6 @@
  *     <li>{@link org.dromara.hutool.core.lang.range.Range}: 提供可迭代的区间。</li>
  * </ul>
  *
- * @author huangchengxing, looly
+ * @author huangchengxing, Looly
  */
 package org.dromara.hutool.core.lang.range;

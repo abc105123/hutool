@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 /**
  * Management模块主要获取系统、JVM、内存、CPU等信息，以便动态监测系统状态
  *
- * @author looly
+ * @author Looly
  *
  */
 package org.dromara.hutool.extra.management;

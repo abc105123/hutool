@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ import java.util.List;
  * 可以将多个条件构建为SQL语句的一部分，并将参数值转换为占位符，并提取对应位置的参数值。<br>
  * 例如：name = ? AND type IN (?, ?) AND other LIKE ?
  *
- * @author looly
+ * @author Looly
  * @since 5.4.3
  */
 public class ConditionBuilder implements Builder<String> {

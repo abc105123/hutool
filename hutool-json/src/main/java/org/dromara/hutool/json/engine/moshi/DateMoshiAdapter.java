@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ import java.util.Date;
 /**
  * 日期格式化适配器，用于moshi序列化与反序列化日期
  *
- * @author looly
+ * @author Looly
  * @since 6.0.0
  */
 public class DateMoshiAdapter extends JsonAdapter<Date> {

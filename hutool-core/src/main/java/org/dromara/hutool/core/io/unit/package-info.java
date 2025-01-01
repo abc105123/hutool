@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 /**
  * 数据单位相关封装，包括DataUnit数据单位和DataSize数据大小
  *
- * @author looly
+ * @author Looly
  * @since 5.3.10
  */
 package org.dromara.hutool.core.io.unit;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,7 +42,7 @@ import java.util.concurrent.*;
 /**
  * 文件内容跟随器，实现类似Linux下"tail -f"命令功能
  *
- * @author looly
+ * @author Looly
  * @since 4.5.2
  */
 public class Tailer implements Serializable {
@@ -276,7 +276,7 @@ public class Tailer implements Serializable {
 	/**
 	 * 命令行打印的行处理器
 	 *
-	 * @author looly
+	 * @author Looly
 	 * @since 4.5.2
 	 */
 	public static class ConsoleLineHandler implements SerConsumer<String> {

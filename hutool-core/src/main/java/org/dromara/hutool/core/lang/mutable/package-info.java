@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 /**
  * 提供可变值对象的封装，用于封装int、long等不可变值，使其可变
  *
- * @author looly
+ * @author Looly
  *
  */
 package org.dromara.hutool.core.lang.mutable;

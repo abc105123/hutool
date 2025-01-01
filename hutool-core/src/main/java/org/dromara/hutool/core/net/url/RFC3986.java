@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ import org.dromara.hutool.core.codec.PercentCodec;
  * <a href="https://www.ietf.org/rfc/rfc3986.html">RFC3986</a> 编码实现<br>
  * 定义见：<a href="https://www.ietf.org/rfc/rfc3986.html#appendix-A">https://www.ietf.org/rfc/rfc3986.html#appendix-A</a>
  *
- * @author looly
+ * @author Looly
  * @since 5.7.16
  */
 public class RFC3986 {

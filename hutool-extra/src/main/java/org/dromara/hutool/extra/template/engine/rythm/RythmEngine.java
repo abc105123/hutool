@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ import java.util.Properties;
  * Rythm模板引擎<br>
  * 文档：http://rythmengine.org/doc/index
  *
- * @author looly
+ * @author Looly
  *
  */
 public class RythmEngine implements TemplateEngine {

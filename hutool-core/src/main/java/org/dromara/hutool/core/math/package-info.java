@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 /**
  * 提供数学计算相关封装，包括排列组合等，入口为MathUtil
  *
- * @author looly
+ * @author Looly
  *
  */
 package org.dromara.hutool.core.math;

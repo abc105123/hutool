@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ import java.lang.reflect.Type;
  * 匹配方法返回true表示匹配，反序列化器将执行反序列化操作
  *
  * @param <V> 反序列化结果类型
- * @author looly
+ * @author Looly
  * @since 6.0.0
  */
 public interface MatcherJSONDeserializer<V> extends JSONDeserializer<V> {

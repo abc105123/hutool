@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ import java.io.Serializable;
  * 节点接口，提供节点相关的的方法定义
  *
  * @param <T> ID类型
- * @author looly
+ * @author Looly
  * @since 5.2.4
  */
 public interface Node<T> extends Comparable<Node<T>>, Serializable {

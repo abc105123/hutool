@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -576,7 +576,7 @@ public class SqlBuilder implements Builder<String> {
 	 * <pre>
 	 *     SqlBuilder builder = SqlBuilder.of("select * from user where id=?");
 	 *     builder.append(" and name=?")
-	 *     builder.addParams(1, "looly");
+	 *     builder.addParams(1, "Looly");
 	 * </pre>
 	 *
 	 * @param params 参数列表

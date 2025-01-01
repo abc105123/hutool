@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ import java.nio.channels.SocketChannel;
 /**
  * 接入完成回调，单例使用
  *
- * @author looly
+ * @author Looly
  */
 public class AcceptHandler implements CompletionHandler<ServerSocketChannel, NioServer> {
 

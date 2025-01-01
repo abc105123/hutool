@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
  * 建造者工具<br>
  * 用于建造特定对象或结果，建造者模式的抽象。
  *
- * @author looly
+ * @author Looly
  *
  */
 package org.dromara.hutool.core.lang.builder;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -305,7 +305,7 @@ public class XmlUtilTest {
 	@Test
 	@Disabled
 	public void formatTest() {
-		// https://github.com/looly/hutool/pull/1234
+		// https://github.com/Looly/hutool/pull/1234
 		final Document xml = XmlUtil.createXml("NODES");
 		xml.setXmlStandalone(true);
 

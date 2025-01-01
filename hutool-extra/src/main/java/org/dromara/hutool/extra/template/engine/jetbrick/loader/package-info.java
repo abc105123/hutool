@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +18,6 @@
  * jetbrick-template实现，特殊资源加载器<br>
  * 模板引擎介绍见：<a href="https://github.com/subchen/jetbrick-template-2x">https://github.com/subchen/jetbrick-template-2x</a>
  *
- * @author looly
+ * @author Looly
  */
 package org.dromara.hutool.extra.template.engine.jetbrick.loader;

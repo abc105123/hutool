@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ import java.security.Provider;
  * 在此类加载时，通过SPI方式查找用户引入的加密库，查找对应的{@link Provider}实现，然后全局创建唯一的{@link Provider}对象<br>
  * 用户依旧可以通过{@link #setUseCustomProvider(boolean)} 方法选择是否使用自定义的Provider。
  *
- * @author looly
+ * @author Looly
  */
 public class GlobalProviderFactory {
 

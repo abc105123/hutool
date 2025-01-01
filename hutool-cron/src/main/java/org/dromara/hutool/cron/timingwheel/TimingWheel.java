@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ import java.util.function.Consumer;
  * 时间轮是一种环形数据结构，由多个槽组成，每个槽中存放任务集合。<br>
  * 一个单独的线程推进时间一槽一槽的移动，并执行槽中的任务。
  *
- * @author eliasyaoyc, looly
+ * @author eliasyaoyc, Looly
  */
 public class TimingWheel {
 

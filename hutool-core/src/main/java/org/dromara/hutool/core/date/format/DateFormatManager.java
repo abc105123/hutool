@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ import java.util.function.Function;
  * 通过{@link #registerFormatter(String, Function)}注册自定义格式化规则，注册后使用{@link #format(Date, CharSequence)}格式化为日期字符串<br>
  * 通过{@link #registerParser(String, Function)}注册自定义解析规则，注册后使用{@link #parse(CharSequence, String)}解析日期字符串<br>
  *
- * @author looly
+ * @author Looly
  */
 public class DateFormatManager {
 

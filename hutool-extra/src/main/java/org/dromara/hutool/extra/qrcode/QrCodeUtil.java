@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,7 +44,7 @@ import java.util.Map;
  *     <li>条形码生成和识别，见{@link BarcodeFormat#CODE_39}等很多标准格式</li>
  * </ul>
  *
- * @author looly
+ * @author Looly
  * @since 4.0.2
  */
 public class QrCodeUtil {

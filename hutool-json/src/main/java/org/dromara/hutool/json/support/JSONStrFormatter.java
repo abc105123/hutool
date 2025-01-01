@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@ import org.dromara.hutool.core.text.StrUtil;
  * JSON字符串格式化工具，用于简单格式化JSON字符串<br>
  * from http://blog.csdn.net/lovelong8808/article/details/54580278
  *
- * @author looly
+ * @author Looly
  * @since 3.1.2
  */
 public class JSONStrFormatter {

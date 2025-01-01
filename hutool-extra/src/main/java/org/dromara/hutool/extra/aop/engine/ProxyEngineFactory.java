@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ import org.dromara.hutool.log.LogUtil;
  * 代理引擎简单工厂<br>
  * 根据用户引入代理库的不同，产生不同的代理引擎对象
  *
- * @author looly
+ * @author Looly
  */
 public class ProxyEngineFactory {
 

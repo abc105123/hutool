@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 /**
  * 对象实例化器，对象创建器
  *
- * @author looly
+ * @author Looly
  * @since 6.0.0
  */
 package org.dromara.hutool.core.reflect.creator;

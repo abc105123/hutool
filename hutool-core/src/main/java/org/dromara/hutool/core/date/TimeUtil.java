@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,7 @@ import java.util.function.Function;
  *     <li>{@link LocalDateTime}表示一个本地时间，他始终表示当前时区的时间。</li>
  * </ul>
  *
- * @author looly
+ * @author Looly
  * @see DateUtil java7及其以下版本，使用Date工具类
  * @see DateFormatPool 常用格式工具类
  * @since 6.0.0

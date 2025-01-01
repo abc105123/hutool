@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,7 +41,7 @@ import java.util.Iterator;
  * </pre>
  * 读出后就是{@code a=12}
  *
- * @author looly
+ * @author Looly
  * @since 6.0.0
  */
 public class LineReader extends ReaderWrapper implements Iterable<String> {

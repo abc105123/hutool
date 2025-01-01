@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ import java.util.Calendar;
  * 3. 获取指定字段的结束时间
  * </pre>
  *
- * @author looly
+ * @author Looly
  */
 public class DateModifier {
 
@@ -171,7 +171,7 @@ public class DateModifier {
 	/**
 	 * 修改类型
 	 *
-	 * @author looly
+	 * @author Looly
 	 */
 	public enum ModifyType {
 		/**

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ import java.util.Map;
  * <p>
  * 详细介绍见：<a href="https://www.jianshu.com/p/576dbf44b2ae">https://www.jianshu.com/p/576dbf44b2ae</a>
  *
- * @author looly
+ * @author Looly
  * @since 5.7.0
  */
 public class JWTPayload extends Claims implements RegisteredPayload<JWTPayload>{

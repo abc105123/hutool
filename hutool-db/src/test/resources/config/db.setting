@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2024 Hutool Team and hutool.cn
+# Copyright (c) 2013-2025 Hutool Team and hutool.cn
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -70,7 +70,7 @@ pass = 123456
 remarks = true
 
 [mysql]
-url = jdbc:mysql://looly.centos8:3306/hutool_test?useSSL=false
+url = jdbc:mysql://Looly.centos8:3306/hutool_test?useSSL=false
 user = root
 pass = 123456
 remarks = true
@@ -82,14 +82,14 @@ pass = 123456
 remarks = true
 
 [postgre]
-url = jdbc:postgresql://looly.centos:5432/test_hutool
+url = jdbc:postgresql://Looly.centos:5432/test_hutool
 user = postgres
 pass = 123456
 remarks = true
 
 [sqlserver]
-url = jdbc:sqlserver://looly.database.chinacloudapi.cn:1433;database=test;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.chinacloudapi.cn;loginTimeout=30;
-user = looly@looly
+url = jdbc:sqlserver://Looly.database.chinacloudapi.cn:1433;database=test;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.chinacloudapi.cn;loginTimeout=30;
+user = Looly@Looly
 pass = 123
 remarks = true
 

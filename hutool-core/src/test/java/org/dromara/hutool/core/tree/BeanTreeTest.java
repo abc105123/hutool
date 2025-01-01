@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -68,7 +68,7 @@ public class BeanTreeTest {
 						JavaBean.builder().id(3L).name("hutool").parentId(1L).build(),
 						JavaBean.builder().id(4L).name("sa-token").parentId(1L).build(),
 						JavaBean.builder().id(5L).name("mybatis-plus").parentId(2L).build(),
-						JavaBean.builder().id(6L).name("looly").parentId(3L).build(),
+						JavaBean.builder().id(6L).name("Looly").parentId(3L).build(),
 						JavaBean.builder().id(7L).name("click33").parentId(4L).build(),
 						JavaBean.builder().id(8L).name("jobob").parentId(5L).build()
 				).toList();
@@ -76,7 +76,7 @@ public class BeanTreeTest {
 				JavaBean.builder().id(1L).name("dromara").matchParent(true)
 						.children(asList(
 								JavaBean.builder().id(3L).name("hutool").parentId(1L)
-										.children(singletonList(JavaBean.builder().id(6L).name("looly").parentId(3L).build()))
+										.children(singletonList(JavaBean.builder().id(6L).name("Looly").parentId(3L).build()))
 										.build(),
 								JavaBean.builder().id(4L).name("sa-token").parentId(1L)
 										.children(singletonList(JavaBean.builder().id(7L).name("click33").parentId(4L).build()))
@@ -111,11 +111,11 @@ public class BeanTreeTest {
 
 	@Test
 	public void testFilter() {
-		final List<JavaBean> javaBeanTree = beanTree.filter(originJavaBeanTree, s -> "looly".equals(s.getName()));
+		final List<JavaBean> javaBeanTree = beanTree.filter(originJavaBeanTree, s -> "Looly".equals(s.getName()));
 		Assertions.assertEquals(singletonList(
 						JavaBean.builder().id(1L).name("dromara").matchParent(true)
 								.children(singletonList(JavaBean.builder().id(3L).name("hutool").parentId(1L)
-										.children(singletonList(JavaBean.builder().id(6L).name("looly").parentId(3L).build()))
+										.children(singletonList(JavaBean.builder().id(6L).name("Looly").parentId(3L).build()))
 										.build()))
 								.build()),
 				javaBeanTree);
@@ -127,7 +127,7 @@ public class BeanTreeTest {
 		Assertions.assertEquals(asList(
 				JavaBean.builder().id(1L).name("【open source】dromara").matchParent(true)
 						.children(asList(JavaBean.builder().id(3L).name("【open source】hutool").parentId(1L)
-										.children(singletonList(JavaBean.builder().id(6L).name("【open source】looly").parentId(3L).build()))
+										.children(singletonList(JavaBean.builder().id(6L).name("【open source】Looly").parentId(3L).build()))
 										.build(),
 								JavaBean.builder().id(4L).name("【open source】sa-token").parentId(1L)
 										.children(singletonList(JavaBean.builder().id(7L).name("【open source】click33").parentId(4L).build()))

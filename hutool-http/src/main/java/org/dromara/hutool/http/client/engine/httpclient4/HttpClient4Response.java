@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,7 +42,7 @@ import java.util.*;
  * HttpClient响应包装<br>
  * 通过包装{@link CloseableHttpResponse}，实现获取响应状态码、响应头、响应体等内容
  *
- * @author looly
+ * @author Looly
  */
 public class HttpClient4Response extends SimpleWrapper<HttpResponse> implements Response {
 

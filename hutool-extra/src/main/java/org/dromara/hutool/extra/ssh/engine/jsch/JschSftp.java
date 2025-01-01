@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,7 +48,7 @@ import java.util.function.Predicate;
  * 参考：<a href="https://www.cnblogs.com/longyg/archive/2012/06/25/2556576.html">https://www.cnblogs.com/longyg/archive/2012/06/25/2556576.html</a>
  * </p>
  *
- * @author looly
+ * @author Looly
  * @since 4.0.2
  */
 public class JschSftp extends AbstractFtp {
@@ -671,7 +671,7 @@ public class JschSftp extends AbstractFtp {
 	/**
 	 * JSch支持的三种文件传输模式
 	 *
-	 * @author looly
+	 * @author Looly
 	 */
 	public enum Mode {
 		/**

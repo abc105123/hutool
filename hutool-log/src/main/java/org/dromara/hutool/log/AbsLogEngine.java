@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ import org.dromara.hutool.log.engine.LogEngine;
  * 抽象日期引擎<br>
  * 提供保存日志框架名称和checkLogExist方法
  *
- * @author looly
+ * @author Looly
  * @since 6.0.0
  */
 public abstract class AbsLogEngine implements LogEngine {

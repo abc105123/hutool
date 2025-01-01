@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ import org.dromara.hutool.core.text.finder.Finder;
  * 查找替换器<br>
  * 查找给定的字符串，并全部替换为新的字符串，其它字符不变
  *
- * @author looly
+ * @author Looly
  * @since 6.0.0
  */
 public class SearchReplacer extends StrReplacer {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@ import java.io.Serializable;
 /**
  * 文本查找抽象类
  *
- * @author looly
+ * @author Looly
  * @since 5.7.14
  */
 public abstract class TextFinder implements Finder, Serializable {

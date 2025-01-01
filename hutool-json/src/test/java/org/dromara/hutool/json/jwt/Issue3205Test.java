@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,7 @@ public class Issue3205Test {
 
 		final JWT jwt = JWT.of()
 			.setPayload("sub", "1234567890")
-			.setPayload("name", "looly")
+			.setPayload("name", "Looly")
 			.setPayload("admin", true)
 			.setExpiresAt(DateUtil.tomorrow())
 			.setSigner(signer);

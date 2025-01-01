@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ import java.util.Arrays;
  * 此工具来自于 t-io 项目以及其它项目的相关部分收集<br>
  * ByteBuffer的相关介绍见：https://www.cnblogs.com/ruber/p/6857159.html
  *
- * @author tanyaowu, looly
+ * @author tanyaowu, Looly
  * @since 4.0.0
  */
 public class BufferUtil {

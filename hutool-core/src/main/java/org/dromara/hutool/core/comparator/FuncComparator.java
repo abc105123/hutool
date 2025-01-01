@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ import java.util.function.Function;
  * 指定函数排序器
  *
  * @param <T> 被比较的对象
- * @author looly
+ * @author Looly
  */
 public class FuncComparator<T> extends NullComparator<T> {
 	private static final long serialVersionUID = 1L;

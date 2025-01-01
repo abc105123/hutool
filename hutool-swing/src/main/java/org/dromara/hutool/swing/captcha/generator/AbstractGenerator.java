@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ import org.dromara.hutool.core.util.RandomUtil;
  * 随机字符验证码生成器<br>
  * 可以通过传入的基础集合和长度随机生成验证码字符
  *
- * @author looly
+ * @author Looly
  * @since 4.1.2
  */
 public abstract class AbstractGenerator implements CodeGenerator {

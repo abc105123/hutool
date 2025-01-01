@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,7 +48,7 @@ import java.util.BitSet;
  *     <li>application/x-www-form-urlencoded，遵循W3C HTML Form content types规范，如空格须转+</li>
  * </ul>
  *
- * @author looly
+ * @author Looly
  * @since 5.7.16
  */
 public class PercentCodec implements Encoder<byte[], byte[]>, Serializable {
@@ -181,7 +181,7 @@ public class PercentCodec implements Encoder<byte[], byte[]>, Serializable {
 	 * {@link PercentCodec}构建器<br>
 	 * 由于{@link PercentCodec}本身应该是只读对象，因此将此对象的构建放在Builder中
 	 *
-	 * @author looly
+	 * @author Looly
 	 * @since 6.0.0
 	 */
 	public static class Builder implements org.dromara.hutool.core.lang.builder.Builder<PercentCodec> {

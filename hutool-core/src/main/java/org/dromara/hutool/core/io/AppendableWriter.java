@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ import java.nio.CharBuffer;
  * 同时继承{@link Writer}和实现{@link Appendable}的聚合类，用于适配两种接口操作
  * 实现来自：jodd
  *
- * @author looly，jodd
+ * @author Looly，jodd
  * @since 5.7.0
  */
 public class AppendableWriter extends Writer implements Appendable {

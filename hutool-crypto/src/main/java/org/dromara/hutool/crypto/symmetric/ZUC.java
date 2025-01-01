@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ import javax.crypto.spec.IvParameterSpec;
 /**
  * 祖冲之算法集（ZUC算法）实现，基于BouncyCastle实现。
  *
- * @author looly
+ * @author Looly
  * @since 5.7.12
  */
 public class ZUC extends SymmetricCrypto {
@@ -58,7 +58,7 @@ public class ZUC extends SymmetricCrypto {
 	/**
 	 * ZUC类型，包括128位和256位
 	 *
-	 * @author looly
+	 * @author Looly
 	 */
 	public enum ZUCAlgorithm {
 		/**

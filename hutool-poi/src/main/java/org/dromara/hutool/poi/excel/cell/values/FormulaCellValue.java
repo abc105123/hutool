@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@ import org.apache.poi.ss.usermodel.Cell;
  *     <li>在写出模式时，用于定义写出的单元格类型为公式</li>
  * </ul>
  *
- * @author looly
+ * @author Looly
  * @since 4.0.11
  */
 public class FormulaCellValue implements CellValue<String>, CellSetter {

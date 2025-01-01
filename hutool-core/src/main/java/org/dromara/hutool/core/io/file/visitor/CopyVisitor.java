@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ import java.nio.file.attribute.BasicFileAttributes;
  * 文件拷贝的FileVisitor实现，用于递归遍历拷贝目录，此类非线程安全<br>
  * 此类在遍历源目录并复制过程中会自动创建目标目录中不存在的上级目录。
  *
- * @author looly
+ * @author Looly
  * @since 5.5.1
  */
 public class CopyVisitor extends SimpleFileVisitor<Path> {

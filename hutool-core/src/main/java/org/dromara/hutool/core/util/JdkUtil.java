@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ import org.dromara.hutool.core.text.StrUtil;
  * JDK相关工具类，包括判断JDK版本等<br>
  * 工具部分方法来自fastjson2的JDKUtils
  *
- * @author fastjson, looly
+ * @author fastjson, Looly
  */
 public class JdkUtil {
 	/**

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,7 +37,7 @@ import java.util.concurrent.TimeUnit;
  * 令牌请求：通过{@link #tryAcquire(int)} 方法请求令牌，如果令牌桶中数量不足，则返回false，表示请求失败。
  * </p>
  *
- * @author looly
+ * @author Looly
  * @since 6.0.0
  */
 public class TokenBucketRateLimiter extends SemaphoreRateLimiter implements Closeable {

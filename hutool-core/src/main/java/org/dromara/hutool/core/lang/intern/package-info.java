@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,6 @@
  * 所谓规范化，即当两个对象equals时，规范化的对象则可以实现==<br>
  * 此包中的相关封装类似于 String#intern()
  *
- * @author looly
+ * @author Looly
  */
 package org.dromara.hutool.core.lang.intern;

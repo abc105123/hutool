@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ import org.dromara.hutool.extra.tokenizer.Result;
  * 项目地址：https://github.com/yozhao/IKAnalyzer<br>
  * {@link IKSegmenter} 非线程全，因此每次单独创建对象
  *
- * @author looly
+ * @author Looly
  */
 public class IKAnalyzerEngine implements TokenizerEngine {
 

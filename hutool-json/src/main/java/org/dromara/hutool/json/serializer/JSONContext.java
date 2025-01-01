@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ import org.dromara.hutool.json.*;
 /**
  * JSON序列化上下文，用于获取当前JSON对象，以便在序列化过程中获取配置信息
  *
- * @author looly
+ * @author Looly
  * @since 6.0.0
  */
 public interface JSONContext {

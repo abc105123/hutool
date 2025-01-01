@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -57,7 +57,7 @@ import java.util.List;
  * Excel2003格式的事件-用户模型方式读取器，在Hutool中，统一将此归类为Sax读取<br>
  * 参考：http://www.cnblogs.com/wshsdlau/p/5643862.html
  *
- * @author looly
+ * @author Looly
  */
 public class Excel03SaxReader implements HSSFListener, ExcelSaxReader<Excel03SaxReader> {
 

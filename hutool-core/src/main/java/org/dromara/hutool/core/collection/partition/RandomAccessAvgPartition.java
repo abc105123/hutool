@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ import java.util.RandomAccess;
  * 分区是在原List的基础上进行的，返回的分区是不可变的抽象列表，原列表元素变更，分区中元素也会变更。
  *
  * @param <T> 元素类型
- * @author looly
+ * @author Looly
  * @since 5.7.10
  */
 public class RandomAccessAvgPartition<T> extends AvgPartition<T> implements RandomAccess {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,7 +37,7 @@ import java.util.List;
  *
  * @param <T> 子类类型，用于返回this
  * @param <C> ExcelConfig类型
- * @author looly
+ * @author Looly
  * @since 4.1.4
  */
 public class ExcelBase<T extends ExcelBase<T, C>, C extends ExcelConfig> implements Closeable {

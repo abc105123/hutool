@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ import java.util.*;
  * 来自Jodd
  *
  * @param <T> 元素类型
- * @author looly, jodd
+ * @author Looly, jodd
  */
 public class IterChain<T> implements Iterator<T>, Chain<Iterator<T>, IterChain<T>> {
 

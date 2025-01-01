@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ import org.dromara.hutool.core.reflect.ConstructorUtil;
  * 对象生成器，通过指定对象的Class类型，调用next方法时生成新的对象。
  *
  * @param <T> 对象类型
- * @author looly
+ * @author Looly
  * @since 5.4.3
  */
 public class ObjectGenerator<T> implements Generator<T> {

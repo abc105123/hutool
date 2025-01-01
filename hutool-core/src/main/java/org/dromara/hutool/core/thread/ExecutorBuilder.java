@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ import java.util.concurrent.*;
  *     4. 执行中的线程 &gt; maxPoolSize        -》 触发handler（RejectedExecutionHandler）异常
  * </pre>
  *
- * @author looly
+ * @author Looly
  * @since 4.1.9
  */
 public class ExecutorBuilder implements Builder<ThreadPoolExecutor> {

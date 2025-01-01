@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ import java.util.Locale;
 /**
  * 自定义语言环境 String 比较，可为自然语言文本构建搜索和排序例程。
  *
- * @author looly
+ * @author Looly
  */
 public class LocaleComparator extends NullComparator<String> {
 	private static final long serialVersionUID = 1L;

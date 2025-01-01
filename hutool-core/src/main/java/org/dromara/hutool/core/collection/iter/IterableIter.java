@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ import java.util.Iterator;
  * 提供合成接口，共同提供{@link Iterable}和{@link Iterator}功能
  *
  * @param <T> 节点类型
- * @author looly
+ * @author Looly
  * @since 5.7.14
  */
 public interface IterableIter<T> extends Iterable<T>, Iterator<T> {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ import java.util.Map;
  * Form表单形式的消息体
  *
  * @param <T> this类型，用于链式调用
- * @author looly
+ * @author Looly
  */
 @SuppressWarnings("unchecked")
 public abstract class FormBody<T extends FormBody<T>> implements HttpBody {

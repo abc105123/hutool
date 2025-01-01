@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ import java.nio.file.Path;
 /**
  * 文件资源访问对象，支持{@link Path} 和 {@link File} 访问
  *
- * @author looly
+ * @author Looly
  */
 public class FileResource implements Resource, Serializable {
 	private static final long serialVersionUID = 1L;

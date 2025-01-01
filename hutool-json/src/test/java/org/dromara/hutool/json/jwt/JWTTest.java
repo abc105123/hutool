@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,7 +37,7 @@ public class JWTTest {
 		final JWT jwt = JWT.of()
 			.setHeader(JWTHeader.TYPE, "JWT")
 			.setPayload("sub", "1234567890")
-			.setPayload("name", "looly")
+			.setPayload("name", "Looly")
 			.setPayload("admin", true)
 			.setExpiresAt(DateUtil.parse("2022-01-01"))
 			.setKey(key);
@@ -69,7 +69,7 @@ public class JWTTest {
 
 		//payload
 		Assertions.assertEquals("1234567890", jwt.getPayload("sub"));
-		Assertions.assertEquals("looly", jwt.getPayload("name"));
+		Assertions.assertEquals("Looly", jwt.getPayload("name"));
 		Assertions.assertEquals(true, jwt.getPayload("admin"));
 	}
 
@@ -78,7 +78,7 @@ public class JWTTest {
 		final JWT jwt = JWT.of()
 			.setHeader(JWTHeader.TYPE, "JWT")
 			.setPayload("sub", "1234567890")
-			.setPayload("name", "looly")
+			.setPayload("name", "Looly")
 			.setPayload("admin", true)
 			.setSigner(JWTSignerUtil.none());
 
@@ -99,7 +99,7 @@ public class JWTTest {
 		Assertions.assertThrows(JWTException.class, () -> {
 			final JWT jwt = JWT.of()
 				.setPayload("sub", "1234567890")
-				.setPayload("name", "looly")
+				.setPayload("name", "Looly")
 				.setPayload("admin", true);
 
 			jwt.sign();

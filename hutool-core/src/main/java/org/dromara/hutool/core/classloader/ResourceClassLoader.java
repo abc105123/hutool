@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ import java.util.Map;
  * 资源类加载器，可以加载任意类型的资源类
  *
  * @param <T> {@link Resource}接口实现类
- * @author looly, lzpeng
+ * @author Looly, lzpeng
  * @since 5.5.2
  */
 public class ResourceClassLoader<T extends Resource> extends SecureClassLoader {

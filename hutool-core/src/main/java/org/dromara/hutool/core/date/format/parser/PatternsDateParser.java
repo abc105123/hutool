@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@ import java.util.Locale;
  * 通过给定的日期格式解析日期时间字符串。<br>
  * 传入的日期格式会逐个尝试，直到解析成功，返回{@link Calendar}对象，否则抛出{@link DateException}异常。
  *
- * @author looly
+ * @author Looly
  * @since 6.0.0
  */
 public class PatternsDateParser implements DateParser, Serializable {

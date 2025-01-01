@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,6 @@
  *
  * 同时，提供了{@link org.dromara.hutool.cron.CronUtil}工具类，维护一个全局的{@link org.dromara.hutool.cron.Scheduler}。
  *
- * @author looly
+ * @author Looly
  */
 package org.dromara.hutool.cron;

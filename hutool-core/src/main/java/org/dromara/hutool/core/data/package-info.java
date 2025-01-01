@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,6 +19,6 @@
  * 在Hutool中，“数据”是指社会属性的内容<br>
  * 如ID、电话、统一社会信用代码、密码、坐标系、数据脱敏等。
  *
- * @author looly
+ * @author Looly
  */
 package org.dromara.hutool.core.data;

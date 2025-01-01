@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,7 @@ import java.util.Map;
  * </pre>
  *
  * @param <T> 目标对象类型
- * @author looly
+ * @author Looly
  * @since 3.2.3
  */
 public class BeanCopier<T> implements Copier<T>, Serializable {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 /**
  * 调用者接口及实现。可以通过此类的方法获取调用者、多级调用者以及判断是否被调用
  *
- * @author looly
+ * @author Looly
  *
  */
 package org.dromara.hutool.core.lang.caller;

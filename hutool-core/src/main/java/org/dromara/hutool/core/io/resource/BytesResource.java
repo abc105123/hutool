@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ import java.nio.charset.Charset;
  * 基于byte[]的资源获取器<br>
  * 注意：此对象中getUrl方法始终返回null
  *
- * @author looly
+ * @author Looly
  * @since 4.0.9
  */
 public class BytesResource implements Resource, Serializable {

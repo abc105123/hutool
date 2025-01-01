@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,7 @@ import java.nio.charset.Charset;
  * 压缩工具类<br>
  * 基于commons-compress的压缩解压封装
  *
- * @author looly
+ * @author Looly
  * @since 5.5.0
  */
 public class CompressUtil {

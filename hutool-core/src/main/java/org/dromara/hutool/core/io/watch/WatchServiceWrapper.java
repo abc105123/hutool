@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ import java.util.function.Predicate;
  *     <li>监听：{@link #watch(Watcher, Predicate)} 启动监听并指定事件触发后的行为。</li>
  * </ul>
  *
- * @author looly
+ * @author Looly
  * @since 6.0.0
  */
 public class WatchServiceWrapper extends SimpleWrapper<WatchService> implements WatchService, Serializable {

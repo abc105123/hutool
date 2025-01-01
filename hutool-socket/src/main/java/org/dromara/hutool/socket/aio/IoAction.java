@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ package org.dromara.hutool.socket.aio;
  * Socket流处理接口<br>
  * 实现此接口用于处理接收到的消息，发送指定消息
  *
- * @author looly
+ * @author Looly
  *
  * @param <T> 经过解码器解码后的数据类型
  */

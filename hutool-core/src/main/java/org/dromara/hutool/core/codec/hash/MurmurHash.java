@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@ import java.nio.charset.Charset;
  * 128-bit Java port of https://code.google.com/p/smhasher/source/browse/trunk/MurmurHash3.cpp#255
  * </p>
  *
- * @author looly, Simhash4J
+ * @author Looly, Simhash4J
  * @since 4.3.3
  */
 public class MurmurHash implements Hash32<byte[]>, Hash64<byte[]>, Hash128<byte[]>{

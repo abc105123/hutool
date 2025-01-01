@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# Copyright (c) 2024 Hutool Team and hutool.cn
+# Copyright (c) 2013-2025 Hutool Team and hutool.cn
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,8 +16,13 @@
 # limitations under the License.
 #
 
+bin_home="$(dirname ${BASH_SOURCE[0]})"
+
 # show Hutool logo
-"$(dirname ${BASH_SOURCE[0]})"/logo.sh
+$bin_home/logo.sh
 
 # 多模块聚合文档，生成在target/site/apidocs
 exec mvn javadoc:aggregate
+
+# 拷贝自定义的index.html到聚合文档目录
+cp -vf $bin_home/../docs/apidocs/index.html $bin_home/../target/reports/apidocs/

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ import java.lang.reflect.Type;
  * Kotlin对象反序列化器<br>
  * issue#I5WDP0 对于Kotlin对象，由于参数可能非空限制，导致无法创建一个默认的对象再赋值
  *
- * @author looly
+ * @author Looly
  * @since 6.0.0
  */
 public class KBeanDeserializer implements MatcherJSONDeserializer<Object> {

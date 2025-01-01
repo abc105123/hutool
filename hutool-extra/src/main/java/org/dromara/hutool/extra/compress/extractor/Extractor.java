@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ import java.util.function.Predicate;
 /**
  * 归档数据解包封装，用于将zip、tar等包解包为文件
  *
- * @author looly
+ * @author Looly
  * @since 5.5.0
  */
 public interface Extractor extends Closeable {

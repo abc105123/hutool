@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@ import org.dromara.hutool.extra.template.TemplateConfig;
 /**
  * 引擎接口，通过实现此接口从而使用对应的模板引擎
  *
- * @author looly
+ * @author Looly
  */
 public interface TemplateEngine extends Wrapper<Object> {
 

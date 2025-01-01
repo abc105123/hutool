@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ import org.dromara.hutool.cron.pattern.CronPattern;
 /**
  * 定时作业，此类除了定义了作业，也定义了作业的执行周期以及ID。
  *
- * @author looly
+ * @author Looly
  * @since 5.4.7
  */
 public class CronTask implements Task{

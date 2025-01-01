@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@ import org.dromara.hutool.core.io.resource.HttpResource;
  * bytes类型的Http request body，主要发送编码后的表单数据或rest body（如JSON或XML）
  *
  * @since 5.7.17
- * @author looly
+ * @author Looly
  */
 public class BytesBody extends ResourceBody {
 

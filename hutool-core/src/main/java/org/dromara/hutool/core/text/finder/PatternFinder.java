@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
  * 正则查找器<br>
  * 通过传入正则表达式，查找指定字符串中匹配正则的开始和结束位置
  *
- * @author looly
+ * @author Looly
  * @since 5.7.14
  */
 public class PatternFinder extends TextFinder {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ import java.util.Map;
  * 针对Reccord类的Bean描述<br>
  * Bean描述包括Record自定义字段及对应方法，getter方法与字段名同名，不支持setter
  *
- * @author looly
+ * @author Looly
  * @since 3.1.2
  */
 public class RecordBeanDesc extends AbstractBeanDesc {

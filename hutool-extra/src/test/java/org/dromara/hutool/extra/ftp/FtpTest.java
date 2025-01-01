@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,7 +46,7 @@ public class FtpTest {
 	@Test
 	@Disabled
 	public void cdTest() {
-		final CommonsFtp ftp = CommonsFtp.of("looly.centos");
+		final CommonsFtp ftp = CommonsFtp.of("Looly.centos");
 
 		ftp.cd("/file/aaa");
 		Console.log(ftp.pwd());
@@ -68,7 +68,7 @@ public class FtpTest {
 	@Test
 	@Disabled
 	public void reconnectIfTimeoutTest() throws InterruptedException {
-		final CommonsFtp ftp = CommonsFtp.of("looly.centos");
+		final CommonsFtp ftp = CommonsFtp.of("Looly.centos");
 
 		Console.log("打印pwd: " + ftp.pwd());
 
@@ -92,7 +92,7 @@ public class FtpTest {
 	@Test
 	@Disabled
 	public void recursiveDownloadFolder() {
-		final CommonsFtp ftp = CommonsFtp.of("looly.centos");
+		final CommonsFtp ftp = CommonsFtp.of("Looly.centos");
 		ftp.recursiveDownloadFolder("/", FileUtil.file("d:/test/download"));
 
 		IoUtil.closeQuietly(ftp);

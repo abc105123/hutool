@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ import java.nio.charset.Charset;
  * 抽象服务加载器，提供包括路径前缀、服务类、类加载器、编码、安全相关持有
  *
  * @param <S> 服务类型
- * @author looly
+ * @author Looly
  * @since 6.0.0
  */
 public abstract class AbsServiceLoader<S> implements ServiceLoader<S> {

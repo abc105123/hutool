@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ import org.dromara.hutool.extra.tokenizer.Result;
  * 分词引擎接口定义，用户通过实现此接口完成特定分词引擎的适配<br>
  * 由于引擎使用单例模式，因此要求实现类保证线程安全
  *
- * @author looly
+ * @author Looly
  */
 public interface TokenizerEngine {
 

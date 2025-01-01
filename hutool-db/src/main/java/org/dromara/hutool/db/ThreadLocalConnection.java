@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ import java.util.Map;
  * 此对象为单例类，用于存储线程相关的Connection对象。<br>
  * 在多数据源情况下，由于数据源的不同，连接对象也不同，因此获取连接时需要DataSource关联获取
  *
- * @author looly
+ * @author Looly
  *
  */
 public enum ThreadLocalConnection {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ package org.dromara.hutool.core.lang.wrapper;
  * 通过继承此类，可以直接使用被包装的对象，用于简化和统一封装。
  *
  * @param <T> 被包装对象类型
- * @author looly
+ * @author Looly
  * @since 6.0.0
  */
 public class SimpleWrapper<T> implements Wrapper<T> {

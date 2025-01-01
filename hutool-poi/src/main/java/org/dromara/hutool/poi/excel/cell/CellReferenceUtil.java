@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ import org.dromara.hutool.core.text.StrUtil;
 /**
  * 单元格位置{@link CellReference}工具类，提供包括行号转行名称、列号转列名称等功能。
  *
- * @author looly
+ * @author Looly
  * @since 6.0.0
  */
 public class CellReferenceUtil {

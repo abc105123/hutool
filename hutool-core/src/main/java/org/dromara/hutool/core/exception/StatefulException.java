@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ package org.dromara.hutool.core.exception;
 /**
  * 带有状态码的异常
  *
- * @author looly
+ * @author Looly
  */
 public class StatefulException extends HutoolException {
 	private static final long serialVersionUID = 1L;

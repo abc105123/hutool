@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ import java.net.URL;
  * 支持VFS 3.x on JBoss AS 6+，JBoss AS 7 and WildFly 8+<br>
  * 参考：org.springframework.core.io.VfsUtils
  *
- * @author looly, Spring
+ * @author Looly, Spring
  * @since 5.7.21
  */
 public class VfsResource implements Resource {

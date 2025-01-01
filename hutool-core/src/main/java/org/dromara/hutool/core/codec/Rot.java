@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ import org.dromara.hutool.core.lang.Assert;
  * RotN（rotate by N places），回转N位密码，是一种简易的替换式密码，也是过去在古罗马开发的凯撒加密的一种变体。<br>
  * 代码来自：<a href="https://github.com/orclight/jencrypt">https://github.com/orclight/jencrypt</a>
  *
- * @author looly, shuzhilong
+ * @author Looly, shuzhilong
  * @since 4.4.1
  */
 public class Rot {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ import java.util.zip.Inflater;
  * {@link java.util.zip.InflaterInputStream}包装实现，实现"deflate"算法解压<br>
  * 参考：org.apache.hc.client5.http.entity.DeflateInputStream
  *
- * @author looly
+ * @author Looly
  */
 public class InflaterInputStream extends InputStream {
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 /**
  * 各种类型转换的实现类，其都为Converter接口的实现，用于将未知的Object类型转换为指定类型
  *
- * @author looly
+ * @author Looly
  *
  */
 package org.dromara.hutool.core.convert.impl;

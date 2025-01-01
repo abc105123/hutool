@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ import java.util.logging.Logger;
  * 1. 提供驱动名的持有，用于确定数据库方言
  * </pre>
  *
- * @author looly
+ * @author Looly
  * @since 4.3.2
  */
 public class DSWrapper extends SimpleWrapper<DataSource> implements DataSource, Closeable, Cloneable {

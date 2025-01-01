@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ import java.util.List;
  * 测试Bean中嵌套List等对象时是否完整转换<br>
  * 同时测试私有class是否可以有效实例化
  *
- * @author looly
+ * @author Looly
  *
  */
 public class ParseBeanWithListTest {

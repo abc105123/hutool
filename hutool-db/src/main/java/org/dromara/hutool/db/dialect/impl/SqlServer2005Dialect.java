@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@ import org.dromara.hutool.db.sql.SqlBuilder;
  * SQLServer2005-2008方言实现<br>
  * 参考：jdbc-plus
  *
- * @author niliwei, looly
+ * @author niliwei, Looly
  */
 public class SqlServer2005Dialect extends AnsiSqlDialect {
 	private static final long serialVersionUID = 1L;

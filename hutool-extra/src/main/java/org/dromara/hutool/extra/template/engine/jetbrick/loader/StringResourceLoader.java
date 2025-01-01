@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ import java.nio.charset.Charset;
 /**
  * 字符串模板加载器
  *
- * @author looly
+ * @author Looly
  * @since 5.7.21
  */
 public class StringResourceLoader extends AbstractResourceLoader {
@@ -53,7 +53,7 @@ public class StringResourceLoader extends AbstractResourceLoader {
 	/**
 	 * 字符串模板
 	 *
-	 * @author looly
+	 * @author Looly
 	 */
 	static class StringTemplateResource extends AbstractResource {
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,7 @@ import java.util.Map;
  *     <li>Setter忽略参数值与字段值不匹配的情况，因此有多个参数类型的重载时，会调用首次匹配的</li>
  * </ol>
  *
- * @author looly
+ * @author Looly
  * @since 3.1.2
  */
 public class StrictBeanDesc extends AbstractBeanDesc {

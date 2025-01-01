@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +18,6 @@
  * 由于Hutool的原则是不依赖于其它配置文件，但是很多时候我们需要针对第三方非常棒的库做一些工具类化的支持<br>
  * 因此Hutoo-extra包主要用于支持第三方库的工具类支持。
  *
- * @author looly
+ * @author Looly
  */
 package org.dromara.hutool.extra;

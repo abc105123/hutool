@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 /**
  * 基于JDK的HttpUrlConnection封装的HTTP客户端
  *
- * @author looly
+ * @author Looly
  * @since 6.0.0
  */
 package org.dromara.hutool.http.client.engine.jdk;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ import java.util.regex.Pattern;
  * 使用 _x005F前缀转义_xXXXX_，避免被decode的问题<br>
  * 如用户传入'_x5116_'会导致乱码，使用此设置器转义为'_x005F_x5116_'
  *
- * @author looly
+ * @author Looly
  * @since 5.7.10
  */
 public class EscapeStrCellSetter extends CharSequenceCellSetter {

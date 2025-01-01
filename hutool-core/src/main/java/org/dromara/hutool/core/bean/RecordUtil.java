@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ import java.util.Map;
  * java.lang.Record 相关工具类封装<br>
  * 来自于FastJSON2的BeanUtils
  *
- * @author fastjson2, looly
+ * @author fastjson2, Looly
  * @since 6.0.0
  */
 public class RecordUtil {

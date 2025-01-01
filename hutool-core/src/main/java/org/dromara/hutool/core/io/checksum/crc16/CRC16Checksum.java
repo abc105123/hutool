@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ import java.util.zip.Checksum;
  * CRC16 Checksum，用于提供多种CRC16算法的通用实现<br>
  * 通过继承此类，重写update和reset完成相应算法。
  *
- * @author looly
+ * @author Looly
  * @since 5.3.10
  */
 public abstract class CRC16Checksum implements Checksum, Serializable {

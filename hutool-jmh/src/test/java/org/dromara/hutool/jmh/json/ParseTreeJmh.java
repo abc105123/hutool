@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2025 Hutool Team and hutool.cn
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.dromara.hutool.jmh.json;
 
 import com.alibaba.fastjson2.JSON;
@@ -17,7 +33,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 /**
  * JSON将字符串解析为树结构的性能对比测试
  *
- * @author looly
+ * @author Looly
  */
 @BenchmarkMode(Mode.AverageTime)//每次执行平均花费时间
 @Warmup(iterations = 5, time = 1) //预热5次调用

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ import java.io.Serializable;
  * 此加载器常用于对象比较庞大而不一定被使用的情况，用于减少启动时资源占用问题<br>
  * 此加载器使用双重检查（Double-Check）方式检查对象是否被加载，避免多线程下重复加载或加载丢失问题
  *
- * @author looly
+ * @author Looly
  *
  * @param <T> 被加载对象类型
  */

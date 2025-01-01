@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,6 +23,6 @@
  *   （根据日期格式解析）   （根据注册的模式匹配解析） （通过预定义正则解析）
  * </pre>
  *
- * @author looly
+ * @author Looly
  */
 package org.dromara.hutool.core.date.format.parser;

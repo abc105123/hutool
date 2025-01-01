@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2024 Hutool Team and hutool.cn
+ * Copyright (c) 2013-2025 Hutool Team and hutool.cn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,7 @@ import java.util.HashMap;
  * {@link FileSystem}相关工具类封装<br>
  * 参考：https://blog.csdn.net/j16421881/article/details/78858690
  *
- * @author looly
+ * @author Looly
  * @since 5.7.15
  */
 public class FileSystemUtil {
