@@ -31,6 +31,7 @@ import org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil;
 import org.bouncycastle.jce.interfaces.ECPrivateKey;
 import org.bouncycastle.jce.spec.ECNamedCurveSpec;
 import org.bouncycastle.jce.spec.ECParameterSpec;
+import org.bouncycastle.jce.spec.ECPrivateKeySpec;
 import org.bouncycastle.math.ec.ECCurve;
 import org.bouncycastle.math.ec.ECPoint;
 import org.bouncycastle.util.BigIntegers;
@@ -49,7 +50,6 @@ import java.security.spec.ECPublicKeySpec;
 import java.security.spec.KeySpec;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-import java.util.Objects;
 
 /**
  * 椭圆曲线EC(Elliptic Curves)密钥参数相关工具类封装
@@ -111,6 +111,38 @@ public class ECKeyUtil {
 	}
 
 	/**
+	 * 解码恢复EC私钥,支持Base64和Hex编码,（基于BouncyCastle）
+	 *
+	 * @param d         私钥d值（Base64或Hex格式）
+	 * @param curveName EC曲线名，例如{@link SM2Constant#SM2_DOMAIN_PARAMS}
+	 * @return 私钥
+	 */
+	public static PrivateKey decodeECPrivateKey(final String d, final String curveName) {
+		return decodeECPrivateKey(SecureUtil.decode(d), curveName);
+	}
+
+	/**
+	 * 解码恢复EC私钥,支持Base64和Hex编码,（基于BouncyCastle）
+	 *
+	 * @param d         私钥d值
+	 * @param curveName EC曲线名，例如{@link SM2Constant#SM2_DOMAIN_PARAMS}
+	 * @return 私钥
+	 * @since 5.8.36
+	 */
+	public static PrivateKey decodeECPrivateKey(final byte[] d, final String curveName) {
+		final X9ECParameters x9ECParameters = ECUtil.getNamedCurveByName(curveName);
+		final ECParameterSpec ecSpec = new ECParameterSpec(
+			x9ECParameters.getCurve(),
+			x9ECParameters.getG(),
+			x9ECParameters.getN(),
+			x9ECParameters.getH()
+		);
+
+		final ECPrivateKeySpec privateKeySpec = new ECPrivateKeySpec(BigIntegers.fromUnsignedByteArray(d), ecSpec);
+		return KeyUtil.generatePrivateKey("EC", privateKeySpec);
+	}
+
+	/**
 	 * 编码压缩EC公钥（基于BouncyCastle），即Q值<br>
 	 * 见：https://www.cnblogs.com/xinzhao/p/8963724.html
 	 *
@@ -144,8 +176,8 @@ public class ECKeyUtil {
 	 * @return 公钥
 	 * @since 4.4.4
 	 */
-	public static PublicKey decodeECPoint(final String encode, final String curveName) {
-		return decodeECPoint(SecureUtil.decode(encode), curveName);
+	public static PublicKey decodeECPublicKey(final String encode, final String curveName) {
+		return decodeECPublicKey(SecureUtil.decode(encode), curveName);
 	}
 
 	/**
@@ -156,7 +188,7 @@ public class ECKeyUtil {
 	 * @return 公钥
 	 * @since 4.4.4
 	 */
-	public static PublicKey decodeECPoint(final byte[] encodeByte, final String curveName) {
+	public static PublicKey decodeECPublicKey(final byte[] encodeByte, final String curveName) {
 		final X9ECParameters x9ECParameters = ECUtil.getNamedCurveByName(curveName);
 		final ECCurve curve = x9ECParameters.getCurve();
 		final java.security.spec.ECPoint point = EC5Util.convertPoint(curve.decodePoint(encodeByte));
@@ -370,9 +402,7 @@ public class ECKeyUtil {
 		if (null == d) {
 			return null;
 		}
-		return toPrivateParams(
-			BigIntegers.fromUnsignedByteArray(Objects.requireNonNull(SecureUtil.decode(d))),
-			domainParameters);
+		return toPrivateParams(SecureUtil.decode(d), domainParameters);
 	}
 
 	/**

@@ -54,4 +54,16 @@ public class ECKeyUtilTest {
 		final PublicKey ecPublicKey = ECKeyUtil.getECPublicKey((ECPrivateKey) sm2.getPrivate(), SM2Constant.SM2_EC_SPEC);
 		Assertions.assertEquals(sm2.getPublic(), ecPublicKey);
 	}
+
+	@Test
+	void encodeAndDecodeECPrivateKeyTest(){
+		// 生成一个EC密钥对
+		final KeyPair ecKeyPair = KeyUtil.generateKeyPair("EC");
+		final ECPrivateKey ecPrivateKey = (ECPrivateKey) ecKeyPair.getPrivate();
+
+		final byte[] bytes = ECKeyUtil.encodeECPrivateKey(ecPrivateKey);
+		final ECPrivateKey decodedPrivateKey = (ECPrivateKey) ECKeyUtil.decodeECPrivateKey(bytes, "secp256r1");
+
+		Assertions.assertEquals(ecPrivateKey.getD(), decodedPrivateKey.getD());
+	}
 }

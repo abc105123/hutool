@@ -68,6 +68,17 @@ public class KeyUtil {
 	 */
 	public static final int DEFAULT_KEY_SIZE = 1024;
 
+	/**
+	 * 将密钥编码为Base64格式
+	 *
+	 * @param key 密钥
+	 * @return Base64格式密钥
+	 * @since 5.7.22
+	 */
+	public static String toBase64(final Key key) {
+		return Base64.encode(key.getEncoded());
+	}
+
 	// region ----- generateKey
 
 	/**
@@ -200,26 +211,29 @@ public class KeyUtil {
 			throw new CryptoException(e);
 		}
 	}
-	// endregion
 
 	/**
-	 * 检查{@link KeyPair} 是否为空，空的条件是：
-	 * <ul>
-	 *     <li>keyPair本身为{@code null}</li>
-	 *     <li>{@link KeyPair#getPrivate()}和{@link KeyPair#getPublic()}都为{@code null}</li>
-	 * </ul>
+	 * 获取{@link KeyGenerator}
 	 *
-	 * @param keyPair 密钥对
-	 * @return 是否为空
+	 * @param algorithm 对称加密算法
+	 * @return {@link KeyGenerator}
+	 * @since 4.5.2
 	 */
-	// region ----- keyPair
-	public static boolean isEmpty(final KeyPair keyPair) {
-		if (null == keyPair) {
-			return false;
+	public static KeyGenerator getKeyGenerator(final String algorithm) {
+		final Provider provider = GlobalProviderFactory.getProvider();
+		final KeyGenerator generator;
+		try {
+			generator = (null == provider) //
+				? KeyGenerator.getInstance(getMainAlgorithm(algorithm)) //
+				: KeyGenerator.getInstance(getMainAlgorithm(algorithm), provider);
+		} catch (final NoSuchAlgorithmException e) {
+			throw new CryptoException(e);
 		}
-		return null != keyPair.getPrivate() || null != keyPair.getPublic();
+		return generator;
 	}
+	// endregion
 
+	// region ----- generatePrivateKey
 	/**
 	 * 生成RSA私钥，仅用于非对称加密<br>
 	 * 采用PKCS#8规范，此规范定义了私钥信息语法和加密私钥语法<br>
@@ -285,7 +299,9 @@ public class KeyUtil {
 			throw new CryptoException(e);
 		}
 	}
+	// endregion
 
+	// region ----- generatePublicKey
 	/**
 	 * 生成RSA公钥，仅用于非对称加密<br>
 	 * 采用X509证书规范<br>
@@ -335,7 +351,9 @@ public class KeyUtil {
 			throw new CryptoException(e);
 		}
 	}
+	// endregion
 
+	// region ----- getRSAPublicKey
 	/**
 	 * 通过RSA私钥生成RSA公钥
 	 *
@@ -379,6 +397,25 @@ public class KeyUtil {
 		} catch (final InvalidKeySpecException e) {
 			throw new CryptoException(e);
 		}
+	}
+	// endregion
+
+	// region ----- keyPair
+	/**
+	 * 检查{@link KeyPair} 是否为空，空的条件是：
+	 * <ul>
+	 *     <li>keyPair本身为{@code null}</li>
+	 *     <li>{@link KeyPair#getPrivate()}和{@link KeyPair#getPublic()}都为{@code null}</li>
+	 * </ul>
+	 *
+	 * @param keyPair 密钥对
+	 * @return 是否为空
+	 */
+	public static boolean isEmpty(final KeyPair keyPair) {
+		if (null == keyPair) {
+			return false;
+		}
+		return null != keyPair.getPrivate() || null != keyPair.getPublic();
 	}
 
 	/**
@@ -616,6 +653,7 @@ public class KeyUtil {
 	}
 	// endregion
 
+	// region ----- keyFactory
 	/**
 	 * 获取{@link KeyFactory}
 	 *
@@ -655,27 +693,9 @@ public class KeyUtil {
 		}
 		return keyFactory;
 	}
+	// endregion
 
-	/**
-	 * 获取{@link KeyGenerator}
-	 *
-	 * @param algorithm 对称加密算法
-	 * @return {@link KeyGenerator}
-	 * @since 4.5.2
-	 */
-	public static KeyGenerator getKeyGenerator(final String algorithm) {
-		final Provider provider = GlobalProviderFactory.getProvider();
-		final KeyGenerator generator;
-		try {
-			generator = (null == provider) //
-				? KeyGenerator.getInstance(getMainAlgorithm(algorithm)) //
-				: KeyGenerator.getInstance(getMainAlgorithm(algorithm), provider);
-		} catch (final NoSuchAlgorithmException e) {
-			throw new CryptoException(e);
-		}
-		return generator;
-	}
-
+	// region ----- algorithm
 	/**
 	 * 获取主体算法名，例如RSA/ECB/PKCS1Padding的主体算法是RSA
 	 *
@@ -720,6 +740,7 @@ public class KeyUtil {
 		}
 		return algorithm;
 	}
+	// endregion
 
 	/**
 	 * 读取X.509 Certification文件中的公钥<br>
@@ -736,6 +757,39 @@ public class KeyUtil {
 			return certificate.getPublicKey();
 		}
 		return null;
+	}
+
+	// region ----- EC Key
+	/**
+	 * 编码压缩EC私钥（基于BouncyCastle）
+	 *
+	 * @param privateKey {@link PrivateKey}，必须为org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPrivateKey
+	 * @return 压缩得到的D
+	 */
+	public static byte[] encodeECPrivateKey(final PrivateKey privateKey) {
+		return ECKeyUtil.encodeECPrivateKey(privateKey);
+	}
+
+	/**
+	 * 解码恢复EC私钥,支持Base64和Hex编码,（基于BouncyCastle）
+	 *
+	 * @param encode    私钥
+	 * @param curveName EC曲线名
+	 * @return 私钥
+	 */
+	public static PrivateKey decodeECPrivateKey(final String encode, final String curveName) {
+		return ECKeyUtil.decodeECPrivateKey(encode, curveName);
+	}
+
+	/**
+	 * 解码恢复EC私钥,支持Base64和Hex编码,（基于BouncyCastle）
+	 *
+	 * @param encodeByte 私钥
+	 * @param curveName  EC曲线名
+	 * @return 私钥
+	 */
+	public static PrivateKey decodeECPrivateKey(final byte[] encodeByte, final String curveName) {
+		return ECKeyUtil.decodeECPrivateKey(encodeByte, curveName);
 	}
 
 	/**
@@ -759,8 +813,8 @@ public class KeyUtil {
 	 * @return 公钥
 	 * @since 4.4.4
 	 */
-	public static PublicKey decodeECPoint(final String encode, final String curveName) {
-		return ECKeyUtil.decodeECPoint(encode, curveName);
+	public static PublicKey decodeECPublicKey(final String encode, final String curveName) {
+		return ECKeyUtil.decodeECPublicKey(encode, curveName);
 	}
 
 	/**
@@ -772,18 +826,8 @@ public class KeyUtil {
 	 * @return 公钥
 	 * @since 4.4.4
 	 */
-	public static PublicKey decodeECPoint(final byte[] encodeByte, final String curveName) {
-		return ECKeyUtil.decodeECPoint(encodeByte, curveName);
+	public static PublicKey decodeECPublicKey(final byte[] encodeByte, final String curveName) {
+		return ECKeyUtil.decodeECPublicKey(encodeByte, curveName);
 	}
-
-	/**
-	 * 将密钥编码为Base64格式
-	 *
-	 * @param key 密钥
-	 * @return Base64格式密钥
-	 * @since 5.7.22
-	 */
-	public static String toBase64(final Key key) {
-		return Base64.encode(key.getEncoded());
-	}
+	// endregion
 }
