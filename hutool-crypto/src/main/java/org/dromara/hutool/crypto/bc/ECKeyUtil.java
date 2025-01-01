@@ -33,7 +33,6 @@ import org.bouncycastle.jce.spec.ECNamedCurveSpec;
 import org.bouncycastle.jce.spec.ECParameterSpec;
 import org.bouncycastle.math.ec.ECCurve;
 import org.bouncycastle.math.ec.ECPoint;
-import org.bouncycastle.math.ec.FixedPointCombMultiplier;
 import org.bouncycastle.util.BigIntegers;
 import org.dromara.hutool.core.io.IORuntimeException;
 import org.dromara.hutool.crypto.CryptoException;
@@ -69,7 +68,8 @@ public class ECKeyUtil {
 	 */
 	public static ECPublicKeyParameters getPublicParams(final ECPrivateKeyParameters privateKeyParameters) {
 		final ECDomainParameters domainParameters = privateKeyParameters.getParameters();
-		final ECPoint q = new FixedPointCombMultiplier().multiply(domainParameters.getG(), privateKeyParameters.getD());
+//		final ECPoint q = new FixedPointCombMultiplier().multiply(domainParameters.getG(), privateKeyParameters.getD());
+		final ECPoint q = domainParameters.getG().multiply(privateKeyParameters.getD());
 		return new ECPublicKeyParameters(q, domainParameters);
 	}
 
