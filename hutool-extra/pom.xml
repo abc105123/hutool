@@ -46,7 +46,6 @@
 		<jsch.version>0.1.55</jsch.version>
 		<sshj.version>0.39.0</sshj.version>
 		<sshd.version>2.14.0</sshd.version>
-		<zxing.version>3.5.3</zxing.version>
 		<net.version>3.11.1</net.version>
 		<emoji-java.version>5.1.1</emoji-java.version>
 		<spring-boot.version>2.7.18</spring-boot.version>
@@ -253,15 +252,6 @@
 			<groupId>org.apache.sshd</groupId>
 			<artifactId>sshd-core</artifactId>
 			<version>${sshd.version}</version>
-		</dependency>
-
-		<!-- 二维码 -->
-		<dependency>
-			<groupId>com.google.zxing</groupId>
-			<artifactId>core</artifactId>
-			<version>${zxing.version}</version>
-			<scope>compile</scope>
-			<optional>true</optional>
 		</dependency>
 		<!-- FTP工具 -->
 		<dependency>

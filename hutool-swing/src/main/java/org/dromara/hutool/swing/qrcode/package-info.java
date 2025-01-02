@@ -14,19 +14,10 @@
  * limitations under the License.
  */
 
-package org.dromara.hutool.extra.qrcode;
-
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
-
-import java.io.File;
-
-public class Issue3146Test {
-
-	@Test
-	@Disabled
-	void generateTest() {
-		QrCodeUtil.generate("https://www.baidu.com/h5/monitorfile/index.html?sadfsfasdfsafsafasfasfsafasfasdfsafdsafsfasfafsfaasfsdfsfsafasfa",
-			QrConfig.of().setWidth(600).setHeight(600).setMargin(0), new File("d:/test/issue3146.jpg"));
-	}
-}
+/**
+ * 二维码封装，基于zxing库，入口为QrCodeUtil
+ *
+ * @author Looly
+ *
+ */
+package org.dromara.hutool.swing.qrcode;

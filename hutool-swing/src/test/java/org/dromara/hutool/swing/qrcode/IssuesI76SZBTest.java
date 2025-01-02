@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.dromara.hutool.extra.qrcode;
+package org.dromara.hutool.swing.qrcode;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;

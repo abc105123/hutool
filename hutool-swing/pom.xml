@@ -36,6 +36,7 @@
 		<Automatic-Module-Name>org.dromara.hutool.swing</Automatic-Module-Name>
 		<animated-gif-lib.version>1.4</animated-gif-lib.version>
 		<metadata-extractor.version>2.19.0</metadata-extractor.version>
+		<zxing.version>3.5.3</zxing.version>
 	</properties>
 
 	<dependencies>
@@ -55,6 +56,14 @@
 			<groupId>com.drewnoakes</groupId>
 			<artifactId>metadata-extractor</artifactId>
 			<version>${metadata-extractor.version}</version>
+			<optional>true</optional>
+		</dependency>
+		<!-- 二维码 -->
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>core</artifactId>
+			<version>${zxing.version}</version>
+			<scope>compile</scope>
 			<optional>true</optional>
 		</dependency>
 		<!-- UI主题库 -->

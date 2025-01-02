@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package org.dromara.hutool.extra.qrcode;
+package org.dromara.hutool.swing.qrcode;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import static org.dromara.hutool.core.io.file.FileUtil.file;
+import java.io.File;
 
-public class Discussions3030Test {
+public class Issue3146Test {
+
 	@Test
 	@Disabled
-	public void name() {
-		//扫描二维码后   对应的链接正常
-		String path = "https://juejin.cn/backend?name=%E5%BC%A0%E7%8F%8A&school=%E5%8E%A6%E9%97%A8%E5%A4%A7%E5%AD%A6";
-		QrCodeUtil.generate(path, QrConfig.of(), file("d:/test/3030.png"));
+	void generateTest() {
+		QrCodeUtil.generate("https://www.baidu.com/h5/monitorfile/index.html?sadfsfasdfsafsafasfasfsafasfasdfsafdsafsfasfafsfaasfsdfsfsafasfa",
+			QrConfig.of().setWidth(600).setHeight(600).setMargin(0), new File("d:/test/issue3146.jpg"));
 	}
 }

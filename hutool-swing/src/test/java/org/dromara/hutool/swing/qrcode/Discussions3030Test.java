@@ -14,10 +14,19 @@
  * limitations under the License.
  */
 
-/**
- * 二维码封装，基于zxing库，入口为QrCodeUtil
- *
- * @author Looly
- *
- */
-package org.dromara.hutool.extra.qrcode;
+package org.dromara.hutool.swing.qrcode;
+
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+
+import static org.dromara.hutool.core.io.file.FileUtil.file;
+
+public class Discussions3030Test {
+	@Test
+	@Disabled
+	public void name() {
+		//扫描二维码后   对应的链接正常
+		final String path = "https://juejin.cn/backend?name=%E5%BC%A0%E7%8F%8A&school=%E5%8E%A6%E9%97%A8%E5%A4%A7%E5%AD%A6";
+		QrCodeUtil.generate(path, QrConfig.of(), file("d:/test/3030.png"));
+	}
+}
