@@ -55,7 +55,7 @@ public class JWTUtilTest {
 
 		//payload
 		Assertions.assertEquals("1234567890", jwt.getPayload("sub"));
-		Assertions.assertEquals("Looly", jwt.getPayload("name"));
+		Assertions.assertEquals("looly", jwt.getPayload("name"));
 		Assertions.assertEquals(true, jwt.getPayload("admin"));
 	}
 

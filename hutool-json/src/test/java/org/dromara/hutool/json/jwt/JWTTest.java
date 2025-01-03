@@ -37,7 +37,7 @@ public class JWTTest {
 		final JWT jwt = JWT.of()
 			.setHeader(JWTHeader.TYPE, "JWT")
 			.setPayload("sub", "1234567890")
-			.setPayload("name", "Looly")
+			.setPayload("name", "looly")
 			.setPayload("admin", true)
 			.setExpiresAt(DateUtil.parse("2022-01-01"))
 			.setKey(key);
@@ -69,7 +69,7 @@ public class JWTTest {
 
 		//payload
 		Assertions.assertEquals("1234567890", jwt.getPayload("sub"));
-		Assertions.assertEquals("Looly", jwt.getPayload("name"));
+		Assertions.assertEquals("looly", jwt.getPayload("name"));
 		Assertions.assertEquals(true, jwt.getPayload("admin"));
 	}
 
@@ -78,7 +78,7 @@ public class JWTTest {
 		final JWT jwt = JWT.of()
 			.setHeader(JWTHeader.TYPE, "JWT")
 			.setPayload("sub", "1234567890")
-			.setPayload("name", "Looly")
+			.setPayload("name", "looly")
 			.setPayload("admin", true)
 			.setSigner(JWTSignerUtil.none());
 
