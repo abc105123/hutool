@@ -87,7 +87,7 @@ public class LRUCacheTest {
 	public void issue2647Test(){
 		final AtomicInteger removeCount = new AtomicInteger();
 
-		final LRUCache<String, Integer> cache = CacheUtil.newLRUCache(3,1);
+		final LRUCache<String, Integer> cache = CacheUtil.newLRUCache(3,1000);
 		cache.setListener((key, value) -> {
 			// 共移除7次
 			removeCount.incrementAndGet();
