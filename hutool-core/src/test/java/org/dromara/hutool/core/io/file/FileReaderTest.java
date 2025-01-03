@@ -39,14 +39,14 @@ public class FileReaderTest {
 
 	@Test
 	public void readLinesTest() {
-		final FileReader fileReader = FileReader.of(FileUtil.file("test.properties"));
+		final FileReader fileReader = FileReader.of(FileUtil.file("file_reader_test.txt"));
 		final List<String> strings = fileReader.readLines();
 		Assertions.assertEquals(6, strings.size());
 	}
 
 	@Test
 	public void readLinesTest2() {
-		final FileReader fileReader = FileReader.of(FileUtil.file("test.properties"));
+		final FileReader fileReader = FileReader.of(FileUtil.file("file_reader_test.txt"));
 		final List<String> strings = fileReader.readLines(new ArrayList<>(), StrUtil::isNotBlank);
 		Assertions.assertEquals(5, strings.size());
 	}

@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class LineReaderTest {
 	@Test
 	public void readLfTest() {
-		final LineReader lineReader = new LineReader(ResourceUtil.getUtf8Reader("multi_line.properties"));
+		final LineReader lineReader = new LineReader(ResourceUtil.getUtf8Reader("multi_line.txt"));
 		final ArrayList<String> list = ListUtil.of(lineReader);
 		Assertions.assertEquals(3, list.size());
 		Assertions.assertEquals("test1", list.get(0));
@@ -36,7 +36,7 @@ public class LineReaderTest {
 
 	@Test
 	public void readCrLfTest() {
-		final LineReader lineReader = new LineReader(ResourceUtil.getUtf8Reader("multi_line_crlf.properties"));
+		final LineReader lineReader = new LineReader(ResourceUtil.getUtf8Reader("multi_line_crlf.txt"));
 		final ArrayList<String> list = ListUtil.of(lineReader);
 		Assertions.assertEquals(3, list.size());
 		Assertions.assertEquals("test1", list.get(0));
