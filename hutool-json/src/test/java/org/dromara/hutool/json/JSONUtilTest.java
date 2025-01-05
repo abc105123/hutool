@@ -360,7 +360,7 @@ public class JSONUtilTest {
 	 */
 	@Test
 	public void testArrayEntity() {
-		final String jsonStr = JSONUtil.toJsonStr(new ArrayEntity());
+		final String jsonStr = JSONUtil.toJsonStr(new ArrayEntity(), JSONConfig.of().setIgnoreNullElement(true));
 		// a为空的bytes数组，按照空的流对待
 		assertEquals("{\"a\":[],\"b\":[0],\"c\":[],\"d\":[],\"e\":[]}", jsonStr);
 	}

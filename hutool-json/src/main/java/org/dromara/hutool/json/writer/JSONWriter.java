@@ -23,10 +23,10 @@ import org.dromara.hutool.core.regex.ReUtil;
 import org.dromara.hutool.core.text.CharUtil;
 import org.dromara.hutool.core.text.StrUtil;
 import org.dromara.hutool.core.util.ObjUtil;
-import org.dromara.hutool.json.support.InternalJSONUtil;
 import org.dromara.hutool.json.JSON;
 import org.dromara.hutool.json.JSONConfig;
 import org.dromara.hutool.json.JSONException;
+import org.dromara.hutool.json.support.InternalJSONUtil;
 import org.dromara.hutool.json.support.JSONFormatStyle;
 
 import java.io.Closeable;
@@ -198,10 +198,6 @@ public class JSONWriter implements Appendable, Flushable, Closeable {
 	 */
 	@SuppressWarnings("resource")
 	public JSONWriter writeField(final MutableEntry<Object, Object> pair) {
-		if (null == pair.getValue() && config.isIgnoreNullValue()) {
-			return this;
-		}
-
 		if (null != predicate) {
 			if (!predicate.test(pair)) {
 				// 使用修改后的键值对
@@ -210,14 +206,22 @@ public class JSONWriter implements Appendable, Flushable, Closeable {
 		}
 
 		final Object key = pair.getKey();
+		final Object value = pair.getValue();
+
 		if (key instanceof Integer) {
+			if(null == value && config.isIgnoreNullElement()){
+				return this;
+			}
 			// 数组模式，只写出值
-			return writeValueDirect(pair.getValue(), true);
+			return writeValueDirect(value, true);
 		}
 
+		if(null == value && config.isIgnoreNullValue()){
+			return this;
+		}
 		// 键值对模式
 		writeKey(StrUtil.toString(key));
-		return writeValueDirect(pair.getValue(), false);
+		return writeValueDirect(value, false);
 	}
 
 	/**

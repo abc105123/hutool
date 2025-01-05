@@ -62,11 +62,11 @@ public class JSONNullTest {
 	@Test
 	public void setNullOfJSONArrayTest(){
 		// 忽略null
-		String json1 = JSONUtil.ofArray().addNull().toString();
+		String json1 = JSONUtil.ofArray(JSONConfig.of().setIgnoreNullElement(true)).addNull().toString();
 		Assertions.assertEquals("[]", json1);
 
 		// 不忽略null
-		json1 = JSONUtil.ofArray(JSONConfig.of().setIgnoreNullValue(false)).addNull().toString();
+		json1 = JSONUtil.ofArray(JSONConfig.of().setIgnoreNullElement(false)).addNull().toString();
 		Assertions.assertEquals("[null]", json1);
 	}
 }

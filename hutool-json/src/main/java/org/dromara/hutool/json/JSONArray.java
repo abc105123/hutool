@@ -215,7 +215,7 @@ public class JSONArray extends ListWrapper<JSON> implements JSON, JSONGetter<Int
 		}
 		final List<JSON> list = new ArrayList<>(c.size());
 		for (final JSON json : c) {
-			if (null == json && config().isIgnoreNullValue()) {
+			if (null == json && config().isIgnoreNullElement()) {
 				continue;
 			}
 			list.add(json);
@@ -245,7 +245,7 @@ public class JSONArray extends ListWrapper<JSON> implements JSON, JSONGetter<Int
 	 */
 	@Override
 	public JSON set(final int index, final JSON element) {
-		if (null == element && config().isIgnoreNullValue()) {
+		if (null == element && config().isIgnoreNullElement()) {
 			return null;
 		}
 
@@ -266,7 +266,7 @@ public class JSONArray extends ListWrapper<JSON> implements JSON, JSONGetter<Int
 	// region ----- add
 	@Override
 	public boolean add(final JSON element) {
-		if (null == element && config().isIgnoreNullValue()) {
+		if (null == element && config().isIgnoreNullElement()) {
 			return false;
 		}
 		return super.add(element);
@@ -274,7 +274,7 @@ public class JSONArray extends ListWrapper<JSON> implements JSON, JSONGetter<Int
 
 	@Override
 	public void add(int index, final JSON element) {
-		final boolean ignoreNullValue = config().isIgnoreNullValue();
+		final boolean ignoreNullValue = config().isIgnoreNullElement();
 		if (null == element && ignoreNullValue) {
 			return;
 		}

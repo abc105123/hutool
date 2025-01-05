@@ -60,7 +60,7 @@ public class JSONArrayTest {
 	@Test
 	public void addNullTest() {
 		final List<String> aaa = ListUtil.view("aaa", null);
-		final String jsonStr = JSONUtil.toJsonStr(JSONUtil.parse(aaa, JSONConfig.of().setIgnoreNullValue(false)));
+		final String jsonStr = JSONUtil.toJsonStr(JSONUtil.parse(aaa, JSONConfig.of().setIgnoreNullElement(false)));
 		assertEquals("[\"aaa\",null]", jsonStr);
 	}
 
@@ -186,7 +186,7 @@ public class JSONArrayTest {
 	@Test
 	public void toListWithNullTest() {
 		final String json = "[null,{'akey':'avalue','bkey':'bvalue'}]";
-		final JSONArray ja = JSONUtil.parseArray(json, JSONConfig.of().setIgnoreNullValue(false));
+		final JSONArray ja = JSONUtil.parseArray(json, JSONConfig.of().setIgnoreNullElement(false));
 
 		final List<KeyBean> list = ja.toList(KeyBean.class);
 		Assertions.assertNull(list.get(0));
@@ -239,12 +239,12 @@ public class JSONArrayTest {
 
 	@Test
 	public void putToIndexTest() {
-		JSONArray jsonArray = new JSONArray();
+		JSONArray jsonArray = new JSONArray(JSONConfig.of().setIgnoreNullElement(true));
 		jsonArray.setValue(3, "test");
-		// 默认忽略null值，因此空位无值，只有一个值
+		// 忽略null值，因此空位无值，只有一个值
 		assertEquals(1, jsonArray.size());
 
-		jsonArray = new JSONArray(JSONConfig.of().setIgnoreNullValue(false));
+		jsonArray = new JSONArray(JSONConfig.of().setIgnoreNullElement(false));
 		jsonArray.setValue(2, "test");
 		// 第三个位置插入值，0~2都是null
 		assertEquals(3, jsonArray.size());
@@ -299,7 +299,7 @@ public class JSONArrayTest {
 
 	@Test
 	public void putNullTest() {
-		final JSONArray array = JSONUtil.ofArray(JSONConfig.of().setIgnoreNullValue(false));
+		final JSONArray array = JSONUtil.ofArray(JSONConfig.of().setIgnoreNullElement(false));
 		array.addNull();
 
 		assertEquals("[null]", array.toString());

@@ -51,11 +51,20 @@ public class JSONConfig implements Serializable {
 	 * 是否忽略null值<br>
 	 * 此选项主要作用于两个阶段：
 	 * <ol>
-	 *     <li>Java对象或JSON字符串转为JSON时</li>
-	 *     <li>JSON写出或转为JSON字符串时</li>
+	 *     <li>Java对象或JSON字符串转为JSONObject时</li>
+	 *     <li>JSONObject写出或转为JSON字符串时</li>
 	 * </ol>
 	 */
 	private boolean ignoreNullValue = true;
+	/**
+	 * 是否忽略null节点，即在JSONArray中null节点是否忽略，默认false<br>
+	 * 此选项主要作用于两个阶段：
+	 * <ol>
+	 *     <li>Java对象或JSON字符串转为JSONArray时</li>
+	 *     <li>JSONArray写出或转为JSON字符串时</li>
+	 * </ol>
+	 */
+	private boolean ignoreNullElement = false;
 	/**
 	 * 是否支持transient关键字修饰和@Transient注解，如果支持，被修饰的字段或方法对应的字段将被忽略。
 	 */
@@ -215,6 +224,36 @@ public class JSONConfig implements Serializable {
 	}
 
 	/**
+	 * 是否忽略null节点，即在JSONArray中null节点是否忽略，默认false<br>
+	 * 此选项主要作用于两个阶段：
+	 * <ol>
+	 *     <li>Java对象或JSON字符串转为JSONArray时</li>
+	 *     <li>JSONArray写出或转为JSON字符串时</li>
+	 * </ol>
+	 *
+	 * @return 是否忽略null节点
+	 */
+	public boolean isIgnoreNullElement() {
+		return this.ignoreNullElement;
+	}
+
+	/**
+	 * 设置是否忽略null节点，即在JSONArray中null节点是否忽略，默认false<br>
+	 * 此选项主要作用于两个阶段：
+	 * <ol>
+	 *     <li>Java对象或JSON字符串转为JSONArray时</li>
+	 *     <li>JSONArray写出或转为JSON字符串时</li>
+	 * </ol>
+	 *
+	 * @param ignoreNullElement 是否忽略null节点
+	 * @return this
+	 */
+	public JSONConfig setIgnoreNullElement(final boolean ignoreNullElement) {
+		this.ignoreNullElement = ignoreNullElement;
+		return this;
+	}
+
+	/**
 	 * 是否支持transient关键字修饰和@Transient注解，如果支持，被修饰的字段或方法对应的字段将被忽略。
 	 *
 	 * @return 是否支持
@@ -309,6 +348,7 @@ public class JSONConfig implements Serializable {
 	 *     <li>零宽连接符：{@code \u200D}</li>
 	 *     <li>零宽无断空格：{@code \uFEFF}</li>
 	 * </ul>
+	 *
 	 * @return 此值为{@code false}，则转义，否则去除
 	 */
 	public boolean isIgnoreZeroWithChar() {
@@ -323,6 +363,7 @@ public class JSONConfig implements Serializable {
 	 *     <li>零宽连接符：{@code \u200D}</li>
 	 *     <li>零宽无断空格：{@code \uFEFF}</li>
 	 * </ul>
+	 *
 	 * @param ignoreZeroWithChar 此值为{@code false}，则转义，否则去除
 	 * @return this
 	 */
