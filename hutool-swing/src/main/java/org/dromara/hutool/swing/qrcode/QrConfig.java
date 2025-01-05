@@ -182,7 +182,7 @@ public class QrConfig {
 	 *
 	 * @return 前景色
 	 */
-	public int getForeColor() {
+	public Integer getForeColor() {
 		return foreColor;
 	}
 
@@ -207,7 +207,7 @@ public class QrConfig {
 	 *
 	 * @return 背景色
 	 */
-	public int getBackColor() {
+	public Integer getBackColor() {
 		return backColor;
 	}
 

@@ -22,19 +22,19 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.GlobalHistogramBinarizer;
 import com.google.zxing.common.HybridBinarizer;
 import org.dromara.hutool.core.codec.binary.Base64;
-import org.dromara.hutool.core.io.IoUtil;
 import org.dromara.hutool.core.io.file.FileNameUtil;
 import org.dromara.hutool.core.io.file.FileUtil;
 import org.dromara.hutool.core.net.url.UrlUtil;
 import org.dromara.hutool.core.util.ObjUtil;
 import org.dromara.hutool.swing.img.ImgUtil;
+import org.dromara.hutool.swing.qrcode.render.AsciiArtRender;
+import org.dromara.hutool.swing.qrcode.render.BitMatrixRender;
+import org.dromara.hutool.swing.qrcode.render.ImageRender;
+import org.dromara.hutool.swing.qrcode.render.SVGRender;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.util.Map;
 
 /**
@@ -140,23 +140,11 @@ public class QrCodeUtil {
 	 */
 	public static File generate(final String content, final QrConfig config, final File targetFile) {
 		final String extName = FileNameUtil.extName(targetFile);
-		switch (extName) {
-			case QR_TYPE_SVG:
-				FileUtil.writeUtf8String(generateAsSvg(content, config), targetFile);
-				break;
-			case QR_TYPE_TXT:
-				FileUtil.writeUtf8String(generateAsAsciiArt(content, config), targetFile);
-				break;
-			default:
-				BufferedImage image = null;
-				try {
-					image = generate(content, config);
-					ImgUtil.write(image, targetFile);
-				} finally {
-					ImgUtil.flush(image);
-				}
+		try (final BufferedOutputStream outputStream = FileUtil.getOutputStream(targetFile)) {
+			generate(content, config, extName, outputStream);
+		} catch (final IOException e) {
+			throw new RuntimeException(e);
 		}
-
 		return targetFile;
 	}
 
@@ -183,22 +171,18 @@ public class QrCodeUtil {
 	 * @since 4.1.2
 	 */
 	public static void generate(final String content, final QrConfig config, final String imageType, final OutputStream out) {
+		final BitMatrixRender render;
 		switch (imageType) {
 			case QR_TYPE_SVG:
-				IoUtil.writeUtf8(out, false, generateAsSvg(content, config));
+				render = new SVGRender(config);
 				break;
 			case QR_TYPE_TXT:
-				IoUtil.writeUtf8(out, false, generateAsAsciiArt(content, config));
+				render = new AsciiArtRender(config);
 				break;
 			default:
-				BufferedImage img = null;
-				try {
-					img = generate(content, config);
-					ImgUtil.write(img, imageType, out);
-				} finally {
-					ImgUtil.flush(img);
-				}
+				render = new ImageRender(config, imageType);
 		}
+		render.render(encode(content, config), out);
 	}
 
 	/**
@@ -223,7 +207,7 @@ public class QrCodeUtil {
 	 * @since 4.1.14
 	 */
 	public static BufferedImage generate(final String content, final QrConfig config) {
-		return new QrImage(content, ObjUtil.defaultIfNull(config, QrConfig::new));
+		return new ImageRender(ObjUtil.defaultIfNull(config, QrConfig::new), null).render(encode(content, config));
 	}
 
 	// ------------------------------------------------------------------------------------------------------------------- encode
@@ -356,7 +340,9 @@ public class QrCodeUtil {
 	 * @return SVG矢量图（字符串）
 	 */
 	public static String toSVG(final BitMatrix matrix, final QrConfig config) {
-		return new QrSVG(matrix, config).toString();
+		final StringBuilder result = new StringBuilder();
+		new SVGRender(config).render(matrix, result);
+		return result.toString();
 	}
 
 	/**
@@ -374,13 +360,15 @@ public class QrCodeUtil {
 	/**
 	 * BitMatrix转ASCII Art字符画形式的二维码
 	 *
-	 * @param bitMatrix BitMatrix
-	 * @param qrConfig  QR设置
+	 * @param matrix BitMatrix
+	 * @param config QR设置
 	 * @return ASCII Art字符画形式的二维码
 	 * @since 5.8.6
 	 */
-	public static String toAsciiArt(final BitMatrix bitMatrix, final QrConfig qrConfig) {
-		return new QrAsciiArt(bitMatrix, qrConfig).toString();
+	public static String toAsciiArt(final BitMatrix matrix, final QrConfig config) {
+		final StringBuilder result = new StringBuilder();
+		new AsciiArtRender(config).render(matrix, result);
+		return result.toString();
 	}
 
 	// region ----- Private Methods
