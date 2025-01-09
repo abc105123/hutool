@@ -33,7 +33,7 @@ public class CronTest {
 	@Test
 	@Disabled
 	public void customCronTest() {
-		CronUtil.schedule("*/2 * * * * *", (Task) () -> Console.log("Task excuted."));
+		CronUtil.schedule("*/2 * * * * *", (Task) () -> Console.log("Task executed."));
 
 		// 支持秒级别定时任务
 		CronUtil.setMatchSecond(true);
