@@ -17,6 +17,7 @@
 package org.dromara.hutool.core.text.escape;
 
 import org.dromara.hutool.core.text.replacer.LookupReplacer;
+import org.dromara.hutool.core.text.replacer.ReplacerChain;
 
 /**
  * HTML4的ESCAPE
@@ -25,8 +26,20 @@ import org.dromara.hutool.core.text.replacer.LookupReplacer;
  * @author Looly
  *
  */
-public class Html4Escape extends XmlEscape {
+public class Html4Escape extends ReplacerChain {
 	private static final long serialVersionUID = 1L;
+
+	/**
+	 * HTML转义字符<br>
+	 * HTML转义相比XML，并不转义单引号<br>
+	 * 见：https://stackoverflow.com/questions/1091945/what-characters-do-i-need-to-escape-in-xml-documents
+	 */
+	protected static final String[][] BASIC_ESCAPE = { //
+		{"\"", "&quot;"}, // " - double-quote
+		{"&", "&amp;"}, // & - ampersand
+		{"<", "&lt;"}, // < - less-than
+		{">", "&gt;"}, // > - greater-than
+	};
 
 	/**
 	 * ISO8859_1 转义字符
@@ -337,6 +350,7 @@ public class Html4Escape extends XmlEscape {
 	 */
 	public Html4Escape() {
 		super();
+		addChain(new LookupReplacer(BASIC_ESCAPE));
 		addChain(new LookupReplacer(ISO8859_1_ESCAPE));
 		addChain(new LookupReplacer(HTML40_EXTENDED_ESCAPE));
 	}

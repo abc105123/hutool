@@ -40,7 +40,7 @@ public class XmlEscape extends ReplacerChain {
 	 * XML转义字符
 	 */
 	protected static final String[][] BASIC_ESCAPE = { //
-//			{"'", "&apos;"}, // " - single-quote
+			{"'", "&apos;"}, // " - single-quote
 			{"\"", "&quot;"}, // " - double-quote
 			{"&", "&amp;"}, // & - ampersand
 			{"<", "&lt;"}, // < - less-than
