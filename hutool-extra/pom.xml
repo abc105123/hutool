@@ -213,10 +213,11 @@
 		</dependency>
 
 		<!-- SSH安全连接所使用的类库 -->
+		<!-- com.jcraft:jsch不支持新的加密算法，此第三方版本做补充修复 -->
 		<dependency>
-			<groupId>com.jcraft</groupId>
+			<groupId>com.github.mwiede</groupId>
 			<artifactId>jsch</artifactId>
-			<version>${jsch.version}</version>
+			<version>0.2.21</version>
 			<scope>compile</scope>
 			<optional>true</optional>
 		</dependency>
