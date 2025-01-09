@@ -16,7 +16,6 @@
 
 package org.dromara.hutool.core.text.escape;
 
-import org.dromara.hutool.core.lang.Console;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -87,7 +86,8 @@ public class EscapeUtilTest {
 	@Test
 	public void escapeXmlTest(){
 		final String a = "<>";
-		final String escape = EscapeUtil.escape(a);
-		Console.log(escape);
+		final String escape = EscapeUtil.escapeXml(a);
+		Assertions.assertEquals("&lt;&gt;", escape);
+		Assertions.assertEquals("中文“双引号”", EscapeUtil.escapeXml("中文“双引号”"));
 	}
 }
