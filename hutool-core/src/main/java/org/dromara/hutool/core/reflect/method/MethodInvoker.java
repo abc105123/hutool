@@ -86,6 +86,15 @@ public class MethodInvoker implements Invoker {
 		return this.paramTypes;
 	}
 
+	/**
+	 * 获取方法返回类型
+	 *
+	 * @return 方法返回类型
+	 */
+	public Type getReturnType() {
+		return this.method.getReturnType();
+	}
+
 	@Override
 	public String getName() {
 		return this.method.getName();
