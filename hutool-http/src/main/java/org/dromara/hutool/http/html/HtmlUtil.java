@@ -42,6 +42,10 @@ public class HtmlUtil {
 	 */
 	public static final Pattern RE_HTML_MARK = Pattern.compile("(<[^<]*?>)|(<\\s*?/[^<]*?>)|(<[^<]*?/\\s*?>)", Pattern.CASE_INSENSITIVE);
 	/**
+	 * 正则：匹配空标签
+	 */
+	public static final String RE_HTML_EMPTY_MARK = "<(\\w+)([^>]*)>\\s*</\\1>";
+	/**
 	 * script标签正则
 	 */
 	public static final Pattern RE_SCRIPT = Pattern.compile("<\\s*?script[^>]*?>.*?<\\s*?/\\s*?script\\s*?>", Pattern.CASE_INSENSITIVE);
@@ -109,6 +113,17 @@ public class HtmlUtil {
 	 */
 	public static String cleanHtmlTag(final String content) {
 		return ReUtil.replaceAll(content, RE_HTML_MARK, StrUtil.EMPTY);
+	}
+
+	/**
+	 * 清除所有HTML空标签<br>
+	 * 例如：{@code <p></p>}
+	 *
+	 * @param content 文本
+	 * @return 清除空标签后的文本
+	 */
+	public static String cleanEmptyTag(final String content) {
+		return content.replaceAll(RE_HTML_EMPTY_MARK, StrUtil.EMPTY);
 	}
 
 	/**
