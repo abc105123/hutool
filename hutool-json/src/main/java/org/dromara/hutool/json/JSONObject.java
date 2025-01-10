@@ -233,7 +233,7 @@ public class JSONObject extends MapWrapper<String, JSON> implements JSON, JSONGe
 	}
 
 	/**
-	 * 设置设置{@code null}值。在忽略null模式下移除对应键值对。
+	 * 设置{@code null}值。在忽略null模式下移除对应键值对。
 	 *
 	 * @param key 键
 	 * @return this.
