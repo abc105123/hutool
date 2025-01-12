@@ -18,8 +18,8 @@ package org.dromara.hutool.core.io.resource;
 
 import org.dromara.hutool.core.io.file.FileUtil;
 import org.dromara.hutool.core.lang.Assert;
-import org.dromara.hutool.core.util.ObjUtil;
 import org.dromara.hutool.core.net.url.UrlUtil;
+import org.dromara.hutool.core.util.ObjUtil;
 
 import java.io.File;
 import java.io.InputStream;
@@ -75,8 +75,7 @@ public class FileResource implements Resource, Serializable {
 	 * @param fileName 文件名，带扩展名，如果为null获取文件本身的文件名
 	 */
 	public FileResource(final File file, final String fileName) {
-		Assert.notNull(file, "File must be not null !");
-		this.file = file;
+		this.file = Assert.notNull(file, "File must be not null !");;
 		this.lastModified = file.lastModified();
 		this.name = ObjUtil.defaultIfNull(fileName, file::getName);
 	}
@@ -100,6 +99,9 @@ public class FileResource implements Resource, Serializable {
 
 	@Override
 	public InputStream getStream() throws NoResourceException {
+		if (!exists()) {
+			throw new NoResourceException("File [{}] not exist!", this.file.getAbsolutePath());
+		}
 		return FileUtil.getInputStream(this.file);
 	}
 
@@ -110,6 +112,15 @@ public class FileResource implements Resource, Serializable {
 	 */
 	public File getFile() {
 		return this.file;
+	}
+
+	/**
+	 * 文件是否存在
+	 *
+	 * @return 是否存在
+	 */
+	public boolean exists() {
+		return this.file.exists();
 	}
 
 	@Override

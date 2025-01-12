@@ -126,8 +126,10 @@ public class ClassPathResource extends UrlResource {
 
 	/**
 	 * 根据给定资源初始化URL
+	 *
+	 * @throws NoResourceException 资源不存在
 	 */
-	private void initUrl() {
+	private void initUrl() throws NoResourceException{
 		if (null != this.clazz) {
 			super.url = this.clazz.getResource(this.path);
 		} else if (null != this.classLoader) {

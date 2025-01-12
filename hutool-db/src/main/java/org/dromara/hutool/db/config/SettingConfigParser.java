@@ -16,6 +16,7 @@
 
 package org.dromara.hutool.db.config;
 
+import org.dromara.hutool.core.array.ArrayUtil;
 import org.dromara.hutool.core.convert.ConvertUtil;
 import org.dromara.hutool.core.io.resource.NoResourceException;
 import org.dromara.hutool.core.map.MapUtil;
@@ -38,13 +39,10 @@ public class SettingConfigParser implements ConfigParser {
 
 	private static final String CONNECTION_PREFIX = "connection.";
 	/**
-	 * 数据库配置文件可选路径1
+	 * 数据库配置文件可选路径
 	 */
-	private static final String DEFAULT_DB_SETTING_PATH = "config/db.setting";
+	private static final String[] DEFAULT_DB_SETTING_PATHS = {"config/db.setting", "db.setting"};
 	/**
-	 * 数据库配置文件可选路径2
-	 */
-	private static final String DEFAULT_DB_SETTING_PATH2 = "db.setting";
 
 	/**
 	 * 创建默认配置解析器
@@ -100,18 +98,15 @@ public class SettingConfigParser implements ConfigParser {
 	 * @since 5.8.0
 	 */
 	private static Setting createDefaultSetting() {
-		Setting setting;
-		try {
-			setting = new Setting(DEFAULT_DB_SETTING_PATH, true);
-		} catch (final NoResourceException e) {
-			// 尝试ClassPath下直接读取配置文件
+		for (final String settingPath : DEFAULT_DB_SETTING_PATHS) {
 			try {
-				setting = new Setting(DEFAULT_DB_SETTING_PATH2, true);
-			} catch (final NoResourceException e2) {
-				throw new NoResourceException("Default db setting [{}] or [{}] in classpath not found !", DEFAULT_DB_SETTING_PATH, DEFAULT_DB_SETTING_PATH2);
+				return new Setting(settingPath, true);
+			} catch (final NoResourceException e) {
+				// ignore
 			}
 		}
-		return setting;
+
+		throw new NoResourceException("Default db settings [{}] in classpath not found !", ArrayUtil.join(DEFAULT_DB_SETTING_PATHS, ","));
 	}
 
 	/**
