@@ -41,6 +41,10 @@ public class ClientConfig {
 	 */
 	private int connectionTimeout;
 	/**
+	 * 默认连接保持时间（连接池中），单位：毫秒
+	 */
+	private long timeToLive;
+	/**
 	 * 默认读取超时
 	 */
 	private int readTimeout;
@@ -109,6 +113,26 @@ public class ClientConfig {
 	 */
 	public ClientConfig setConnectionTimeout(final int connectionTimeout) {
 		this.connectionTimeout = connectionTimeout;
+		return this;
+	}
+
+	/**
+	 * 获取连接保持时间（连接池中），单位：毫秒
+	 *
+	 * @return 连接保持时间（连接池中），单位：毫秒
+	 */
+	public long getTimeToLive() {
+		return timeToLive;
+	}
+
+	/**
+	 * 设置连接保持时间（连接池中），单位：毫秒
+	 *
+	 * @param timeToLive 连接保持时间（连接池中），单位：毫秒
+	 * @return this
+	 */
+	public ClientConfig setTimeToLive(final long timeToLive) {
+		this.timeToLive = timeToLive;
 		return this;
 	}
 

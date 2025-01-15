@@ -50,6 +50,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Apache HttpClient5的HTTP请求引擎
@@ -154,9 +155,18 @@ public class HttpClient4Engine extends AbstractClientEngine {
 	 * @return PoolingHttpClientConnectionManager
 	 */
 	private PoolingHttpClientConnectionManager buildConnectionManager(final ClientConfig config) {
+		long timeToLive = config.getTimeToLive();
+		if(timeToLive <= 0){
+			timeToLive = -1;
+		}
 		final PoolingHttpClientConnectionManager manager = new PoolingHttpClientConnectionManager(
 			// SSL配置，当config.getSslInfo()为null时，使用默认配置
-			ConnectionSocketFactoryRegistryBuilder.build(config.getSslInfo())
+			ConnectionSocketFactoryRegistryBuilder.build(config.getSslInfo()),
+			null,
+			null,
+			null,
+			timeToLive,
+			TimeUnit.MILLISECONDS
 		);
 
 		// 连接池配置
@@ -194,9 +204,6 @@ public class HttpClient4Engine extends AbstractClientEngine {
 		final int readTimeout = config.getReadTimeout();
 		if (readTimeout > 0) {
 			requestConfigBuilder.setSocketTimeout(readTimeout);
-		}
-		if (config instanceof ApacheHttpClientConfig) {
-			requestConfigBuilder.setMaxRedirects(((ApacheHttpClientConfig) config).getMaxRedirects());
 		}
 
 		return requestConfigBuilder.build();

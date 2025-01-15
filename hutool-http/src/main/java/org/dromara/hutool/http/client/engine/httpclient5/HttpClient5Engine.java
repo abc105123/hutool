@@ -173,13 +173,20 @@ public class HttpClient5Engine extends AbstractClientEngine {
 				.build()
 			);
 		}
-		// 连接超时配置
+
+		// 默认连接配置
+		final ConnectionConfig.Builder connectionConfigBuilder = ConnectionConfig.custom();
 		final int connectionTimeout = config.getConnectionTimeout();
 		if (connectionTimeout > 0) {
-			connectionManagerBuilder.setDefaultConnectionConfig(ConnectionConfig.custom()
+			connectionConfigBuilder
 				.setSocketTimeout(connectionTimeout, TimeUnit.MILLISECONDS)
-				.setConnectTimeout(connectionTimeout, TimeUnit.MILLISECONDS).build());
+				.setConnectTimeout(connectionTimeout, TimeUnit.MILLISECONDS);
 		}
+		final long timeToLive = config.getTimeToLive();
+		if(timeToLive > 0){
+			connectionConfigBuilder.setTimeToLive(timeToLive, TimeUnit.MILLISECONDS);
+		}
+		connectionManagerBuilder.setDefaultConnectionConfig(connectionConfigBuilder.build());
 
 		// 连接池配置
 		if (config instanceof ApacheHttpClientConfig) {
@@ -214,9 +221,6 @@ public class HttpClient5Engine extends AbstractClientEngine {
 		final int readTimeout = config.getReadTimeout();
 		if (readTimeout > 0) {
 			requestConfigBuilder.setResponseTimeout(readTimeout, TimeUnit.MILLISECONDS);
-		}
-		if (config instanceof ApacheHttpClientConfig) {
-			requestConfigBuilder.setMaxRedirects(((ApacheHttpClientConfig) config).getMaxRedirects());
 		}
 
 		return requestConfigBuilder.build();

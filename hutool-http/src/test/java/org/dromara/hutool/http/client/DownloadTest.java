@@ -52,6 +52,7 @@ public class DownloadTest {
 	}
 
 	@Test
+	@Disabled
 	void downloadWithHeaderTest() {
 		HttpDownloader.of("https://hutool.cn/")
 			.header(MapUtil.of("Authorization", "token"))

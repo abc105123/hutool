@@ -42,11 +42,6 @@ public class ApacheHttpClientConfig extends ClientConfig {
 	 */
 	private int maxPerRoute;
 	/**
-	 * 重定向最大次数
-	 */
-	private int maxRedirects;
-
-	/**
 	 * 获取最大连接总数
 	 *
 	 * @return 最大连接总数
@@ -83,26 +78,6 @@ public class ApacheHttpClientConfig extends ClientConfig {
 	 */
 	public ApacheHttpClientConfig setMaxPerRoute(final int maxPerRoute) {
 		this.maxPerRoute = maxPerRoute;
-		return this;
-	}
-
-	/**
-	 * 获取重定向最大次数
-	 *
-	 * @return 重定向最大次数
-	 */
-	public int getMaxRedirects() {
-		return maxRedirects;
-	}
-
-	/**
-	 * 设置重定向最大次数
-	 *
-	 * @param maxRedirects 重定向最大次数
-	 * @return this
-	 */
-	public ApacheHttpClientConfig setMaxRedirects(final int maxRedirects) {
-		this.maxRedirects = maxRedirects;
 		return this;
 	}
 }

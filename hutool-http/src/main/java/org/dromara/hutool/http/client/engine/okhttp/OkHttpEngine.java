@@ -16,6 +16,7 @@
 
 package org.dromara.hutool.http.client.engine.okhttp;
 
+import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
 import org.dromara.hutool.core.lang.Assert;
 import org.dromara.hutool.core.util.ObjUtil;
@@ -120,9 +121,18 @@ public class OkHttpEngine extends AbstractClientEngine {
 		}
 
 		// 连接池
-		if (config instanceof OkHttpClientConfig) {
-			builder.connectionPool(((OkHttpClientConfig) config).getConnectionPool());
+		int maxIdle = 0;
+		if(config instanceof OkHttpClientConfig){
+			maxIdle = ((OkHttpClientConfig) config).getMaxIdle();
 		}
+		if(maxIdle <= 0){
+			maxIdle = 5;
+		}
+		long timeToLive = config.getTimeToLive();
+		if(timeToLive <= 0){
+			timeToLive = TimeUnit.MINUTES.toMillis(5);
+		}
+		builder.connectionPool(new ConnectionPool(maxIdle, timeToLive, TimeUnit.MILLISECONDS));
 
 		// 关闭自动重定向，手动实现
 		builder.followRedirects(false);

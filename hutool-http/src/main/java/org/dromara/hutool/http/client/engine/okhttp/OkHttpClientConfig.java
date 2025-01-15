@@ -16,7 +16,6 @@
 
 package org.dromara.hutool.http.client.engine.okhttp;
 
-import okhttp3.ConnectionPool;
 import org.dromara.hutool.http.client.ClientConfig;
 
 /**
@@ -35,25 +34,28 @@ public class OkHttpClientConfig extends ClientConfig {
 		return new OkHttpClientConfig();
 	}
 
-	private ConnectionPool connectionPool;
+	/**
+	 * 默认最大空闲连接数
+	 */
+	private int maxIdle;
 
 	/**
-	 * 获取连接池
+	 * 获取最大空闲连接数
 	 *
-	 * @return ConnectionPool
+	 * @return 最大空闲连接数
 	 */
-	public ConnectionPool getConnectionPool() {
-		return connectionPool;
+	public int getMaxIdle() {
+		return maxIdle;
 	}
 
 	/**
-	 * 设置连接池
+	 * 设置最大空闲连接数
 	 *
-	 * @param connectionPool ConnectionPool
+	 * @param maxIdle 最大空闲连接数
 	 * @return this
 	 */
-	public OkHttpClientConfig setConnectionPool(final ConnectionPool connectionPool) {
-		this.connectionPool = connectionPool;
+	public ClientConfig setMaxIdle(final int maxIdle) {
+		this.maxIdle = maxIdle;
 		return this;
 	}
 }
