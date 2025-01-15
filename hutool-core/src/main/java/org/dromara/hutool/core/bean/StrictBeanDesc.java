@@ -17,6 +17,7 @@
 package org.dromara.hutool.core.bean;
 
 import org.dromara.hutool.core.bean.path.AbstractBeanDesc;
+import org.dromara.hutool.core.reflect.ClassUtil;
 import org.dromara.hutool.core.reflect.FieldUtil;
 import org.dromara.hutool.core.reflect.ModifierUtil;
 import org.dromara.hutool.core.reflect.method.MethodNameUtil;
@@ -46,12 +47,36 @@ public class StrictBeanDesc extends AbstractBeanDesc {
 	private static final long serialVersionUID = 1L;
 
 	/**
+	 * 方法和字段匹配是否忽略大小写
+	 */
+	private final boolean ignoreCase;
+	/**
+	 * 方法和字段匹配是否匹配原始类型，即setter参数和字段包装类型和原始类型匹配<br>
+	 * 如果字段为int类型，则setter可以是：setXXX(int value)、setXXX(Integer value)<br>
+	 * 如果字段为Integer类型，则setter可以是：setXXX(Integer value)、setXXX(int value)
+	 */
+	private final boolean isMatchPrimitive;
+
+	/**
 	 * 构造
 	 *
 	 * @param beanClass Bean类
 	 */
 	public StrictBeanDesc(final Class<?> beanClass) {
+		this(beanClass, true, false);
+	}
+
+	/**
+	 * 构造
+	 *
+	 * @param beanClass Bean类
+	 * @param ignoreCase 方法和字段匹配是否忽略大小写
+	 * @param isMatchPrimitive 方法和字段匹配是否匹配原始类型，即setter参数和字段包装类型和原始类型匹配
+	 */
+	public StrictBeanDesc(final Class<?> beanClass, final boolean ignoreCase, final boolean isMatchPrimitive) {
 		super(beanClass);
+		this.ignoreCase = ignoreCase;
+		this.isMatchPrimitive = isMatchPrimitive;
 		init();
 	}
 
@@ -94,8 +119,9 @@ public class StrictBeanDesc extends AbstractBeanDesc {
 	 */
 	private PropDesc createProp(final Field field, final Method[] methods) {
 		final PropDesc prop = findProp(field, methods, false);
+
 		// 忽略大小写重新匹配一次
-		if (null == prop.getter || null == prop.setter) {
+		if (ignoreCase && (null == prop.getter || null == prop.setter)) {
 			final PropDesc propIgnoreCase = findProp(field, methods, true);
 			if (null == prop.getter) {
 				prop.getter = propIgnoreCase.getter;
@@ -163,15 +189,21 @@ public class StrictBeanDesc extends AbstractBeanDesc {
 			methodName = method.getName();
 			if (0 == method.getParameterCount()) {
 				// 无参数，可能为Getter方法
-				if (StrUtil.equals(methodName, MethodNameUtil.genGetter(fieldName), ignoreCase) &&
-					method.getReturnType().isAssignableFrom(fieldType)) {
-					// getter的返回类型必须为字段类型或字段的父类
-					getter = method;
+				if (StrUtil.equals(methodName, MethodNameUtil.genGetter(fieldName), ignoreCase)) {
+					final Class<?> returnType = method.getReturnType();
+					if(returnType.isAssignableFrom(fieldType) ||
+						(isMatchPrimitive && ClassUtil.isBasicTypeMatch(returnType, fieldType))){
+						// getter的返回类型必须为字段类型或字段的父类
+						getter = method;
+					}
 				}
-			} else if (StrUtil.equals(methodName, MethodNameUtil.genSetter(fieldName), ignoreCase) &&
-				fieldType.isAssignableFrom(method.getParameterTypes()[0])) {
-				// setter方法的参数必须为字段类型或字段的子类
-				setter = method;
+			} else if (StrUtil.equals(methodName, MethodNameUtil.genSetter(fieldName), ignoreCase)) {
+				final Class<?> parameterType = method.getParameterTypes()[0];
+				if(fieldType.isAssignableFrom(parameterType) ||
+					(isMatchPrimitive && ClassUtil.isBasicTypeMatch(fieldType, parameterType))){
+					// setter方法的参数必须为字段类型或字段的子类
+					setter = method;
+				}
 			}
 			if (null != getter && null != setter) {
 				// 如果Getter和Setter方法都找到了，不再继续寻找

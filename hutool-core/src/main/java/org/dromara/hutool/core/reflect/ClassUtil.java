@@ -403,6 +403,36 @@ public class ClassUtil {
 	}
 
 	/**
+	 * 是否为基本类型的包装类匹配或反之，如：
+	 * <pre>
+	 *     null    匹配 null
+	 *     int     匹配 Integer
+	 *     long    匹配 Long
+	 *     short   匹配 Short
+	 *     char    匹配 Character
+	 *     float   匹配 Float
+	 *     double  匹配 Double
+	 *     boolean 匹配 Boolean
+	 * </pre>
+	 *
+	 * @param class1 类1
+	 * @param class2 类2
+	 * @return 是否为基本类型的包装类
+	 */
+	public static boolean isBasicTypeMatch(final Class<?> class1, final Class<?> class2) {
+		if (class1 == class2) {
+			return true;
+		}
+		if (null == class1 || null == class2) {
+			return false;
+		}
+		if (class1.isPrimitive() && BasicType.wrap(class1) == class2) {
+			return true;
+		}
+		return class2.isPrimitive() && BasicType.wrap(class2) == class1;
+	}
+
+	/**
 	 * 是否为 简单值类型 或 简单值类型的数组<br>
 	 *
 	 * @param clazz 属性类
