@@ -1268,6 +1268,7 @@ public class FileUtil {
 	 *     <li>以/开头的路径</li>
 	 *     <li>满足类似于 c:/xxxxx，其中祖母随意，不区分大小写</li>
 	 *     <li>满足类似于 d:\xxxxx，其中祖母随意，不区分大小写</li>
+	 *     <li>满足windows SMB协议格式，如: \\192.168.1.1\Share</li>
 	 * </ul>
 	 *
 	 * @param path 需要检查的Path
@@ -1279,7 +1280,7 @@ public class FileUtil {
 		}
 
 		// 给定的路径已经是绝对路径了
-		return CharUtil.SLASH == path.charAt(0) || ReUtil.isMatch(PATTERN_PATH_ABSOLUTE, path);
+		return CharUtil.SLASH == path.charAt(0) || path.startsWith(FileNameUtil.SMB_PATH_PREFIX) || ReUtil.isMatch(PATTERN_PATH_ABSOLUTE, path);
 	}
 	// endregion
 

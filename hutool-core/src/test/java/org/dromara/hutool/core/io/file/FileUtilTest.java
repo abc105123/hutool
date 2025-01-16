@@ -27,9 +27,11 @@ import org.junit.jupiter.api.condition.EnabledForJreRange;
 import org.junit.jupiter.api.condition.JRE;
 
 import java.io.File;
+import java.nio.file.Paths;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * {@link FileUtil} 单元测试类
@@ -61,7 +63,7 @@ public class FileUtilTest {
 		Assertions.assertEquals(absolutePath, absolutePath2);
 
 		String path = FileUtil.getAbsolutePath("中文.xml");
-		Assertions.assertTrue(path.contains("中文.xml"));
+		assertTrue(path.contains("中文.xml"));
 
 		path = FileUtil.getAbsolutePath("d:");
 		Assertions.assertEquals("d:", path);
@@ -108,7 +110,7 @@ public class FileUtilTest {
 
 		FileUtil.copy(srcFile, destFile, true);
 
-		Assertions.assertTrue(destFile.exists());
+		assertTrue(destFile.exists());
 		Assertions.assertEquals(srcFile.length(), destFile.length());
 	}
 
@@ -147,7 +149,7 @@ public class FileUtilTest {
 		final File destFile = FileUtil.file("d:/hutool.jpg");
 
 		final boolean equals = FileUtil.equals(srcFile, destFile);
-		Assertions.assertTrue(equals);
+		assertTrue(equals);
 
 		// 源文件存在，目标文件不存在
 		final File srcFile1 = FileUtil.file("hutool.jpg");
@@ -224,13 +226,13 @@ public class FileUtilTest {
 	public void listFileNamesTest() {
 		// JDK9+中，由于模块化问题，获取的classoath路径非项目下，而是junit下的。
 		List<String> names = FileUtil.listFileNames("classpath:");
-		Assertions.assertTrue(names.contains("hutool.jpg"));
+		assertTrue(names.contains("hutool.jpg"));
 
 		names = FileUtil.listFileNames("");
-		Assertions.assertTrue(names.contains("hutool.jpg"));
+		assertTrue(names.contains("hutool.jpg"));
 
 		names = FileUtil.listFileNames(".");
-		Assertions.assertTrue(names.contains("hutool.jpg"));
+		assertTrue(names.contains("hutool.jpg"));
 	}
 
 	@Test
@@ -401,7 +403,7 @@ public class FileUtilTest {
 		mimeType = FileUtil.getMimeType("test.js");
 		// 在 jdk 11+ 会获取到 text/javascript,而非 自定义的 application/x-javascript
 		final List<String> list = ListUtil.of("text/javascript", "application/x-javascript");
-		Assertions.assertTrue(list.contains(mimeType));
+		assertTrue(list.contains(mimeType));
 
 		// office03
 		mimeType = FileUtil.getMimeType("test.doc");
@@ -439,7 +441,7 @@ public class FileUtilTest {
 	public void isSubRelativeTest() {
 		final File file = new File("..");
 		final File file2 = new File(".");
-		Assertions.assertTrue(FileUtil.isSub(file, file2));
+		assertTrue(FileUtil.isSub(file, file2));
 	}
 
 	@Test
@@ -452,14 +454,14 @@ public class FileUtilTest {
 	@Test
 	public void createTempFileTest() {
 		final File nullDirTempFile = FileUtil.createTempFile();
-		Assertions.assertTrue(nullDirTempFile.exists());
+		assertTrue(nullDirTempFile.exists());
 
 		final File suffixDirTempFile = FileUtil.createTempFile(".xlsx", true);
 		Assertions.assertEquals("xlsx", FileNameUtil.getSuffix(suffixDirTempFile));
 
 		final File prefixDirTempFile = FileUtil.createTempFile("prefix", ".xlsx", true);
 		Console.log(prefixDirTempFile);
-		Assertions.assertTrue(FileNameUtil.getPrefix(prefixDirTempFile).startsWith("prefix"));
+		assertTrue(FileNameUtil.getPrefix(prefixDirTempFile).startsWith("prefix"));
 	}
 
 	@Test
@@ -487,16 +489,25 @@ public class FileUtilTest {
 	public void issue3591Test() {
 		// 此文件最后一行末尾无换行符
 		final int totalLines = FileUtil.getTotalLines(FileUtil.file("1_psi_index_0.txt"));
-		Assertions.assertEquals(11, totalLines);
+		assertEquals(11, totalLines);
 	}
 
 	@Test
 	public void isAbsolutePathTest() {
 		String path = "d:/test\\aaa.txt";
-		Assertions.assertTrue(FileUtil.isAbsolutePath(path));
+		assertTrue(FileUtil.isAbsolutePath(path));
 
 		path = "test\\aaa.txt";
 		Assertions.assertFalse(FileUtil.isAbsolutePath(path));
+	}
+
+	@Test
+	public void smbPathTest() {
+		final String smbPath = "\\\\192.168.1.1\\share\\rc-source";
+		final String parseSmbPath = FileUtil.getAbsolutePath(smbPath);
+		assertEquals(smbPath, parseSmbPath);
+		assertTrue(FileUtil.isAbsolutePath(smbPath));
+		assertTrue(Paths.get(smbPath).isAbsolute());
 	}
 
 	@Test

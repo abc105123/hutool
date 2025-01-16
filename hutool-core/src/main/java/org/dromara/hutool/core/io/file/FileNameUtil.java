@@ -66,6 +66,11 @@ public class FileNameUtil {
 	public static final char WINDOWS_SEPARATOR = CharUtil.BACKSLASH;
 
 	/**
+	 * windows的共享文件夹开头
+	 */
+	public static final String SMB_PATH_PREFIX = "\\\\";
+
+	/**
 	 * Windows下文件名中的无效字符
 	 */
 	private static final Pattern FILE_NAME_INVALID_PATTERN_WIN = Pattern.compile("[\\\\/:*?\"<>|\r\n]");
@@ -75,8 +80,7 @@ public class FileNameUtil {
 	 */
 	private static final CharSequence[] SPECIAL_SUFFIX = {"tar.bz2", "tar.Z", "tar.gz", "tar.xz"};
 
-
-	// -------------------------------------------------------------------------------------------- name start
+	// region ----- getName
 
 	/**
 	 * 返回文件名
@@ -126,7 +130,9 @@ public class FileNameUtil {
 
 		return filePath.substring(begin, len);
 	}
+	// endregion
 
+	// region ----- prefix and suffix
 	/**
 	 * 获取文件后缀名，扩展名不带“.”
 	 *
@@ -191,7 +197,9 @@ public class FileNameUtil {
 	public static String getPrefix(final String fileName) {
 		return mainName(fileName);
 	}
+	// endregion
 
+	// region ----- mainName and extName
 	/**
 	 * 返回主文件名
 	 *
@@ -292,6 +300,7 @@ public class FileNameUtil {
 			return StrUtil.containsAny(ext, UNIX_SEPARATOR, WINDOWS_SEPARATOR) ? StrUtil.EMPTY : ext;
 		}
 	}
+	// endregion
 
 	/**
 	 * 清除文件名中的在Windows下不支持的非法字符，包括： \ / : * ? " &lt; &gt; |
@@ -367,7 +376,7 @@ public class FileNameUtil {
 		}
 
 		//兼容Windows下的共享目录路径（原始路径如果以\\开头，则保留这种路径）
-		if (path.startsWith("\\\\")) {
+		if (path.startsWith(SMB_PATH_PREFIX)) {
 			return path;
 		}
 
@@ -454,5 +463,4 @@ public class FileNameUtil {
 		}
 		return pathElements;
 	}
-	// -------------------------------------------------------------------------------------------- name end
 }
