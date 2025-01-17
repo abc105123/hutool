@@ -58,6 +58,7 @@ public final class Fraction extends Number implements Comparable<Fraction> {
 	 * @throws ArithmeticException 如果计算出的分母为 {@code zero}
 	 * @throws ArithmeticException 如果算法不收敛
 	 */
+	@SuppressWarnings("ReassignedVariable")
 	public static Fraction of(double value) {
 		final int sign = value < 0 ? -1 : 1;
 		value = Math.abs(value);
@@ -103,7 +104,7 @@ public final class Fraction extends Number implements Comparable<Fraction> {
 		if (i == 25) {
 			throw new ArithmeticException("Unable to convert double to fraction");
 		}
-		return getReducedFraction((numer0 + wholeNumber * denom0) * sign, denom0);
+		return ofReduced((numer0 + wholeNumber * denom0) * sign, denom0);
 	}
 
 	/**
@@ -282,7 +283,7 @@ public final class Fraction extends Number implements Comparable<Fraction> {
 	 * @param numerator   分子，例如在“七分之三”中的三
 	 * @param denominator 分母，例如在“七分之三”中的七
 	 */
-	private Fraction(final int numerator, final int denominator) {
+	public Fraction(final int numerator, final int denominator) {
 		this.numerator = numerator;
 		this.denominator = denominator;
 	}
