@@ -16,6 +16,7 @@
 
 package org.dromara.hutool.extra.mq;
 
-public interface Consumer {
-	void subscribe(MessageHandler messageHandler);
+@FunctionalInterface
+public interface MessageHandler {
+	void handle(Message message);
 }
