@@ -237,6 +237,18 @@ public class ListUtil {
 	}
 
 	/**
+	 * 获取一个只包含一个元素的List，不可变
+	 *
+	 * @param <T>   元素类型
+	 * @param element 元素
+	 * @return 只包含一个元素的List
+	 * @since 6.0.0
+	 */
+	public static <T> List<T> singleton(final T element){
+		return Collections.singletonList(element);
+	}
+
+	/**
 	 * 新建一个CopyOnWriteArrayList
 	 *
 	 * @param <T>        集合元素类型

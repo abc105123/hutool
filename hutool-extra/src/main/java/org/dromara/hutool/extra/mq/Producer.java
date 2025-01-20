@@ -16,6 +16,20 @@
 
 package org.dromara.hutool.extra.mq;
 
-public interface Producer {
+import java.io.Closeable;
+
+/**
+ * 消息生产者
+ *
+ * @author Looly
+ * @since 6.0.0
+ */
+public interface Producer extends Closeable {
+
+	/**
+	 * 发送消息
+	 *
+	 * @param message 消息
+	 */
 	void send(Message message);
 }

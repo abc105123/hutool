@@ -16,7 +16,19 @@
 
 package org.dromara.hutool.extra.mq;
 
+/**
+ * 消息处理器
+ *
+ * @author Looly
+ * @since 6.0.0
+ */
 @FunctionalInterface
 public interface MessageHandler {
+
+	/**
+	 * 处理消息
+	 *
+	 * @param message 消息
+	 */
 	void handle(Message message);
 }

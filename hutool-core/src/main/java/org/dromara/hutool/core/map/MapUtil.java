@@ -1065,9 +1065,9 @@ public class MapUtil extends MapGetUtil {
 	 * 去除Map中值为指定值的键值对<br>
 	 * 注意：此方法在传入的Map上直接修改。
 	 *
-	 * @param <K> key的类型
-	 * @param <V> value的类型
-	 * @param map Map
+	 * @param <K>   key的类型
+	 * @param <V>   value的类型
+	 * @param map   Map
 	 * @param value 给定值
 	 * @return map
 	 * @since 6.0.0
@@ -1080,9 +1080,9 @@ public class MapUtil extends MapGetUtil {
 	 * 去除Map中值为{@code null}的键值对<br>
 	 * 注意：此方法在传入的Map上直接修改。
 	 *
-	 * @param <K> key的类型
-	 * @param <V> value的类型
-	 * @param map Map
+	 * @param <K>       key的类型
+	 * @param <V>       value的类型
+	 * @param map       Map
 	 * @param predicate 移除条件，当{@link Predicate#test(Object)}为{@code true}时移除
 	 * @return map
 	 * @since 6.0.0
@@ -1117,6 +1117,19 @@ public class MapUtil extends MapGetUtil {
 	 */
 	public static <K, V> Map<K, V> zero() {
 		return new HashMap<>(0, 1);
+	}
+
+	/**
+	 * 返回一个只包含一个键值对的Map，不可变
+	 *
+	 * @param key   键
+	 * @param value 值
+	 * @param <K>   键类型
+	 * @param <V>   值类型
+	 * @return Map
+	 */
+	public static <K, V> Map<K, V> singleton(final K key, final V value) {
+		return Collections.singletonMap(key, value);
 	}
 
 	/**

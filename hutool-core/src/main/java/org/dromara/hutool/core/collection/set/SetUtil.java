@@ -18,14 +18,7 @@ package org.dromara.hutool.core.collection.set;
 
 import org.dromara.hutool.core.array.ArrayUtil;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * 集合中的{@link java.util.Set}相关方法封装
@@ -200,6 +193,18 @@ public class SetUtil {
 	 */
 	public static <T> Set<T> zero() {
 		return new HashSet<>(0, 1);
+	}
+
+	/**
+	 * 获取一个只包含一个元素的Set，不可变
+	 *
+	 * @param <T>     元素类型
+	 * @param element 元素
+	 * @return 只包含一个元素的Set
+	 * @since 6.0.0
+	 */
+	public static <T> Set<T> singleton(final T element) {
+		return Collections.singleton(element);
 	}
 
 	/**

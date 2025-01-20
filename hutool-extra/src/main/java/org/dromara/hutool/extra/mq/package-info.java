@@ -19,9 +19,9 @@
  * 通过定义统一接口，统一消息中间件的调用，实现消息队列的解耦。
  * 组件包括：
  * <ul>
- *     <li>Producer: 消息生产者，业务的发起方，负责生产消息</li>
- *     <li>Consumer: 消息消费者，业务的处理方</li>
- *     <li>Message: 消息体，根据不同通信协议定义的固定格式进行编码的数据包</li>
+ *     <li>{@link org.dromara.hutool.extra.mq.Producer}: 消息生产者，业务的发起方，负责生产消息</li>
+ *     <li>{@link org.dromara.hutool.extra.mq.Consumer}: 消息消费者，业务的处理方</li>
+ *     <li>{@link org.dromara.hutool.extra.mq.Message}: 消息体，根据不同通信协议定义的固定格式进行编码的数据包</li>
  * </ul>
  *
  * @author Looly

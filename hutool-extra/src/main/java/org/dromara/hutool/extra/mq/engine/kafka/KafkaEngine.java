@@ -14,30 +14,52 @@
  * limitations under the License.
  */
 
-package org.dromara.hutool.extra.mq.engine;
+package org.dromara.hutool.extra.mq.engine.kafka;
 
 import org.dromara.hutool.extra.mq.Consumer;
 import org.dromara.hutool.extra.mq.Producer;
+import org.dromara.hutool.extra.mq.engine.MQEngine;
+
+import java.util.Properties;
 
 /**
- * 消息队列引擎接口
+ * Kafka引擎
  *
  * @author Looly
  * @since 6.0.0
  */
-public interface MQEngine {
+public class KafkaEngine implements MQEngine {
+
+	private final Properties properties;
 
 	/**
-	 * 获取消息生产者
+	 * 构造
 	 *
-	 * @return 消息生产者
+	 * @param properties 配置
 	 */
-	Producer getProducer();
+	public KafkaEngine(final Properties properties) {
+		this.properties = properties;
+	}
 
 	/**
-	 * 获取消息消费者
+	 * 增加配置项
 	 *
-	 * @return 消息消费者
+	 * @param key   配置项
+	 * @param value 值
+	 * @return this
 	 */
-	Consumer getConsumer();
+	public KafkaEngine addProperty(final String key, final String value) {
+		this.properties.put(key, value);
+		return this;
+	}
+
+	@Override
+	public Producer getProducer() {
+		return new KafkaProducer(this.properties);
+	}
+
+	@Override
+	public Consumer getConsumer() {
+		return new KafkaConsumer(this.properties);
+	}
 }

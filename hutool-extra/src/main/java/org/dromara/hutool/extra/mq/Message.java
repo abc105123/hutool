@@ -16,5 +16,25 @@
 
 package org.dromara.hutool.extra.mq;
 
+/**
+ * 消息接口
+ *
+ * @author Looly
+ * @since 6.0.0
+ */
 public interface Message {
+
+	/**
+	 * 获取消息主题
+	 *
+	 * @return 主题
+	 */
+	String topic();
+
+	/**
+	 * 获取消息内容
+	 *
+	 * @return 内容
+	 */
+	byte[] content();
 }

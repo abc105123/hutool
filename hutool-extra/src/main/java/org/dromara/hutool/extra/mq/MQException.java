@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package org.dromara.hutool.extra.pinyin;
+package org.dromara.hutool.extra.mq;
 
 import org.dromara.hutool.core.exception.HutoolException;
 
 /**
- * 拼音异常
+ * 消息队列异常
  *
  * @author Looly
  */
-public class PinyinException extends HutoolException {
+public class MQException extends HutoolException {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -31,7 +31,7 @@ public class PinyinException extends HutoolException {
 	 *
 	 * @param e 异常
 	 */
-	public PinyinException(final Throwable e) {
+	public MQException(final Throwable e) {
 		super(e);
 	}
 
@@ -40,7 +40,7 @@ public class PinyinException extends HutoolException {
 	 *
 	 * @param message 消息
 	 */
-	public PinyinException(final String message) {
+	public MQException(final String message) {
 		super(message);
 	}
 
@@ -50,7 +50,7 @@ public class PinyinException extends HutoolException {
 	 * @param messageTemplate 消息模板
 	 * @param params          参数
 	 */
-	public PinyinException(final String messageTemplate, final Object... params) {
+	public MQException(final String messageTemplate, final Object... params) {
 		super(messageTemplate, params);
 	}
 
@@ -60,7 +60,7 @@ public class PinyinException extends HutoolException {
 	 * @param message 消息
 	 * @param cause   被包装的子异常
 	 */
-	public PinyinException(final String message, final Throwable cause) {
+	public MQException(final String message, final Throwable cause) {
 		super(message, cause);
 	}
 
@@ -72,7 +72,7 @@ public class PinyinException extends HutoolException {
 	 * @param enableSuppression  是否启用抑制
 	 * @param writableStackTrace 堆栈跟踪是否应该是可写的
 	 */
-	public PinyinException(final String message, final Throwable cause, final boolean enableSuppression, final boolean writableStackTrace) {
+	public MQException(final String message, final Throwable cause, final boolean enableSuppression, final boolean writableStackTrace) {
 		super(message, cause, enableSuppression, writableStackTrace);
 	}
 
@@ -83,7 +83,7 @@ public class PinyinException extends HutoolException {
 	 * @param messageTemplate 消息模板
 	 * @param params          参数
 	 */
-	public PinyinException(final Throwable cause, final String messageTemplate, final Object... params) {
+	public MQException(final Throwable cause, final String messageTemplate, final Object... params) {
 		super(cause, messageTemplate, params);
 	}
 }
