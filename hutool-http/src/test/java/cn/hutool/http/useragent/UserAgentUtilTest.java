@@ -414,6 +414,16 @@ public class UserAgentUtilTest {
 	}
 
 	@Test
+	public void parseHarmonyUATest() {
+		final String uaStr = "Mozilla/5.0 (Phone; OpenHarmony 4.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36  ArkWeb/4.1.6.1 Mobile ";
+		final UserAgent ua = UserAgentUtil.parse(uaStr);
+		assertEquals("Harmony", ua.getPlatform().toString());
+		assertTrue(ua.getPlatform().isHarmony());
+		assertEquals("Harmony", ua.getOs().toString());
+		assertEquals("4.1", ua.getOsVersion());
+	}
+
+	@Test
 	public void issueI60UOPTest() {
 		final String uaStr = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36 dingtalk-win/1.0.0 nw(0.14.7) DingTalk(6.5.40-Release.9059101) Mojo/1.0.0 Native AppType(release) Channel/201200";
 		final UserAgent ua = UserAgentUtil.parse(uaStr);

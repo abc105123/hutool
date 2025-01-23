@@ -36,6 +36,11 @@ public class Platform extends UserAgentInfo {
 	 * android
 	 */
 	public static final Platform ANDROID = new Platform("Android", "android");
+
+	/**
+	 * harmony
+	 */
+	public static final Platform HARMONY = new Platform("Harmony", "OpenHarmony");
 	/**
 	 * android
 	 */
@@ -59,7 +64,8 @@ public class Platform extends UserAgentInfo {
 			GOOGLE_TV, //
 			new Platform("htcFlyer", "htc_flyer"), //
 			new Platform("Symbian", "symbian(os)?"), //
-			new Platform("Blackberry", "blackberry") //
+			new Platform("Blackberry", "blackberry"), //
+			HARMONY
 	);
 
 	/**
@@ -142,6 +148,15 @@ public class Platform extends UserAgentInfo {
 	 */
 	public boolean isAndroid() {
 		return this.equals(ANDROID) || this.equals(GOOGLE_TV);
+	}
+
+	/**
+	 * 是否为Harmony平台
+	 *
+	 * @return 是否为Harmony平台
+	 */
+	public boolean isHarmony() {
+		return this.equals(HARMONY);
 	}
 
 }
