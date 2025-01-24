@@ -106,19 +106,19 @@ public class JSONObjectTest {
 		// putAll操作会覆盖相同key的值，因此a,b两个key的值改变，c的值不变
 		json1.putAll(json2);
 
-		assertEquals(json1.getObj("a"), "value21");
-		assertEquals(json1.getObj("b"), "value22");
-		assertEquals(json1.getObj("c"), "value3");
+		assertEquals("value21", json1.getObj("a"));
+		assertEquals("value22", json1.getObj("b"));
+		assertEquals("value3", json1.getObj("c"));
 	}
 
 	@Test
 	public void parseStringTest() {
 		final String jsonStr = "{\"b\":\"value2\",\"c\":\"value3\",\"a\":\"value1\", \"d\": true, \"e\": null}";
 		final JSONObject jsonObject = JSONUtil.parseObj(jsonStr, JSONConfig.of().setIgnoreNullValue(false));
-		assertEquals(jsonObject.getObj("a"), "value1");
-		assertEquals(jsonObject.getObj("b"), "value2");
-		assertEquals(jsonObject.getObj("c"), "value3");
-		assertEquals(jsonObject.getObj("d"), true);
+		assertEquals("value1", jsonObject.getObj("a"));
+		assertEquals("value2", jsonObject.getObj("b"));
+		assertEquals("value3", jsonObject.getObj("c"));
+		assertEquals(true, jsonObject.getObj("d"));
 
 		Assertions.assertTrue(jsonObject.containsKey("e"));
 		assertNull(jsonObject.get("e"));
@@ -761,5 +761,17 @@ public class JSONObjectTest {
 			return true;
 		});
 		assertEquals("value2_edit", jsonObject.getObj("b"));
+	}
+
+	@Test
+	void issue3844Test(){
+		// json string key to underline-case
+		final String camelCaseStr = "{\"userAge\":\"123\"}";
+		final JSONObject entries = JSONUtil.parseObj(camelCaseStr, null, (entry) -> {
+			entry.setKey(StrUtil.toUnderlineCase(StrUtil.toString(entry.getKey())));
+			return true;
+		});
+
+		assertEquals("{\"user_age\":\"123\"}", entries.toString());
 	}
 }
