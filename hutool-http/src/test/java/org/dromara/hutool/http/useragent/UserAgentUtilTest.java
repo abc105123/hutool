@@ -505,4 +505,15 @@ public class UserAgentUtilTest {
 		assertEquals("Mac", ua.getPlatform().toString());
 		assertFalse(ua.isMobile());
 	}
+
+	@Test
+	public void parseHarmonyUATest() {
+		final String uaStr = "Mozilla/5.0 (Phone; OpenHarmony 4.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36  ArkWeb/4.1.6.1 Mobile ";
+		final UserAgent ua = UserAgentUtil.parse(uaStr);
+		assertEquals("Harmony", ua.getPlatform().toString());
+		assertTrue(ua.getPlatform().isHarmony());
+		assertEquals("Harmony", ua.getOs().toString());
+		assertEquals("4.1", ua.getOsVersion());
+		assertTrue(ua.isMobile());
+	}
 }

@@ -53,6 +53,10 @@ public class Platform extends UserAgentInfo {
 	 */
 	public static final Platform ANDROID = new Platform("Android", "android");
 	/**
+	 * harmony
+	 */
+	public static final Platform HARMONY = new Platform("Harmony", "OpenHarmony");
+	/**
 	 * android
 	 */
 	public static final Platform GOOGLE_TV = new Platform("GoogleTV", "googletv");
@@ -66,28 +70,29 @@ public class Platform extends UserAgentInfo {
 	 * 支持的移动平台类型
 	 */
 	public static final List<Platform> mobilePlatforms = ListUtil.view(//
-			WINDOWS_PHONE, //
-			IPAD, //
-			IPOD, //
-			IPHONE, //
-			new Platform("Android", "XiaoMi|MI\\s+"), //
-			ANDROID, //
-			GOOGLE_TV, //
-			new Platform("htcFlyer", "htc_flyer"), //
-			new Platform("Symbian", "symbian(os)?"), //
-			new Platform("Blackberry", "blackberry") //
+		WINDOWS_PHONE, //
+		IPAD, //
+		IPOD, //
+		IPHONE, //
+		new Platform("Android", "XiaoMi|MI\\s+"), //
+		ANDROID, //
+		HARMONY, //
+		GOOGLE_TV, //
+		new Platform("htcFlyer", "htc_flyer"), //
+		new Platform("Symbian", "symbian(os)?"), //
+		new Platform("Blackberry", "blackberry") //
 	);
 
 	/**
 	 * 支持的桌面平台类型
 	 */
 	public static final List<Platform> desktopPlatforms = ListUtil.view(//
-			new Platform("Windows", "windows"), //
-			new Platform("Mac", "(macintosh|darwin)"), //
-			new Platform("Linux", "linux"), //
-			new Platform("Wii", "wii"), //
-			new Platform("Playstation", "playstation"), //
-			new Platform("Java", "java") //
+		new Platform("Windows", "windows"), //
+		new Platform("Mac", "(macintosh|darwin)"), //
+		new Platform("Linux", "linux"), //
+		new Platform("Wii", "wii"), //
+		new Platform("Playstation", "playstation"), //
+		new Platform("Java", "java") //
 	);
 
 	/**
@@ -158,6 +163,15 @@ public class Platform extends UserAgentInfo {
 	 */
 	public boolean isAndroid() {
 		return this.equals(ANDROID) || this.equals(GOOGLE_TV);
+	}
+
+	/**
+	 * 是否为Harmony平台
+	 *
+	 * @return 是否为Harmony平台
+	 */
+	public boolean isHarmony() {
+		return this.equals(HARMONY);
 	}
 
 }
