@@ -2,13 +2,14 @@
 # 🚀Changelog
 
 -------------------------------------------------------------------------------------------------------------
-# 5.8.36(2025-01-17)
+# 5.8.36(2025-01-24)
 
 ### 🐣新特性
 * 【crypto 】      增加BCUtil.decodeECPrivateKey方法（issue#3829@Github）
 * 【core   】      增加HtmlUtil.cleanEmptyTag方法（pr#3838@Github）
 * 【db     】      GlobalDbSetting优化默认配置读取规则，优先读取文件而非jar中的文件（issue#900@Github）
 * 【dfa    】      删除StopChar类中存在重复字符（pr#3841@Github）
+* 【http   】      支持鸿蒙设备 UA 解析（pr#1301@Gitee）
 
 ### 🐞Bug修复
 * 【aop    】      修复ProxyUtil可能的空指针问题（issue#IBF20Z@Gitee）
