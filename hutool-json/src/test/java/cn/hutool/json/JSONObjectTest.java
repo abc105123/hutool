@@ -729,4 +729,15 @@ public class JSONObjectTest {
 		});
 		assertEquals("value2_edit", jsonObject.get("b"));
 	}
+
+	@Test
+	void issue3844Test(){
+		String camelCaseStr = "{\"userAge\":\"123\"}";
+		final JSONObject entries = new JSONObject(camelCaseStr, null, (pair) -> {
+			pair.setKey(StrUtil.toUnderlineCase(pair.getKey()));
+			return true;
+		});
+
+		Console.log(entries);
+	}
 }
