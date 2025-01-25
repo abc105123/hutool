@@ -63,6 +63,7 @@ public class PatternParser {
 	 * @return {@link List}
 	 */
 	private static List<PatternMatcher> parseGroupPattern(final String groupPattern) {
+		Assert.notBlank(groupPattern, "Cron expression must not be empty!");
 		final List<String> patternList = SplitUtil.splitTrim(groupPattern, "|");
 		final List<PatternMatcher> patternMatchers = new ArrayList<>(patternList.size());
 		for (final String pattern : patternList) {

@@ -96,4 +96,15 @@ public class CronTest {
 		CronUtil.setMatchSecond(true);
 		CronUtil.start();
 	}
+
+	@Test
+	@Disabled
+	public void isValidExpressionTest() {
+		Console.log(CronUtil.isValidExpression("5 * * * *"));
+		Console.log(CronUtil.isValidExpression("3-18 5 * * * *"));
+		Console.log(CronUtil.isValidExpression(""));
+		Console.log(CronUtil.isValidExpression(null));
+		Console.log(CronUtil.isValidExpression("A B C D E F"));
+
+	}
 }
