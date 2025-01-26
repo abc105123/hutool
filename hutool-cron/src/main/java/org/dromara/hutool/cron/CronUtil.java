@@ -20,6 +20,7 @@ package org.dromara.hutool.cron;
 import org.dromara.hutool.core.exception.HutoolException;
 import org.dromara.hutool.core.io.resource.NoResourceException;
 import org.dromara.hutool.cron.pattern.CronPattern;
+import org.dromara.hutool.cron.pattern.parser.PatternParser;
 import org.dromara.hutool.cron.task.Task;
 import org.dromara.hutool.setting.Setting;
 import org.dromara.hutool.setting.SettingException;
@@ -209,6 +210,22 @@ public class CronUtil {
 	 */
 	public static void stop() {
 		scheduler.stop(true);
+	}
+
+	/**
+	 * 验证是否为合法的Cron表达式
+	 */
+	public static boolean isValidExpression(String expression) {
+		if (expression == null) {
+			return false;
+		} else {
+			try {
+				PatternParser.parse(expression);
+				return true;
+			} catch (RuntimeException e) {
+				return false;
+			}
+		}
 	}
 
 }
