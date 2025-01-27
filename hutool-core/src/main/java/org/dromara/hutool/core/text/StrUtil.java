@@ -25,6 +25,7 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
+import java.util.Optional;
 
 /**
  * 字符串工具类<br>
@@ -370,5 +371,42 @@ public class StrUtil extends CharSequenceUtil implements StrPool {
 	 */
 	public static String similar(final String str1, final String str2, final int scale) {
 		return TextSimilarity.similar(str1, str2, scale);
+	}
+
+	/**
+	 * 字符串填充
+	 * @param str 被填充的字符串(原始字符串)
+	 * @param left 往原始字符串的左边填充
+	 * @param right 往原始字符串的右边填充
+	 * @param middle 往原始字符串的中间填充
+	 * @param middlePos 填充的索引位置
+	 * @return flexibleConcat
+	 */
+	public static String flexibleConcat(String str, String left, String right, String middle, int middlePos) {
+		// 使用 StringBuilder 来提高拼接性能
+		StringBuilder sb = new StringBuilder();
+
+		// 如果原始字符串不为 null，添加到 StringBuilder
+		if (str != null) {
+			sb.append(str);
+		}
+
+		// 左边拼接字符串（如果有
+		Optional.ofNullable(left)
+			.filter(s -> !s.isEmpty())
+			.ifPresent(l -> sb.insert(0, l.toCharArray()));
+
+		// 右边拼接字符串（如果有）
+		Optional.ofNullable(right)
+			.filter(s -> !s.isEmpty())
+			.ifPresent(sb::append);
+
+		// 中间拼接字符串（如果有且位置有效）
+		Optional.ofNullable(middle)
+			.filter(s -> !s.isEmpty())
+			.filter(s -> middlePos >= 0 && middlePos <= sb.length())
+			.ifPresent(m -> sb.insert(middlePos, m.toCharArray()));
+
+		return sb.toString();
 	}
 }
