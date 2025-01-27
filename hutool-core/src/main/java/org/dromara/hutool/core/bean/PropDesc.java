@@ -22,7 +22,6 @@ import org.dromara.hutool.core.convert.ConvertUtil;
 import org.dromara.hutool.core.reflect.*;
 import org.dromara.hutool.core.reflect.method.MethodInvoker;
 
-import java.beans.Transient;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
@@ -33,6 +32,11 @@ import java.lang.reflect.Type;
  * @author Looly
  */
 public class PropDesc {
+
+	/**
+	 * Transient注解的类名
+	 */
+	private static final String TRANSIENT_CLASS_NAME = "java.beans.Transient";
 
 	/**
 	 * 字段
@@ -73,9 +77,21 @@ public class PropDesc {
 	 * @param setterMethod set方法
 	 */
 	public PropDesc(final String fieldName, final Method getterMethod, final Method setterMethod) {
+		this(fieldName, MethodInvoker.of(getterMethod), MethodInvoker.of(setterMethod));
+	}
+
+	/**
+	 * 构造<br>
+	 * Getter和Setter方法设置为默认可访问
+	 *
+	 * @param fieldName 字段名
+	 * @param getter    get方法执行器
+	 * @param setter    set方法执行器
+	 */
+	public PropDesc(final String fieldName, final Invoker getter, final Invoker setter){
 		this.fieldName = fieldName;
-		this.getter = null == getterMethod ? null : MethodInvoker.of(getterMethod);
-		this.setter = null == setterMethod ? null : MethodInvoker.of(setterMethod);
+		this.getter = getter;
+		this.setter = setter;
 	}
 
 	/**
@@ -190,7 +206,7 @@ public class PropDesc {
 
 	/**
 	 * 获取属性值<br>
-	 * 首先调用字段对应的Getter方法获取值，如果Getter方法不存在，则判断字段如果为public，则直接获取字段值<br>
+	 * 首先调用字段对应的Getter方法获取值，如果Getter方法不存在，则直接获取字段值<br>
 	 * 此方法不检查任何注解，使用前需调用 {@link #isReadable(boolean)} 检查是否可读
 	 *
 	 * @param bean Bean对象
@@ -216,7 +232,7 @@ public class PropDesc {
 
 	/**
 	 * 获取属性值，自动转换属性值类型<br>
-	 * 首先调用字段对应的Getter方法获取值，如果Getter方法不存在，则判断字段如果为public，则直接获取字段值
+	 * 首先调用字段对应的Getter方法获取值，如果Getter方法不存在，则直接获取字段值
 	 *
 	 * @param bean        Bean对象
 	 * @param targetType  返回属性值需要转换的类型，null表示不转换
@@ -269,7 +285,7 @@ public class PropDesc {
 
 	/**
 	 * 设置Bean的字段值<br>
-	 * 首先调用字段对应的Setter方法，如果Setter方法不存在，则判断字段如果为public，则直接赋值字段值<br>
+	 * 首先调用字段对应的Setter方法，如果Setter方法不存在，则直接赋值字段值<br>
 	 * 此方法不检查任何注解，使用前需调用 {@link #isWritable(boolean)} 检查是否可写
 	 *
 	 * @param bean  Bean对象
@@ -432,7 +448,6 @@ public class PropDesc {
 	 * @param getterMethod 读取方法，可为{@code null}
 	 * @return 是否为Transient关键字修饰的
 	 */
-	@SuppressWarnings({"rawtypes", "unchecked"})
 	private static boolean isTransientForGet(final Field field, final Method getterMethod) {
 		boolean isTransient = ModifierUtil.hasAny(field, ModifierType.TRANSIENT);
 
@@ -442,16 +457,7 @@ public class PropDesc {
 
 			// 检查注解
 			if (!isTransient) {
-				Class aClass = null;
-				try {
-					// issue#IB0JP5，Android可能无这个类
-					aClass = Class.forName("java.beans.Transient");
-				} catch (final ClassNotFoundException e) {
-					// ignore
-				}
-				if(null != aClass){
-					isTransient = AnnotationUtil.hasAnnotation(getterMethod, aClass);
-				}
+				isTransient = AnnotationUtil.hasAnnotation(getterMethod, TRANSIENT_CLASS_NAME);
 			}
 		}
 
@@ -474,7 +480,7 @@ public class PropDesc {
 
 			// 检查注解
 			if (!isTransient) {
-				isTransient = AnnotationUtil.hasAnnotation(setterMethod, Transient.class);
+				isTransient = AnnotationUtil.hasAnnotation(setterMethod, TRANSIENT_CLASS_NAME);
 			}
 		}
 

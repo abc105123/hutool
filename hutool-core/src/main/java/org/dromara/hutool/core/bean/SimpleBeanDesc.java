@@ -17,7 +17,6 @@
 package org.dromara.hutool.core.bean;
 
 import org.dromara.hutool.core.bean.path.AbstractBeanDesc;
-import org.dromara.hutool.core.reflect.TypeUtil;
 import org.dromara.hutool.core.reflect.method.MethodInvoker;
 import org.dromara.hutool.core.reflect.method.MethodNameUtil;
 import org.dromara.hutool.core.reflect.method.MethodUtil;
