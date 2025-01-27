@@ -39,9 +39,10 @@ public interface Consumer extends Closeable {
 	 *
 	 * @param messageHandler 消息处理器
 	 */
+	@SuppressWarnings("InfiniteLoopStatement")
 	default void listen(final MessageHandler messageHandler) {
 		ThreadUtil.execAsync(() -> {
-			while (true) {
+			for(;;) {
 				this.subscribe(messageHandler);
 			}
 		});

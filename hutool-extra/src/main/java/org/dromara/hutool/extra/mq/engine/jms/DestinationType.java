@@ -14,39 +14,21 @@
  * limitations under the License.
  */
 
-package org.dromara.hutool.extra.mq.engine;
-
-import org.dromara.hutool.extra.mq.Consumer;
-import org.dromara.hutool.extra.mq.MQConfig;
-import org.dromara.hutool.extra.mq.Producer;
+package org.dromara.hutool.extra.mq.engine.jms;
 
 /**
- * 消息队列引擎接口
+ * 目标类型
  *
  * @author Looly
- * @since 6.0.0
  */
-public interface MQEngine {
+public enum DestinationType {
+	/**
+	 * 主题
+	 */
+	TOPIC,
 
 	/**
-	 * 初始化配置
-	 *
-	 * @param config 配置
-	 * @return this
+	 * 队列
 	 */
-	MQEngine init(MQConfig config);
-
-	/**
-	 * 获取消息生产者
-	 *
-	 * @return 消息生产者
-	 */
-	Producer getProducer();
-
-	/**
-	 * 获取消息消费者
-	 *
-	 * @return 消息消费者
-	 */
-	Consumer getConsumer();
+	QUEUE;
 }

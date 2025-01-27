@@ -25,6 +25,7 @@ import org.dromara.hutool.extra.mq.Message;
 import org.dromara.hutool.extra.mq.MessageHandler;
 
 import java.io.IOException;
+import java.util.Map;
 
 /**
  * RabbitMQ消费者
@@ -59,28 +60,24 @@ public class RabbitMQConsumer implements Consumer {
 
 	@Override
 	public void subscribe(final MessageHandler messageHandler) {
-		try {
-			this.channel.queueDeclare(this.topic, false, false, false, null);
-		} catch (final IOException e) {
-			throw new MQException(e);
-		}
+		queueDeclare(false, false, false, null);
 
-		final DeliverCallback deliverCallback = (consumerTag, delivery) -> {
+		final DeliverCallback deliverCallback = (consumerTag, delivery) ->
 			messageHandler.handle(new Message() {
-				@Override
-				public String topic() {
-					return consumerTag;
-				}
+			@Override
+			public String topic() {
+				return consumerTag;
+			}
 
-				@Override
-				public byte[] content() {
-					return delivery.getBody();
-				}
-			});
-		};
+			@Override
+			public byte[] content() {
+				return delivery.getBody();
+			}
+		});
 
 		try {
-			this.channel.basicConsume(this.topic, true, deliverCallback, consumerTag -> { });
+			this.channel.basicConsume(this.topic, true, deliverCallback, consumerTag -> {
+			});
 		} catch (final IOException e) {
 			throw new MQException(e);
 		}
@@ -89,5 +86,23 @@ public class RabbitMQConsumer implements Consumer {
 	@Override
 	public void close() {
 		IoUtil.closeQuietly(this.channel);
+	}
+
+	/**
+	 * 声明队列
+	 *
+	 * @param durable    是否持久化
+	 * @param exclusive  是否排他
+	 * @param autoDelete 是否自动删除
+	 * @param arguments  其他参数
+	 */
+	@SuppressWarnings("SameParameterValue")
+	private void queueDeclare(final boolean durable, final boolean exclusive, final boolean autoDelete,
+							  final Map<String, Object> arguments) {
+		try {
+			this.channel.queueDeclare(this.topic, durable, exclusive, autoDelete, arguments);
+		} catch (final IOException e) {
+			throw new MQException(e);
+		}
 	}
 }

@@ -20,7 +20,9 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import org.dromara.hutool.core.io.IoUtil;
+import org.dromara.hutool.core.lang.Assert;
 import org.dromara.hutool.extra.mq.Consumer;
+import org.dromara.hutool.extra.mq.MQConfig;
 import org.dromara.hutool.extra.mq.MQException;
 import org.dromara.hutool.extra.mq.Producer;
 import org.dromara.hutool.extra.mq.engine.MQEngine;
@@ -37,19 +39,53 @@ import java.util.concurrent.TimeoutException;
  */
 public class RabbitMQEngine implements MQEngine, Closeable {
 
-	private final Connection connection;
+	private Connection connection;
+
+	/**
+	 * 默认构造
+	 */
+	public RabbitMQEngine() {
+		// SPI方式加载时检查库是否引入
+		Assert.notNull(com.rabbitmq.client.Connection.class);
+	}
+
+	/**
+	 * 构造
+	 *
+	 * @param config 配置
+	 */
+	public RabbitMQEngine(final MQConfig config){
+		init(config);
+	}
 
 	/**
 	 * 构造
 	 *
 	 * @param factory 连接工厂
 	 */
+	@SuppressWarnings("resource")
 	public RabbitMQEngine(final ConnectionFactory factory) {
+		init(factory);
+	}
+
+	@Override
+	public RabbitMQEngine init(final MQConfig config) {
+		return init(createFactory(config));
+	}
+
+	/**
+	 * 初始化
+	 *
+	 * @param factory 连接工厂
+	 * @return this
+	 */
+	public RabbitMQEngine init(final ConnectionFactory factory){
 		try {
 			this.connection = factory.newConnection();
 		} catch (final IOException | TimeoutException e) {
 			throw new MQException(e);
 		}
+		return this;
 	}
 
 	@Override
@@ -78,5 +114,24 @@ public class RabbitMQEngine implements MQEngine, Closeable {
 		} catch (final IOException e) {
 			throw new MQException(e);
 		}
+	}
+
+	/**
+	 * 创建连接工厂
+	 *
+	 * @param config 配置
+	 * @return 连接工厂
+	 */
+	private static ConnectionFactory createFactory(final MQConfig config) {
+		final ConnectionFactory factory = new ConnectionFactory();
+		try {
+			factory.setUri(config.getBrokerUrl());
+		} catch (final Exception e) {
+			throw new MQException(e);
+		}
+
+		// TODO 配置其他参数
+
+		return factory;
 	}
 }

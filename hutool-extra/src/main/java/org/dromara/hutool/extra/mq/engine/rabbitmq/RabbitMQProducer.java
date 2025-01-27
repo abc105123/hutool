@@ -24,6 +24,7 @@ import org.dromara.hutool.extra.mq.Message;
 import org.dromara.hutool.extra.mq.Producer;
 
 import java.io.IOException;
+import java.util.Map;
 
 /**
  * RabbitMQ消息生产者
@@ -34,6 +35,7 @@ import java.io.IOException;
 public class RabbitMQProducer implements Producer {
 
 	private final Channel channel;
+	private String exchange = StrUtil.EMPTY;
 
 	/**
 	 * 构造
@@ -44,10 +46,41 @@ public class RabbitMQProducer implements Producer {
 		this.channel = channel;
 	}
 
+	/**
+	 * 设置交换器，默认为{@link StrUtil#EMPTY}
+	 *
+	 * @param exchange 交换器
+	 * @return this
+	 */
+	public RabbitMQProducer setExchange(final String exchange) {
+		this.exchange = exchange;
+		return this;
+	}
+
+	/**
+	 * 声明队列
+	 *
+	 * @param queue      队列名
+	 * @param durable    是否持久化
+	 * @param exclusive  是否排他
+	 * @param autoDelete 是否自动删除
+	 * @param arguments  其他参数
+	 * @return this
+	 */
+	public RabbitMQProducer queueDeclare(final String queue, final boolean durable, final boolean exclusive, final boolean autoDelete,
+										 final Map<String, Object> arguments) {
+		try {
+			this.channel.queueDeclare(queue, durable, exclusive, autoDelete, arguments);
+		} catch (final IOException e) {
+			throw new MQException(e);
+		}
+		return this;
+	}
+
 	@Override
 	public void send(final Message message) {
 		try {
-			this.channel.basicPublish(StrUtil.EMPTY, message.topic(), null, message.content());
+			this.channel.basicPublish(exchange, message.topic(), null, message.content());
 		} catch (final IOException e) {
 			throw new MQException(e);
 		}

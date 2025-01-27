@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.dromara.hutool.extra.mq.engine.activemq;
+package org.dromara.hutool.extra.mq.engine.jms;
 
 import jakarta.jms.*;
 import org.dromara.hutool.core.io.IoUtil;
@@ -30,7 +30,7 @@ import java.io.IOException;
  * @author Looly
  * @since 6.0.0
  */
-public class ActiveMQConsumer implements Consumer {
+public class JSMConsumer implements Consumer {
 
 	private final Session session;
 	private MessageConsumer consumer;
@@ -40,7 +40,7 @@ public class ActiveMQConsumer implements Consumer {
 	 *
 	 * @param session Session
 	 */
-	public ActiveMQConsumer(final Session session) {
+	public JSMConsumer(final Session session) {
 		this.session = session;
 	}
 
@@ -50,7 +50,7 @@ public class ActiveMQConsumer implements Consumer {
 	 * @param topic 主题
 	 * @return this
 	 */
-	public ActiveMQConsumer setTopic(final String topic) {
+	public JSMConsumer setTopic(final String topic) {
 		try {
 			this.consumer = this.session.createConsumer(this.session.createTopic(topic));
 		} catch (final JMSException e) {

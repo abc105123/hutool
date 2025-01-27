@@ -18,16 +18,10 @@ package org.dromara.hutool.extra.mq.engine.activemq;
 
 import jakarta.jms.Connection;
 import jakarta.jms.ConnectionFactory;
-import jakarta.jms.JMSException;
-import jakarta.jms.Session;
-import org.dromara.hutool.core.io.IoUtil;
-import org.dromara.hutool.extra.mq.Consumer;
-import org.dromara.hutool.extra.mq.MQException;
-import org.dromara.hutool.extra.mq.Producer;
-import org.dromara.hutool.extra.mq.engine.MQEngine;
-
-import java.io.Closeable;
-import java.io.IOException;
+import org.apache.activemq.ActiveMQConnectionFactory;
+import org.dromara.hutool.core.lang.Assert;
+import org.dromara.hutool.extra.mq.MQConfig;
+import org.dromara.hutool.extra.mq.engine.jms.JMSEngine;
 
 /**
  * ActiveMQ引擎
@@ -35,44 +29,53 @@ import java.io.IOException;
  * @author Looly
  * @since 6.0.0
  */
-public class ActiveMQEngine implements MQEngine, Closeable {
+public class ActiveMQEngine extends JMSEngine {
 
-	private final Connection connection;
+	/**
+	 * 默认构造
+	 */
+	public ActiveMQEngine() {
+		super((Connection) null);
+		// SPI方式加载时检查库是否引入
+		Assert.notNull(org.apache.activemq.ActiveMQConnectionFactory.class);
+	}
+
+	/**
+	 * 构造
+	 *
+	 * @param config 配置
+	 */
+	public ActiveMQEngine(final MQConfig config) {
+		super(createFactory(config));
+	}
 
 	/**
 	 * 构造
 	 *
 	 * @param factory {@link ConnectionFactory}
 	 */
-	public ActiveMQEngine(final ConnectionFactory factory) {
-		try {
-			this.connection = factory.createConnection();
-			this.connection.start();
-		} catch (final JMSException e) {
-			throw new MQException(e);
-		}
+	public ActiveMQEngine(final ActiveMQConnectionFactory factory) {
+		super(factory);
 	}
 
 	@Override
-	public Producer getProducer() {
-		return new ActiveMQProducer(createSession());
+	public ActiveMQEngine init(final MQConfig config) {
+		super.init(createFactory(config));
+		return this;
 	}
 
-	@Override
-	public Consumer getConsumer() {
-		return new ActiveMQConsumer(createSession());
-	}
+	/**
+	 * 创建{@link ActiveMQConnectionFactory}
+	 *
+	 * @param config 配置
+	 * @return {@link ActiveMQConnectionFactory}
+	 */
+	private static ActiveMQConnectionFactory createFactory(final MQConfig config) {
+		final ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory();
+		factory.setBrokerURL(config.getBrokerUrl());
 
-	private Session createSession() {
-		try {
-			return this.connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-		} catch (final JMSException e) {
-			throw new MQException(e);
-		}
-	}
+		// TODO 配置其他参数
 
-	@Override
-	public void close() throws IOException {
-		IoUtil.closeQuietly(this.connection);
+		return factory;
 	}
 }

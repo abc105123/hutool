@@ -16,7 +16,10 @@
 
 package org.dromara.hutool.extra.mq.engine.kafka;
 
+import org.apache.kafka.clients.CommonClientConfigs;
+import org.dromara.hutool.core.lang.Assert;
 import org.dromara.hutool.extra.mq.Consumer;
+import org.dromara.hutool.extra.mq.MQConfig;
 import org.dromara.hutool.extra.mq.Producer;
 import org.dromara.hutool.extra.mq.engine.MQEngine;
 
@@ -30,7 +33,24 @@ import java.util.Properties;
  */
 public class KafkaEngine implements MQEngine {
 
-	private final Properties properties;
+	private Properties properties;
+
+	/**
+	 * 默认构造
+	 */
+	public KafkaEngine() {
+		// SPI方式加载时检查库是否引入
+		Assert.notNull(org.apache.kafka.clients.CommonClientConfigs.class);
+	}
+
+	/**
+	 * 构造
+	 *
+	 * @param config 配置
+	 */
+	public KafkaEngine(final MQConfig config) {
+		init(config);
+	}
 
 	/**
 	 * 构造
@@ -38,7 +58,23 @@ public class KafkaEngine implements MQEngine {
 	 * @param properties 配置
 	 */
 	public KafkaEngine(final Properties properties) {
+		init(properties);
+	}
+
+	@Override
+	public KafkaEngine init(final MQConfig config) {
+		return init(buidProperties(config));
+	}
+
+	/**
+	 * 初始化
+	 *
+	 * @param properties 配置
+	 * @return this
+	 */
+	public KafkaEngine init(final Properties properties) {
 		this.properties = properties;
+		return this;
 	}
 
 	/**
@@ -61,5 +97,18 @@ public class KafkaEngine implements MQEngine {
 	@Override
 	public Consumer getConsumer() {
 		return new KafkaConsumer(this.properties);
+	}
+
+	/**
+	 * 构建配置
+	 *
+	 * @param config 配置
+	 * @return 配置
+	 */
+	private static Properties buidProperties(final MQConfig config) {
+		final Properties properties = new Properties();
+		properties.setProperty(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, config.getBrokerUrl());
+		properties.putAll(config.getProperties());
+		return properties;
 	}
 }

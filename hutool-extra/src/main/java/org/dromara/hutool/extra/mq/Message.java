@@ -16,6 +16,10 @@
 
 package org.dromara.hutool.extra.mq;
 
+import org.dromara.hutool.core.text.StrUtil;
+
+import java.nio.charset.Charset;
+
 /**
  * 消息接口
  *
@@ -37,4 +41,14 @@ public interface Message {
 	 * @return 内容
 	 */
 	byte[] content();
+
+	/**
+	 * 获取消息内容字符串
+	 *
+	 * @param charset 编码
+	 * @return 内容字符串
+	 */
+	default String contentStr(final Charset charset) {
+		return StrUtil.str(charset, charset);
+	}
 }

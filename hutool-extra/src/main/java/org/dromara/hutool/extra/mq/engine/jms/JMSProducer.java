@@ -14,12 +14,9 @@
  * limitations under the License.
  */
 
-package org.dromara.hutool.extra.mq.engine.activemq;
+package org.dromara.hutool.extra.mq.engine.jms;
 
-import jakarta.jms.BytesMessage;
-import jakarta.jms.JMSException;
-import jakarta.jms.MessageProducer;
-import jakarta.jms.Session;
+import jakarta.jms.*;
 import org.dromara.hutool.core.io.IoUtil;
 import org.dromara.hutool.extra.mq.MQException;
 import org.dromara.hutool.extra.mq.Message;
@@ -33,7 +30,7 @@ import java.io.IOException;
  * @author Looly
  * @since 6.0.0
  */
-public class ActiveMQProducer implements Producer {
+public class JMSProducer implements Producer {
 
 	private final Session session;
 	private MessageProducer producer;
@@ -43,7 +40,7 @@ public class ActiveMQProducer implements Producer {
 	 *
 	 * @param session Session
 	 */
-	public ActiveMQProducer(final Session session) {
+	public JMSProducer(final Session session) {
 		this.session = session;
 	}
 
@@ -53,12 +50,21 @@ public class ActiveMQProducer implements Producer {
 	 * @param topic 主题
 	 * @return this
 	 */
-	public ActiveMQProducer setTopic(final String topic) {
-		try {
-			this.producer = this.session.createProducer(this.session.createTopic(topic));
-		} catch (final JMSException e) {
-			throw new MQException(e);
-		}
+	public JMSProducer setTopic(final String topic) {
+		final Destination destination = createDestination(topic, DestinationType.TOPIC);
+		this.producer = createProducer(destination);
+		return this;
+	}
+
+	/**
+	 * 设置队列
+	 *
+	 * @param queue 队列
+	 * @return this
+	 */
+	public JMSProducer setQueue(final String queue) {
+		final Destination destination = createDestination(queue, DestinationType.QUEUE);
+		this.producer = createProducer(destination);
 		return this;
 	}
 
@@ -77,5 +83,41 @@ public class ActiveMQProducer implements Producer {
 	public void close() throws IOException {
 		IoUtil.closeQuietly(this.producer);
 		IoUtil.closeQuietly(this.session);
+	}
+
+	/**
+	 * 创建消息生产者
+	 *
+	 * @param destination 目的地
+	 * @return this
+	 */
+	private MessageProducer createProducer(final Destination destination) {
+		try {
+			return session.createProducer(destination);
+		} catch (final JMSException e) {
+			throw new MQException(e);
+		}
+	}
+
+	/**
+	 * 创建消息目的地
+	 *
+	 * @param name   消息目的地名称
+	 * @param type   消息目的地类型
+	 * @return this
+	 */
+	private Destination createDestination(final String name, final DestinationType type) {
+		try {
+			switch (type){
+				case QUEUE:
+					return session.createQueue(name);
+				case TOPIC:
+					return session.createTopic(name);
+				default:
+					throw new MQException("Unknown destination type: " + type);
+			}
+		} catch (final JMSException e) {
+			throw new MQException(e);
+		}
 	}
 }
