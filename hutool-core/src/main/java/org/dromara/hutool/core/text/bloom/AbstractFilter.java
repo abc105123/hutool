@@ -16,6 +16,8 @@
 
 package org.dromara.hutool.core.text.bloom;
 
+import org.dromara.hutool.core.lang.Assert;
+
 import java.util.BitSet;
 
 /**
@@ -39,6 +41,7 @@ public abstract class AbstractFilter implements BloomFilter {
 	 * @param size 容量
 	 */
 	public AbstractFilter(final int size) {
+		Assert.isTrue(size > 0, "Size must be greater than 0.");
 		this.size = size;
 		this.bitSet = new BitSet(size);
 	}
