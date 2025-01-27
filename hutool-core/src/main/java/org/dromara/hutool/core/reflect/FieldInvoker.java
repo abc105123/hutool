@@ -62,7 +62,6 @@ public class FieldInvoker implements Invoker {
 	 */
 	public FieldInvoker(final Field field) {
 		this.field = Assert.notNull(field);
-		;
 	}
 
 	/**
