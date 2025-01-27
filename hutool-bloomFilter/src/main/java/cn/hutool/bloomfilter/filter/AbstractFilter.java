@@ -4,6 +4,7 @@ import cn.hutool.bloomfilter.BloomFilter;
 import cn.hutool.bloomfilter.bitMap.BitMap;
 import cn.hutool.bloomfilter.bitMap.IntMap;
 import cn.hutool.bloomfilter.bitMap.LongMap;
+import cn.hutool.core.lang.Assert;
 
 /**
  * 抽象Bloom过滤器
@@ -46,7 +47,7 @@ public abstract class AbstractFilter implements BloomFilter {
 	 * @param machineNum 机器位数
 	 */
 	public void init(long maxValue, int machineNum) {
-		this.size = maxValue;
+		this.size = Assert.checkBetween(maxValue, 1, Integer.MAX_VALUE);
 		switch (machineNum) {
 		case BitMap.MACHINE32:
 			bm = new IntMap((int) (size / machineNum));
