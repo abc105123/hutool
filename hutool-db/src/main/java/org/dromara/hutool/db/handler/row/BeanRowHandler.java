@@ -75,7 +75,8 @@ public class BeanRowHandler<T> extends AbsRowHandler<T> {
 			if (null != setter) {
 				value = ResultSetUtil.getColumnValue(rs, i, meta.getColumnType(i), setter.getType());
 				if(setter instanceof MethodInvoker){
-					((MethodInvoker) setter).setCheckArgs(true).invoke(bean, value);
+					// 创建一个新的MethodInvoker，不修改原始的setter
+					MethodInvoker.of(((MethodInvoker) setter).getMethod()).setCheckArgs(true).invoke(bean, value);
 				}else {
 					setter.invoke(bean, value);
 				}
