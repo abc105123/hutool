@@ -229,14 +229,14 @@ public class CharSequenceUtilTest {
 	public void replaceLastTest() {
 		final String str = "i am jack and jack";
 		final String result = StrUtil.replaceLast(str, "JACK", null, true);
-		assertEquals(result, "i am jack and ");
+		assertEquals("i am jack and ", result);
 	}
 
 	@Test
 	public void replaceFirstTest() {
 		final String str = "yes and yes i do";
 		final String result = StrUtil.replaceFirst(str, "YES", "", true);
-		assertEquals(result, " and yes i do");
+		assertEquals(" and yes i do", result);
 	}
 
 	@Test
@@ -538,5 +538,10 @@ public class CharSequenceUtilTest {
 		// 前缀后缀有重叠，优先去掉前缀
 		assertEquals("a", CharSequenceUtil.stripAll("aba", "ab", "ba"));
 		assertEquals("a", CharSequenceUtil.stripAll("abababa", "ab", "ba"));
+	}
+
+	@Test
+	void concatTest() {
+		assertEquals("abc", CharSequenceUtil.concat(true, "a", "b", "c"));
 	}
 }
