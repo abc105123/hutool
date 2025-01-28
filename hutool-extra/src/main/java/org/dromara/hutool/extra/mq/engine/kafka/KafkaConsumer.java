@@ -90,10 +90,20 @@ public class KafkaConsumer implements Consumer {
 		IoUtil.nullSafeClose(this.consumer);
 	}
 
+	/**
+	 * 消费者记录包装为消息
+	 *
+	 * @author looly
+	 */
 	private static class ConsumerRecordMessage implements Message {
 
 		private final ConsumerRecord<String, byte[]> record;
 
+		/**
+		 * 构造
+		 *
+		 * @param record {@link ConsumerRecord}
+		 */
 		private ConsumerRecordMessage(final ConsumerRecord<String, byte[]> record) {
 			this.record = record;
 		}
