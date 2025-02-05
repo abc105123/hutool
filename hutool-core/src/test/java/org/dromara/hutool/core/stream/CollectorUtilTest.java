@@ -17,6 +17,8 @@
 package org.dromara.hutool.core.stream;
 
 import org.dromara.hutool.core.collection.ListUtil;
+import org.dromara.hutool.core.lang.tuple.Pair;
+import org.dromara.hutool.core.lang.tuple.Triple;
 import org.dromara.hutool.core.map.MapUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -132,6 +134,45 @@ public class CollectorUtilTest {
 			.collect(CollectorUtil.groupingBy(t -> (t & 1) == 0, String::valueOf));
 		Assertions.assertEquals(Arrays.asList("2", "2", "4"), map2.get(Boolean.TRUE));
 		Assertions.assertEquals(Arrays.asList("1", "1", "3"), map2.get(Boolean.FALSE));
+
+	}
+
+
+	@Test
+	public void testToPairList() {
+		final List<Pair<Integer,String>> list = Arrays.asList(Pair.of(1,"one"), Pair.of(2,"two"));
+		Pair<List<Integer>, List<String>> pairList = list.stream()
+				.collect(CollectorUtil.toPairList(Pair::getLeft, Pair::getRight));
+
+		Assertions.assertEquals(pairList.getLeft().size(),list.size());
+		Assertions.assertEquals(pairList.getRight().size(),list.size());
+
+		Pair<HashSet<Integer>, ArrayList<String>> pairMixed = list.stream()
+				.collect(CollectorUtil.toPairList(Pair::getLeft, Pair::getRight, HashSet::new, ArrayList::new));
+
+		Assertions.assertEquals(pairMixed.getLeft().size(),list.size());
+		Assertions.assertEquals(pairMixed.getRight().size(),list.size());
+
+	}
+
+
+	@Test
+	public void testToTripleList() {
+		final List<Triple<Integer,Long,String>> list
+				= Arrays.asList(Triple.of(1,1L,"one"), Triple.of(2,2L,"two"));
+		Triple<List<Integer>, List<Long>, List<String>> tripleList = list.stream()
+				.collect(CollectorUtil.toTripleList(Triple::getLeft, Triple::getMiddle, Triple::getRight));
+
+		Assertions.assertEquals(tripleList.getLeft().size(),list.size());
+		Assertions.assertEquals(tripleList.getMiddle().size(),list.size());
+		Assertions.assertEquals(tripleList.getRight().size(),list.size());
+
+		Triple<HashSet<Integer>, HashSet<Long>, ArrayList<String>> tripleMixed = list.stream()
+				.collect(CollectorUtil.toTripleList(Triple::getLeft, Triple::getMiddle, Triple::getRight, HashSet::new, HashSet::new, ArrayList::new));
+
+		Assertions.assertEquals(tripleMixed.getLeft().size(),list.size());
+		Assertions.assertEquals(tripleMixed.getMiddle().size(),list.size());
+		Assertions.assertEquals(tripleMixed.getRight().size(),list.size());
 
 	}
 
