@@ -484,7 +484,7 @@ public class CollectorUtil {
 	 */
 	public static <T, L, R> Collector<T, Pair<List<L>,List<R>>, Pair<List<L>,List<R>>> toPairList(Function<T, L> lMapper,
 																								  Function<T, R> rMapper) {
-		return toPairList(lMapper,rMapper,ArrayList::new,ArrayList::new);
+		return toPairCollection(lMapper,rMapper,ArrayList::new,ArrayList::new);
 
 	}
 
@@ -504,7 +504,7 @@ public class CollectorUtil {
 	 * @author Tanglt
 	 */
 	public static <T, L, R,LC extends Collection<L>,RC extends Collection<R>>
-	Collector<T, Pair<LC, RC>, Pair<LC, RC>> toPairList(Function<T, L> lMapper,
+	Collector<T, Pair<LC, RC>, Pair<LC, RC>> toPairCollection(Function<T, L> lMapper,
 														Function<T, R> rMapper,
 														Supplier<LC> newCollectionL,
 														Supplier<RC> newCollectionR) {
@@ -544,7 +544,7 @@ public class CollectorUtil {
 	Collector<T, Triple<List<L>, List<M>, List<R>>, Triple<List<L>, List<M>, List<R>>> toTripleList(Function<T, L> lMapper,
 																									Function<T, M> mMapper,
 																									Function<T, R> rMapper) {
-		return toTripleList(lMapper, mMapper, rMapper, ArrayList::new, ArrayList::new, ArrayList::new);
+		return toTripleCollection(lMapper, mMapper, rMapper, ArrayList::new, ArrayList::new, ArrayList::new);
 	}
 
 	/**
@@ -570,7 +570,7 @@ public class CollectorUtil {
 			LC extends Collection<L>,
 			MC extends Collection<M>,
 			RC extends Collection<R>>
-	Collector<T, Triple<LC,MC,RC>,Triple<LC,MC,RC>> toTripleList(Function<T, L> lMapper,
+	Collector<T, Triple<LC,MC,RC>,Triple<LC,MC,RC>> toTripleCollection(Function<T, L> lMapper,
 									  Function<T, M> mMapper,
 									  Function<T, R> rMapper,
 									  Supplier<LC> newCollectionL,
