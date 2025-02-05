@@ -444,10 +444,13 @@ public class JSONObjectTest {
 		beanWithAlias.setValue1("张三");
 		beanWithAlias.setValue2(35);
 
+		// 测试对象字段中使用alias注解转换json后是否成功
 		final JSONObject jsonObject = JSONUtil.parseObj(beanWithAlias);
+		assertEquals("{\"name\":\"张三\",\"age\":35}", jsonObject.toString());
 		assertEquals("张三", jsonObject.getStr("name"));
 		assertEquals(Integer.valueOf(35), jsonObject.getInt("age"));
 
+		// 测试json转对象时，是否使用了alias注解
 		final JSONObject json = JSONUtil.ofObj()
 				.putValue("name", "张三")
 				.putValue("age", 35);

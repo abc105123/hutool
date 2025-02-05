@@ -25,6 +25,7 @@ import org.dromara.hutool.http.client.cookie.CookieStoreSpi;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -70,9 +71,21 @@ public class HttpClient5CookieStore extends SimpleWrapper<CookieStoreSpi> implem
 
 	@Override
 	public boolean clearExpired(final Date date) {
-		// get时检查过期
-		this.raw.getCookies();
-		return true;
+		return clearExpired(date.toInstant());
+	}
+
+	@Override
+	public boolean clearExpired(final Instant date) {
+		boolean removeSome = false;
+		for (final URI uri : this.raw.getURIs()) {
+			for (final CookieSpi cookie : this.raw.get(uri)) {
+				if (cookie.isExpired(date)) {
+					this.raw.remove(uri, cookie);
+					removeSome = true;
+				}
+			}
+		}
+		return removeSome;
 	}
 
 	@Override
