@@ -17,6 +17,8 @@
 package org.dromara.hutool.core.stream;
 
 import org.dromara.hutool.core.array.ArrayUtil;
+import org.dromara.hutool.core.lang.tuple.Pair;
+import org.dromara.hutool.core.lang.tuple.Triple;
 import org.dromara.hutool.core.text.StrUtil;
 
 import java.util.*;
@@ -468,4 +470,134 @@ public class CollectorUtil {
 			downstream.combiner(), downstream.finisher(),
 			downstream.characteristics());
 	}
+
+	/**
+	 * 将一个Collection<T>两个属性分流至两个ArrayList,并使用Pair收集。
+	 *
+	 * @param lMapper    左属性收集方法
+	 * @param rMapper    右属性收集方法
+	 * @param <T>        元素类型
+	 * @param <L>        左属性类型
+	 * @param <R>        右属性类型
+	 * @return Pair<List<L>,List<R>> Pair收集的两个List
+	 * @author Tanglt
+	 */
+	public static <T, L, R> Collector<T, Pair<List<L>,List<R>>, Pair<List<L>,List<R>>> toPairList(Function<T, L> lMapper,
+																								  Function<T, R> rMapper) {
+		return toPairCollection(lMapper,rMapper,ArrayList::new,ArrayList::new);
+
+	}
+
+	/**
+	 * 将一个Collection<T>两个属性分流至两个Collection,并使用Pair收集。需要指定Collection类型
+	 *
+	 * @param lMapper          左属性收集方法
+	 * @param rMapper          右属性收集方法
+	 * @param newCollectionL   左属性Collection创建方法
+	 * @param newCollectionR   右属性Collection创建方法
+	 * @param <T>              元素类型
+	 * @param <L>              左属性类型
+	 * @param <R>              右属性类型
+	 * @param <LC>             左分流Collection类型
+	 * @param <RC>             右分流Collection类型
+	 * @return Pair<C<L>,C<R>> Pair收集的两个List
+	 * @author Tanglt
+	 */
+	public static <T, L, R,LC extends Collection<L>,RC extends Collection<R>>
+	Collector<T, Pair<LC, RC>, Pair<LC, RC>> toPairCollection(Function<T, L> lMapper,
+														Function<T, R> rMapper,
+														Supplier<LC> newCollectionL,
+														Supplier<RC> newCollectionR) {
+		return new SimpleCollector<>(() -> Pair.of(newCollectionL.get(), newCollectionR.get()),
+				(listPair, element) -> {
+					L lValue = lMapper.apply(element);
+					if (lValue != null) {
+						listPair.getLeft().add(lValue);
+					}
+					R rValue = rMapper.apply(element);
+					if (rValue != null) {
+						listPair.getRight().add(rValue);
+					}
+				},
+				(listPair1, listPair2) -> {
+					listPair1.getLeft().addAll(listPair2.getLeft());
+					listPair1.getRight().addAll(listPair2.getRight());
+					return listPair1;
+				},
+				CH_ID);
+	}
+
+	/**
+	 * 将一个Collection<T>三个属性分流至三个ArrayList,并使用Triple收集。
+	 *
+	 * @param lMapper    左属性收集方法
+	 * @param mMapper    中属性收集方法
+	 * @param rMapper    右属性收集方法
+	 * @param <T>        元素类型
+	 * @param <L>        左属性类型
+	 * @param <M>        中属性类型
+	 * @param <R>        右属性类型
+	 * @return Triple<List<L>,List<M>,List<R>> Triple收集的三个List
+	 * @author Tanglt
+	 */
+	public static <T, L, M, R>
+	Collector<T, Triple<List<L>, List<M>, List<R>>, Triple<List<L>, List<M>, List<R>>> toTripleList(Function<T, L> lMapper,
+																									Function<T, M> mMapper,
+																									Function<T, R> rMapper) {
+		return toTripleCollection(lMapper, mMapper, rMapper, ArrayList::new, ArrayList::new, ArrayList::new);
+	}
+
+	/**
+	 * 将一个Collection<T>两个属性分流至两个Collection,并使用Pair收集。需要指定Collection类型
+	 *
+	 * @param lMapper          左属性收集方法
+	 * @param mMapper          中属性收集方法
+	 * @param rMapper          右属性收集方法
+	 * @param newCollectionL   左属性Collection创建方法
+	 * @param newCollectionM   中属性Collection创建方法
+	 * @param newCollectionR   右属性Collection创建方法
+	 * @param <T>              元素类型
+	 * @param <L>              左属性类型
+	 * @param <M>              中属性类型
+	 * @param <R>              右属性类型
+	 * @param <LC>             左分流Collection类型
+	 * @param <MC>             中分流Collection类型
+	 * @param <RC>             右分流Collection类型
+	 * @return Triple<LC<L>,MC<M>,RC<R>> Triple收集的三个List
+	 * @author Tanglt
+	 */
+	public static <T, L,  M,R,
+			LC extends Collection<L>,
+			MC extends Collection<M>,
+			RC extends Collection<R>>
+	Collector<T, Triple<LC,MC,RC>,Triple<LC,MC,RC>> toTripleCollection(Function<T, L> lMapper,
+									  Function<T, M> mMapper,
+									  Function<T, R> rMapper,
+									  Supplier<LC> newCollectionL,
+									  Supplier<MC> newCollectionM,
+									  Supplier<RC> newCollectionR){
+		return new SimpleCollector<>(
+				() -> Triple.of(newCollectionL.get(),newCollectionM.get(), newCollectionR.get()),
+				(listTriple, element) -> {
+					L lValue = lMapper.apply(element);
+					if (lValue != null) {
+						listTriple.getLeft().add(lValue);
+					}
+					M mValue = mMapper.apply(element);
+					if (mValue != null) {
+						listTriple.getMiddle().add(mValue);
+					}
+					R rValue = rMapper.apply(element);
+					if (rValue != null) {
+						listTriple.getRight().add(rValue);
+					}
+				},
+				(listTriple1, listTriple2) -> {
+					listTriple1.getLeft().addAll(listTriple2.getLeft());
+					listTriple1.getRight().addAll(listTriple2.getRight());
+					return listTriple1;
+				},
+				CH_ID);
+	}
+
 }
