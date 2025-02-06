@@ -21,7 +21,6 @@ import org.dromara.hutool.core.collection.CollUtil;
 import org.dromara.hutool.core.comparator.VersionComparator;
 import org.dromara.hutool.core.func.SerFunction;
 import org.dromara.hutool.core.lang.Assert;
-import org.dromara.hutool.core.math.NumberUtil;
 import org.dromara.hutool.core.regex.ReUtil;
 import org.dromara.hutool.core.text.finder.CharFinder;
 import org.dromara.hutool.core.text.finder.CharMatcherFinder;
@@ -1622,23 +1621,10 @@ public class CharSequenceUtil extends StrValidator {
 	 * @param partLength 每等份的长度
 	 * @return 切分后的数组
 	 * @since 3.0.6
+	 * @see SplitUtil#splitByLength(CharSequence, int)
 	 */
 	public static String[] cut(final CharSequence str, final int partLength) {
-		if (null == str) {
-			return null;
-		}
-		final int len = str.length();
-		if (len < partLength) {
-			return new String[]{str.toString()};
-		}
-		final int part = NumberUtil.count(len, partLength);
-		final String[] array = new String[part];
-
-		final String str2 = str.toString();
-		for (int i = 0; i < part; i++) {
-			array[i] = str2.substring(i * partLength, (i == part - 1) ? len : (partLength + i * partLength));
-		}
-		return array;
+		return SplitUtil.splitByLength(str, partLength);
 	}
 
 	// region ----- sub
