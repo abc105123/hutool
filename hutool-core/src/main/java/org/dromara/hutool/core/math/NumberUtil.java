@@ -737,7 +737,7 @@ public class NumberUtil extends NumberValidator {
 	// region ----- equals
 
 	/**
-	 * 比较数字值是否相等，相等返回{@code true}<br>
+	 * 比较数字是否相等，相等返回{@code true}<br>
 	 * 需要注意的是{@link BigDecimal}需要特殊处理<br>
 	 * BigDecimal使用compareTo方式判断，因为使用equals方法也判断小数位数，如2.0和2.00就不相等，<br>
 	 * 此方法判断值相等时忽略精度的，即0.00 == 0
@@ -759,6 +759,20 @@ public class NumberUtil extends NumberValidator {
 			return CompareUtil.equals((BigDecimal) number1, (BigDecimal) number2);
 		}
 		return Objects.equals(number1, number2);
+	}
+
+	/**
+	 * 比较数字值是否相等，相等返回{@code true}<br>
+	 * 此方法与{@link #equals(Number, Number)}不同点在于，如果提供的number类型不同，则统一转换为{@link BigDecimal}再比较<br>
+	 * 即无论数字为什么类型，只要转换为{@link BigDecimal}比较，忽略数字类型
+	 *
+	 * @param number1 数字1
+	 * @param number2 数字2
+	 * @return 是否相等
+	 * @see #equals(Number, Number)
+	 */
+	public static boolean valueEquals(final Number number1, final Number number2) {
+		return equals(toBigDecimal(number1), toBigDecimal(number2));
 	}
 	// endregion
 
