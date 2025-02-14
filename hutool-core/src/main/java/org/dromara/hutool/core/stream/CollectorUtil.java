@@ -548,7 +548,7 @@ public class CollectorUtil {
 	}
 
 	/**
-	 * 将一个{@code Collection<T>}两个属性分流至两个Collection,并使用Pair收集。需要指定Collection类型
+	 * 将一个{@code Collection<T>}两个属性分流至两个Collection,并使用Triple收集。需要指定Collection类型
 	 *
 	 * @param lMapper        左属性收集方法
 	 * @param mMapper        中属性收集方法
@@ -594,6 +594,7 @@ public class CollectorUtil {
 			},
 			(listTriple1, listTriple2) -> {
 				listTriple1.getLeft().addAll(listTriple2.getLeft());
+				listTriple1.getMiddle().addAll(listTriple2.getMiddle());
 				listTriple1.getRight().addAll(listTriple2.getRight());
 				return listTriple1;
 			},
