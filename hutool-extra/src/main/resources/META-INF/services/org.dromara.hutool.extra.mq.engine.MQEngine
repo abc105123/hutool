@@ -16,4 +16,4 @@
 
 org.dromara.hutool.extra.mq.engine.kafka.KafkaEngine
 org.dromara.hutool.extra.mq.engine.rabbitmq.RabbitMQEngine
-org.dromara.hutool.extra.mq.engine.activemq.ActiveMQEngine
+org.dromara.hutool.extra.mq.engine.activemq.ActiveMQ5Engine

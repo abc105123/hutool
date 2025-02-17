@@ -58,7 +58,6 @@
 
 		<!-- 消息队列客户端 -->
 		<kafka.version>3.9.0</kafka.version>
-		<activemq.version>5.18.6</activemq.version>
 		<rabbitmq.version>5.24.0</rabbitmq.version>
 		<rocketmq.version>4.9.8</rocketmq.version>
 	</properties>
@@ -562,12 +561,6 @@
 			<groupId>org.apache.kafka</groupId>
 			<artifactId>kafka-clients</artifactId>
 			<version>${kafka.version}</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.activemq</groupId>
-			<artifactId>activemq-client</artifactId>
-			<version>${activemq.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
