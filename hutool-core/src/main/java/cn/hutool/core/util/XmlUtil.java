@@ -956,7 +956,7 @@ public class XmlUtil {
 	 * &lt; (小于) 替换为 &amp;lt;
 	 * &gt; (大于) 替换为 &amp;gt;
 	 * &quot; (双引号) 替换为 &amp;quot;
-	 * &apos; (单引号) 替换为 &amp;apos;
+	 * ' (单引号) 替换为 &amp;apos;
 	 * </pre>
 	 *
 	 * @param string 被替换的字符串
