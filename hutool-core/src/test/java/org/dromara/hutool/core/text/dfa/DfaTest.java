@@ -60,7 +60,7 @@ public class DfaTest {
 		// 【大】被匹配，最短匹配原则【大土豆】被跳过，【土豆继续被匹配】
 		// 【刚出锅】被匹配，由于不跳过已经匹配的词，【出锅】被匹配
 		final List<String> matchAll = tree.matchAll(text, -1, true, false);
-		Assertions.assertEquals(matchAll, ListUtil.of("大", "土^豆", "刚出锅", "出锅"));
+		Assertions.assertEquals(ListUtil.of("大", "土^豆", "刚出锅", "出锅"), matchAll);
 	}
 
 	/**
