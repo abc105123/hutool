@@ -65,7 +65,7 @@ public class PropDesc {
 	 */
 	public PropDesc(final Field field, final Method getter, final Method setter) {
 		this(FieldUtil.getFieldName(field), getter, setter);
-		this.fieldInvoker = null == field ? null : FieldInvoker.of(field);
+		this.fieldInvoker = FieldInvoker.of(field);
 	}
 
 	/**

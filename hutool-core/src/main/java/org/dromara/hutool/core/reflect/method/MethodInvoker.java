@@ -38,7 +38,7 @@ public class MethodInvoker implements Invoker {
 	 * @return 方法调用器
 	 */
 	public static MethodInvoker of(final Method method) {
-		return new MethodInvoker(method);
+		return null == method ? null : new MethodInvoker(method);
 	}
 
 	private final Method method;
